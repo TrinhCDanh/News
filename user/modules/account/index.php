@@ -18,7 +18,9 @@
     unset($_SESSION["user_data"]);
     ?>
       <script language="javascript">
-        window.location="../index.php";
+        $('.swal2-confirm').click(function(){
+          window.location="../index.php";
+        });
       </script>
     <?php
     exit;
@@ -40,22 +42,91 @@
     } 
   }  
 ?>
+<div id="content" class="pmd-content inner-page">
 
-<div class="content-block">
-  <div class="content-block-header col-xs-12 col-lg-12">
-    <p>Cập nhật tài khoản</p>
-  </div>
-  <div class="col-xs-12 col-lg-6">
-    <?php 
+<!--tab start-->
+<div class="container-fluid full-width-container data-tables">
+    <!-- Title -->
+    <h1 class="section-title" id="services">
+      <span>Quản lý tài khoản</span>
+    </h1><!-- End Title -->
+  
+    <!--breadcrum start-->
+    <ol class="breadcrumb text-left">
+      <li><a href="index.php?mod=dashboard">Dashboard</a></li>
+      <li class="active">Tài khoản</li>
+    </ol><!--br-->
+    
+    <?php  
       if($err != "") {
         ?>
+        <div class="col-lg-12">
           <div class="alert alert-danger">      
             <?php echo $err; ?>
           </div>
+        </div>
+          
         <?php
-      } 
-      include "modules/account/editaccount.php";
+      }
     ?>
-  </div> 
+
+    <section class="row component-section dashboard">
+      
+      <!-- table card title and description -->
+      <div class="col-md-9">
+        <?php include "modules/account/editaccount.php"; ?>
+      </div>
+
+      <div class="col-md-3">
+        <div class="pmd-card pmd-z-depth">
+          <div class="pmd-card-actions text-center">
+            
+            <button data-target="#complete-dialog" data-toggle="modal" class="btn pmd-ripple-effect btn-primary pmd-z-depth" type="button" style="margin-left: 0">Xóa tài khoản</button>
+        
+            <div tabindex="-1" class="modal fade" id="complete-dialog" style="display: none;" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h2 class="pmd-card-title-text">Are you sure?</h2>
+                  </div>
+                  <div class="modal-body">
+                    <p>Bạn có chắc chắn muốn xóa tài khoản này không? Sau khi xóa tài khoản này bạn sẽ không truy cập được vào trang này nữa!</p>
+                  </div>
+                  <div class="pmd-modal-action pmd-modal-bordered text-right">
+                    <a href="index.php?mod=account&ac=delete&id=<?php echo $row["id_user"]; ?>" class="btn pmd-btn-flat pmd-ripple-effect btn-primary">Yes</a>
+                    <a data-dismiss="modal" type="button" class="btn pmd-btn-flat pmd-ripple-effect btn-default">No</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+               
+            
+          </div>
+        </div>
+      </div>
+         <!-- table card code and example end -->
+    </section>
+
 </div>
+</div>
+
+<script type="text/javascript">
+  $("#changePass").change(function(){
+  if($(this).is(":checked"))
+    $(".frm-password").removeAttr('disabled');
+  else
+    $(".frm-password").attr("disabled", "");
+});
+</script>
+<script>
+  $( function() {
+    $( "#datepicker" ).datepicker();
+  } );
+</script>
+
+
+
+
+
+
 

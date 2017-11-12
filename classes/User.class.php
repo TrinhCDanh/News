@@ -4,9 +4,35 @@ class User extends Db
 	/*Backend*/
 	public function delete($id)
 	{
-		$sql="DELETE FROM user WHERE id_user=:id ";
-		$arr =  Array(":id"=>$id);
-		return $this->exeNoneQuery($sql, $arr);	
+		$baiviet = new Post();
+    $data = $baiviet->getAll();
+    $dem = 0;
+
+    $row = $this->getById($id);
+
+    foreach ($data as $r) {
+    	if ($r["name_tacgia"] == $row["name_user"])
+    		$dem++;
+    }
+    if ($dem > 0) {
+    	?>
+		    <script language="javascript">
+					swal('Thất bại...','Click Ok để tiếp tục!','error');
+				</script>
+	    <?php
+    	return 0;
+    }
+    else {
+    	?>
+		    <script language="javascript">
+					swal('Thành công','Click Ok để tiếp tục!','success');
+				</script>
+	    <?php
+    
+			$sql = "DELETE FROM user WHERE id_user=:id ";
+			$arr =  Array(":id"=>$id);
+			return $this->exeNoneQuery($sql, $arr);	
+		}	
 	}
 	
 	public function getById($id)
@@ -28,18 +54,21 @@ class User extends Db
 	public function saveEdit($id) {
 		$name_user = Utils::postIndex("name_user", "");
 		$email_user = Utils::postIndex("email_user", "");
+		$ngaysinh_user = postIndex("ngaysinh_user", "");
+		$gioitinh_user = Utils::postIndex("gioitinh_user", "");
+		$sdt_user = Utils::postIndex("sdt_user", "");
 		$pass_user = Utils::postIndex("pass2_user", "");
 
 		if ($name_user == "" || $email_user == "") return 0;
 
 		if ($pass_user == "") {
-			$sql="UPDATE user SET name_user=:name_user, email_user=:email_user WHERE id_user=:id";
-			$arr = array(":id"=>$id, ":name_user"=>$name_user, ":email_user"=>$email_user);
+			$sql="UPDATE user SET name_user=:name_user, email_user=:email_user, ngaysinh_user=:ngaysinh_user, gioitinh_user=:gioitinh_user, sdt_user=:sdt_user WHERE id_user=:id";
+			$arr = array(":id"=>$id, ":name_user"=>$name_user, ":email_user"=>$email_user, ":ngaysinh_user"=>$ngaysinh_user, "gioitinh_user"=>$gioitinh_user, ":sdt_user"=>$sdt_user);
 		}
 		else {
 			$pass_user = MD5(Utils::postIndex("pass2_user", ""));
-			$sql="UPDATE user SET name_user=:name_user, email_user=:email_user, pass_user=:pass_user WHERE id_user=:id";
-			$arr = array(":id"=>$id, ":name_user"=>$name_user, ":email_user"=>$email_user, ":pass_user"=>$pass_user);
+			$sql="UPDATE user SET name_user=:name_user, email_user=:email_user, ngaysinh_user=:ngaysinh_user, gioitinh_user=:gioitinh_user, sdt_user=:sdt_user, pass_user=:pass_user WHERE id_user=:id";
+			$arr = array(":id"=>$id, ":name_user"=>$name_user, ":email_user"=>$email_user, ":ngaysinh_user"=>$ngaysinh_user, "gioitinh_user"=>$gioitinh_user, ":sdt_user"=>$sdt_user, ":pass_user"=>$pass_user);
 		}
 		
 		return $this->exeNoneQuery($sql, $arr);	

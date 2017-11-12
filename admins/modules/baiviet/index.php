@@ -26,7 +26,7 @@
 	    <script language="javascript">
 				swal('Thành công!','Click Ok để tiếp tục!','success');
 				$('.swal2-confirm').click(function(){
-				  window.location="index.php?mod=baiviet";
+				  window.location="index.php?mod=baiviet&ac=showbaiviet";
 				});
 			</script>
     <?php
@@ -100,7 +100,7 @@
 		
 		<section class="row component-section dashboard">
 			 <?php
-				if ($ac == "showbaiviet") 
+				if ($ac == "showbaiviet" || $ac == "delete") 
 					include "modules/baiviet/showbaiviet.php";
 				else if (Count($row) == 0) {
   				$info = "Thêm bài viết mới";
