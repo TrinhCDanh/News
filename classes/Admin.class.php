@@ -47,12 +47,16 @@ class Admin extends Db {
 	public function saveAddNew() {
 		$name_admin = Utils::postIndex("name_admin", "");
 		$email_admin = Utils::postIndex("email_admin", "");
+		$ngaysinh_admin = postIndex("ngaysinh_admin", "");
+		$gioitinh_admin = Utils::postIndex("gioitinh_admin", "");
+		$sdt_admin = Utils::postIndex("sdt_admin", "");
 		$pass_admin = MD5(Utils::postIndex("pass2_admin", ""));
+		$level_admin = Utils::postIndex("level_admin", "");
 
 		if ($name_admin=="" || $pass_admin== "" || $email_admin=="") return 0;
 		
-		$sql="INSERT INTO admin(name_admin, email_admin, pass_admin, level_admin) values(:name_admin, :email_admin, :pass_admin, 0) ";
-		$arr = array(":name_admin"=>$name_admin,":email_admin"=>$email_admin, ":pass_admin"=>$pass_admin);
+		$sql="INSERT INTO admin(name_admin, email_admin, ngaysinh_admin, gioitinh_admin, sdt_admin, pass_admin, level_admin) values(:name_admin, :email_admin, :ngaysinh_admin, :gioitinh_admin, :sdt_admin, :pass_admin, :level_admin)";
+		$arr = array(":name_admin"=>$name_admin, ":email_admin"=>$email_admin, ":ngaysinh_admin"=>$ngaysinh_admin, "gioitinh_admin"=>$gioitinh_admin, ":sdt_admin"=>$sdt_admin, ":pass_admin"=>$pass_admin, ":level_admin"=>$level_admin);
 
 		return $this->exeNoneQuery($sql, $arr);
 	}

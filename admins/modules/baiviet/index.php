@@ -98,7 +98,7 @@
       }
     ?>
 		
-		<section class="row component-section">
+		<section class="row component-section dashboard">
 			 <?php
 				if ($ac == "showbaiviet") 
 					include "modules/baiviet/showbaiviet.php";

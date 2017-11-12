@@ -3,11 +3,13 @@
   $baiviet = new Post();
 
   $info = "";
-  $ac = Utils::getIndex("ac");/*, "Showtheloai");*/ //ac is action
+  $ac = Utils::getIndex("ac");
+  $row = $admin->getById($_SESSION["admin_data"]["id_admin"]);
+
 
   if ($ac == "delete") {
     //Sau xu ly
-    $n = $admin->delete(Utils::getIndex("id"));
+    $admin->delete(Utils::getIndex("id"));
     unset($_SESSION["admin_login"]);
     unset($_SESSION["admin_data"]);
     ?>
@@ -56,7 +58,7 @@
       <li class="active">Tài khoản</li>
     </ol><!--breadcrum end-->
     
-    <section class="row component-section">
+    <section class="row component-section dashboard">
       
       <!-- table card title and description -->
       <div class="col-md-9">
@@ -71,6 +73,40 @@
           include "modules/account/addaccount.php";
         }
       ?>
+    </div>
+    <div class="col-md-3">
+      <div class="pmd-card pmd-z-depth">
+        <div class="pmd-card-actions text-center">
+          <?php 
+            if($row["level_admin"] == 1) {
+              ?><a href="index.php?mod=account&ac=addNew" class="btn btn-primary pmd-ripple-effect">Thêm tài khoản</a><?php
+            }
+            else {
+              ?>
+                <button data-target="#complete-dialog" data-toggle="modal" class="btn pmd-ripple-effect btn-primary pmd-z-depth" type="button" style="margin-left: 0">Xóa tài khoản</button>
+            
+                <div tabindex="-1" class="modal fade" id="complete-dialog" style="display: none;" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h2 class="pmd-card-title-text">Are you sure?</h2>
+                      </div>
+                      <div class="modal-body">
+                        <p>Bạn có chăc chăn muốn xóa tài khoản này không? Sau khi xóa tài khoản này bạn sẽ không truy cập được vào trang này nữa!</p>
+                      </div>
+                      <div class="pmd-modal-action pmd-modal-bordered text-right">
+                        <a href="index.php?mod=account&ac=delete&id=<?php echo $row["id_admin"]; ?>" class="btn pmd-btn-flat pmd-ripple-effect btn-primary">Yes</a>
+                        <a data-dismiss="modal" type="button" class="btn pmd-btn-flat pmd-ripple-effect btn-default">No</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <?php
+            } 
+          ?>
+          
+        </div>
+      </div>
     </div>
          <!-- table card code and example end -->
     </section>

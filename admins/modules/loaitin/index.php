@@ -67,7 +67,7 @@
 		  <li class="active">Thể loại</li>
 		</ol><!--breadcrum end-->
 
-		<section class="row component-section">
+		<section class="row component-section dashboard">
 		
 			<!-- table card title and description -->
 			<?php include ROOT."/admins/modules/loaitin/addvedit.php"; ?>

@@ -34,17 +34,6 @@
         </div>
       </div>    
       
-      <div class="pmd-card-body">
-        <?php  
-          if($err != "") {
-            ?>
-              <div class="alert alert-danger">      
-                <?php echo $err; ?>
-              </div>
-            <?php
-          }
-        ?>
-      </div>
     </div>
   </div>
    <!-- section content end --> 

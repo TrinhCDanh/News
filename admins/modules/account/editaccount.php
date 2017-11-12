@@ -1,4 +1,3 @@
-<?php $row = $admin->getById($_SESSION["admin_data"]["id_admin"]);?>
 <form id="validationForm" action="index.php?mod=account&ac=saveEdit&id=<?php echo $_SESSION["admin_data"]["id_admin"]; ?>" method="post">
   <div class="pmd-card pmd-z-depth">
       
