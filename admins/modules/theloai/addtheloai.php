@@ -1,0 +1,34 @@
+<form id="validationForm" action="index.php?mod=theloai&ac=saveAdd" method="post">
+  <div class="pmd-card pmd-z-depth">
+    
+    <div class="pmd-card-body">
+      <h2><?php echo $info; ?></h2>
+      <div class="group-fields clearfix row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="form-group pmd-textfield pmd-textfield-floating-label">
+            <label for="regular1" class="control-label">
+              Tên thể loại*
+            </label>
+            <input type="text" id="regular1" class="form-control" name="name_theloai" required autofocus value="<?php echo $name_theloai; ?>">
+          </div>
+        </div>
+      </div>
+    </div>    
+    <div class="pmd-card-actions">
+      <button class="btn btn-primary next" type="submit" name="submit">Submit</button>
+      <button class="btn btn-default" type="reset">Cancel</button>
+    </div>
+    <div class="pmd-card-body">
+      <?php  
+        if($err != "") {
+          ?>
+            <div class="alert alert-danger">      
+              <?php echo $err; ?>
+            </div>
+          <?php
+        }
+      ?>
+    </div>
+  </div> <!-- section content end -->  
+</form>
+     
