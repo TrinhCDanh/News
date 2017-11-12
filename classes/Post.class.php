@@ -76,6 +76,28 @@ class Post extends Db {
 		return $this->exeNoneQuery($sql, $arr);	
 	}
 
+	public function saveEditUser($id_baiviet, $anh_baiviet) {
+		$name_baiviet = Utils::postIndex("name_baiviet", "");
+		$tomtat_baiviet = postIndex("tomtat_baiviet", "");
+		$noidung_baiviet = Utils::postIndex("noidung_baiviet", "");
+		$id_loaitin = Utils::postIndex("id_loaitin", "");
+		$ngay_capnhat = date("d-m-Y H:i:s");
+		
+		$sql="
+			UPDATE baiviet 
+			SET name_baiviet=:name_baiviet,
+			tomtat_baiviet=:tomtat_baiviet,
+			anh_baiviet=:anh_baiviet,
+			noidung_baiviet=:noidung_baiviet, 
+			id_loaitin=:id_loaitin,
+			ngay_capnhat=:ngay_capnhat 
+			WHERE id_baiviet=:id_baiviet";
+		
+		$arr = array(":id_baiviet"=>$id_baiviet, ":name_baiviet"=>$name_baiviet, ":tomtat_baiviet"=>$tomtat_baiviet, ":anh_baiviet"=>$anh_baiviet, ":noidung_baiviet"=>$noidung_baiviet, ":id_loaitin"=>$id_loaitin, ":ngay_capnhat"=>$ngay_capnhat);
+
+		return $this->exeNoneQuery($sql, $arr);	
+	}
+
 	public function delete($id) {
 		$sql="DELETE FROM baiviet WHERE id_baiviet=:id ";
 		$arr =  Array(":id"=>$id);

@@ -1,33 +1,25 @@
 <?php  
 	$post = new Post();
 	$ac = Utils::getIndex("ac");
+
+	$loaitin = new Loaitin();
+	$getAll = $loaitin->getAll();
+
 	$name_tacgia = $user->getById($_SESSION["user_data"]["id_user"]); 
 	$info = "";
 	$err = "";
 
-	if ($ac == "saveAdd") {
-    $post->saveAddNew($name_tacgia["name_user"]);
-    ?>
-	    <script language="javascript">
-				swal('Thành công!','Click Ok để tiếp tục!','success');
-				$('.swal2-confirm').click(function(){
-				  window.location="index.php?mod=baiviet";
-				});
-			</script>
-    <?php
-  }
-  else if ($ac == "saveEdit") {
-  	$post->saveEdit(Utils::getIndex("id"));
-  	?>
-	    <script language="javascript">
-				swal('Thành công!','Click Ok để tiếp tục!','success');
-				$('.swal2-confirm').click(function(){
-				  window.location="index.php?mod=baiviet";
-				});
-			</script>
-    <?php
-  }
-  else if ($ac == "delete") {
+	$id = Utils::getIndex("id");
+	$row = $post->getById($id);
+	
+	$name_baiviet = postIndex("name_baiviet", "");
+	$tomtat_baiviet = postIndex("tomtat_baiviet", "");
+	$noidung_baiviet = postIndex("noidung_baiviet", "");
+	if(isset($_POST["submit"]))
+		$anh_baiviet = $_FILES["anh_baiviet"]["name"];
+	$id_loaitin = postIndex("id_loaitin", "");
+
+	if ($ac == "delete") {
   	$post->delete(Utils::getIndex("id"));
   	?>
 	    <script language="javascript">
@@ -38,38 +30,90 @@
 			</script>
     <?php
   }
-
-
-	?>
-	<div class="content-block">
-  	<div class="content-block-header col-xs-12 col-lg-12">
-  		<p>
-				<?php  
-					if ($ac == "addNew") 
-	          $info = "Thêm bài viết mới";
-	        else if($ac == "edit")
-	        	$info = "Chỉnh sửa bài viết";
-	        else
-	          $info = "Danh sách bài viết";
-	        echo $info; 
-				?>
-			</p>
-  	</div>
-  	<div class="col-xs-12 col-lg-12">
-  		<?php  
-  			if($ac == "addNew") 
-					include "modules/baiviet/addbaiviet.php";
-				else if($ac == "edit")
-					include "modules/baiviet/editbaiviet.php";
-				else 
-					include "modules/baiviet/showbaiviet.php";
-  		?>
-  	</div>
-  </div>
-
-	<?php
-
+	else if(isset($_POST["submit"])) {
+		if ($ac == "saveAdd") {
+			if (isValidImage($_FILES["anh_baiviet"]) != "") {
+				$err .= isValidImage($_FILES["anh_baiviet"]);
+			}
+			else {
+		    $post->saveAddNew($name_tacgia["name_user"]);
+		    ?>
+			    <script language="javascript">
+						swal('Thành công!','Click Ok để tiếp tục!','success');
+						$('.swal2-confirm').click(function(){
+						  window.location="index.php?mod=baiviet&ac=showbaiviet";
+						});
+					</script>
+		    <?php
+	  	}
+	  }
+	  else if ($ac == "saveEdit") {
+	  	if (isset($_FILES["anh_baiviet"]) && $_FILES["anh_baiviet"]["name"] != "") {
+				$anh_baiviet = $_FILES["anh_baiviet"]["name"];
+				if (isValidImage($_FILES["anh_baiviet"]) != "") {
+					$err .= isValidImage($_FILES["anh_baiviet"]);
+				}
+	  	}
+			else
+				$anh_baiviet = $row["anh_baiviet"];
+			if ($err == "") {
+				$post->saveEditUser(Utils::getIndex("id"), $anh_baiviet);
+		  	?>
+			    <script language="javascript">
+						swal('Thành công!','Click Ok để tiếp tục!','success');
+						$('.swal2-confirm').click(function(){
+						  window.location="index.php?mod=baiviet&ac=showbaiviet";
+						});
+					</script>
+		    <?php
+			}	
+	  }
+	}
+?>
 	
 
+<div id="content" class="pmd-content inner-page">
 
-?>
+<!--tab start-->
+<div class="container-fluid full-width-container data-tables">
+		<!-- Title -->
+		<h1 class="section-title" id="services">
+			<span>Quản lý bài viết</span>
+		</h1><!-- End Title -->
+	
+		<!--breadcrum start-->
+		<ol class="breadcrumb text-left">
+		  <li><a href="index.php?mod=dashboard">Dashboard</a></li>
+		  <li class="active">Bài viết</li>
+		</ol><!--breadcrum end-->
+		
+		<?php  
+      if($err != "") {
+        ?>
+          <div class="alert alert-danger">      
+            <?php echo $err; ?>
+          </div>
+        <?php
+      }
+    ?>
+		
+		<section class="row component-section dashboard">
+			 <?php
+				if ($ac == "showbaiviet") 
+					include "modules/baiviet/showbaiviet.php";
+				else if (Count($row) == 0) {
+  				$info = "Thêm bài viết mới";
+					include "modules/baiviet/addbaiviet.php";
+  			}
+				else {
+					$info = "Chỉnh sửa viết mới";
+					include "modules/baiviet/editbaiviet.php";
+				}
+  				
+  		?>
+		</section>
+
+</div>
+</div>
+
+

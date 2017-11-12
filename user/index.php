@@ -16,6 +16,7 @@ if ($mod == "login")
 		$_SESSION["user_login"] = 1;
 		$_SESSION["user_data"] = $data[0];
 	}
+    header('Location: index.php');
 }
 if ($mod == "logout") {
 	unset($_SESSION["user_login"]);
@@ -30,67 +31,95 @@ if (!isset($_SESSION["user_login"])) {
     exit;
 }
 ?>
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="shortcut icon" href="img/TCD4.png">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link href="../font-awesome-4.3.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/style-admin.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="../css/animate.css">
-    <!-- commobox style -->
-    <link rel="stylesheet" type="text/css" href="../css/cs-select.css" />
-    <link rel="stylesheet" type="text/css" href="../css/cs-skin-elastic.css" />
-     <!-- message box style -->
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="../js/sweetalert.js"></script>
-    <link rel="stylesheet" href="../css/sweetalert.css">
-    
-    <script type="text/javascript">
-        $(document).ready(function() {
-        $('.data-table').DataTable();
-    } );
-    </script>
-    
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="Propeller Admin Dashboard">
+<meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport">
+
+<title>Admin - Material Design Responsive Dashboard Template Preview - Propeller</title>
+<meta name="description" content="Admin is a material design and bootstrap based responsive dashboard template created mainly for admin and backend applications."/>
+
+<link rel="shortcut icon" type="image/x-icon" href="../themes/images/Newspaper-icon-1.png">
+
+<!-- Google icon -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<!-- Bootstrap css -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- Propeller css -->
+<!-- build:[href] assets/css/ -->
+<link rel="stylesheet" type="text/css" href="../assets/css/propeller.min.css">
+<!-- /build -->
+
+<!-- DataTables css-->
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.1.0/css/responsive.bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/select/1.2.0/css/select.dataTables.min.css">
+<!-- Propeller dataTables css-->
+
+<link rel="stylesheet" type="text/css" href="../components/data-table/css/pmd-datatable.css">
+
+<!-- Propeller date time picker css-->
+<link rel="stylesheet" type="text/css" href="../components/datetimepicker/css/bootstrap-datetimepicker.css" />
+<link rel="stylesheet" type="text/css" href="../components/datetimepicker/css/pmd-datetimepicker.css" />
+
+<!-- Propeller theme css-->
+<link rel="stylesheet" type="text/css" href="../themes/css/propeller-theme.css" />
+
+<!-- Propeller admin theme css-->
+<link rel="stylesheet" type="text/css" href="../themes/css/propeller-admin.css">
+<!-- message box style -->
+<script src="../assets/js/jquery-1.12.2.min.js"></script>
+<script language="javascript" src="../assets/ckeditor/ckeditor.js" type="text/javascript"></script>
+
+<script src="../assets/js/sweetalert.js"></script>
+<link rel="stylesheet" href="../assets/css/sweetalert.css">
+<!-- Form Calender -->
+<script src="../assets/js/birthday.js"></script>
+<link rel="stylesheet" href="../assets/css/birthday.css">
+
+
 </head>
+
 <body>
-  <div id="wrapper">
-    <!-- Sidebar -->
-    <div id="sidebar-wrapper"> 
-      <?php include "modules/menu.php"; ?>
-    </div>
-    <!-- /#sidebar-wrapper -->
-    <!-- Page Content -->
-    <div id="page-content-wrapper">
-        <div class="container-fluid xyz top-nav">
-            <?php include "modules/banner.php"; ?>
-        </div>
-        <div class="container-fluid xyz">
-            <?php include ROOT . '/user/mod.php'; ?>
-        </div>
-    </div>
-    <!-- /#page-content-wrapper -->
 
-  </div>
-    <!-- /#wrapper -->
+<!-- Header Starts -->
+<!--Start Nav bar -->
+<?php include "include/navbar.php"; ?>
+<!--End Nav bar -->
+<!-- Header Ends -->
 
-<!-- jQuery -->
-<script src="../js/bootstrap.min.js"></script>
-<script src="../js/sidebar_menu.js"></script>
-<script src="../js/animation-dropdown.js"></script>
-<!-- commobox style -->
-<script src="../js/classie.js"></script>
-<script src="../js/selectFx.js"></script>
-<script src="../js/custom.js"></script>
-<!-- Data table-->
-<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
-<link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css">
+<!-- Sidebar Starts -->
+<?php include "include/sidebar.php"; ?>
+<!-- Sidebar Ends -->  
+    
+<!--content area start-->
+<?php include "include/mod.php"; ?>
+<!--end content area-->
+
+<!-- Footer Starts -->
+<!--footer start-->
+<?php include "include/footer.php"; ?>
+<!--footer end-->
+<!-- Footer Ends -->
+
+<!-- Scripts Starts <script src="assets/js/jquery-1.12.2.min.js"></script> -->
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="../assets/js/propeller.min.js"></script> 
+
+<?php 
+
+if($mod == "theloai" || $mod == "loaitin" || $mod == "baiviet")
+    include "modules/custom_js/data_table.html";
+else
+    include "modules/custom_js/dashboard.html";
+?>
+
 
 
 </body>

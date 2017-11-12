@@ -1,45 +1,58 @@
 <?php
 	$author = $user->getById($_SESSION["user_data"]["id_user"]); 
 	$data = $post->getByAuthor($author["name_user"]);
-	//print_r($data);
 ?>
-<div class="content-block"> <!-- This is the target div. id must match the href of this div's tab -->
-
-	<div class="col-xs-12 col-lg-12 table-responsive">
-		<table class="table table-hover data-table">
-			
-			<thead class="table-boycoy">
-				<tr>
-					<th>#</th>
-					<th>Tiêu đề bài viết</th>
-					<th>Thao tác</th>
-				</tr>
-			</thead>
-		 
-			<tbody>
-	    <?php 
-	    $i = 1;
-			foreach( $data as $r) {
+ 
+<div class="col-md-12 col-lg-12">
+<div class="component-box">
+	<!-- table card example -->
+	<div  class="pmd-card pmd-z-depth pmd-card-custom-view">
+		<div class="table-responsive">
+		<table id="example-checkbox" class="table pmd-table table-hover table-striped display responsive nowrap" cellspacing="0" width="100%">
+		<thead>
+			<tr>
+				<th></th>
+				<th>Tiêu đề bài viết</th>
+				<th>Loại tin</th>
+				<th>Tác giả</th>
+				<th>Thao tác</th>
+			</tr>
+		</thead>
+		<tbody>
+			<?php  
+				foreach ($data as $r) {
+					?>
+						<tr <?php if($r["duyet_baiviet"]==0) echo "class='table-danger'"?>>
+							<td></td>
+							<td class="col-md-6">
+								<?php echo $r["name_baiviet"]; ?>
+							</td>
+							<td>
+								<?php
+			          	foreach($getAll as $rw)
+			          		if($rw["id_loaitin"] == $r["id_loaitin"]) 
+											echo $rw["name_loaitin"]; 
+								?>	
+							</td>
+							<td><?php echo $r["name_tacgia"]; ?></td>
+							<td class="pmd-table-row-action">
+								<a href="index.php?mod=baiviet&id=<?php echo $r["id_baiviet"];?>" class="btn pmd-btn-fab pmd-btn-flat pmd-ripple-effect btn-default btn-sm">
+									<i class="material-icons md-dark pmd-sm">edit</i>
+								</a>
+								<a href="index.php?mod=baiviet&ac=delete&id=<?php echo $r["id_baiviet"];?>" class="btn pmd-btn-fab pmd-btn-flat pmd-ripple-effect btn-default btn-sm">
+									<i class="material-icons md-dark pmd-sm">delete</i>
+								</a>					
+							</td>
+						</tr>
+					<?php
+				}
 			?>
-				<tr>
-					<td scope="row"><?php echo $i; ?></td>
-					<td>
-						<?php echo $r["name_baiviet"]; ?>
-					</td>              
-					<td>
-						<!-- Icons -->
-						 <a href="index.php?mod=baiviet&ac=edit&id=<?php echo $r["id_baiviet"];?>" title="Edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>&nbsp;&nbsp;
-						 <a href="index.php?mod=baiviet&ac=delete&id=<?php echo $r["id_baiviet"];?>" title="Delete"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</a> 
-						
-					</td>
-				</tr>
-				<?php
-				$i++;
-			}
-				?>
-				
-			</tbody>
 			
-		</table>
+
+		</tbody>
+	</table>
+		</div>
 	</div>
-</div> <!-- End #tab1 -->
+
+</div>
+			</div> 
