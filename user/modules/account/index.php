@@ -14,16 +14,28 @@
 
   if ($ac == "delete") {
     $n = $user->delete(Utils::getIndex("id"));
-    unset($_SESSION["user_login"]);
-    unset($_SESSION["user_data"]);
-    ?>
-      <script language="javascript">
-        $('.swal2-confirm').click(function(){
-          window.location="../index.php";
-        });
-      </script>
-    <?php
-    exit;
+    if ($n == 1) {
+      unset($_SESSION["user_login"]);
+      unset($_SESSION["user_data"]);
+      ?>
+        <script language="javascript">
+          swal('Thành công','Click Ok để tiếp tục!','success');
+          $('.swal2-confirm').click(function(){
+            window.location="../index.php";
+          });
+        </script>
+      <?php
+    }
+    else {
+      ?>
+        <script language="javascript">
+          swal('Thất bại...','Click Ok để tiếp tục!','error');
+          $('.swal2-confirm').click(function(){
+            window.location="index.php?mod=account";
+          });
+        </script>
+      <?php
+    }
   }
   else if(isset($_POST["submit"])) {
     if ($user->checkRegister($name_user, $pass1_user, $pass2_user) != "")

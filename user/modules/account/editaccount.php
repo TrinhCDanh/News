@@ -1,4 +1,4 @@
-<form id="validationForm" action="index.php?mod=account&ac=saveEdit&id=<?php echo $_SESSION["user_data"]["id_user"]; ?>" method="post">
+<form id="validationForm" action="index.php?mod=account&ac=saveEdit&id=<?php if(isset($_SESSION["user_login"])) echo $_SESSION["user_data"]["id_user"]; ?>" method="post">
   <div class="pmd-card pmd-z-depth">
       
       <div class="pmd-card-body">

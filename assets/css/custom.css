@@ -1,0 +1,14 @@
+.nav-sign-in {
+    margin-bottom: 0;
+    border-radius: 0px;
+}
+.header-page {
+    color: #fff;
+}
+.header-page p {margin: 10px 0 0 ;}
+.clip-text {
+    color: #fff;
+    border: 5px solid #fff;
+    font-size: 60px;
+    padding: 8px 16px;
+}

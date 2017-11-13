@@ -15,20 +15,9 @@ class User extends Db
     		$dem++;
     }
     if ($dem > 0) {
-    	?>
-		    <script language="javascript">
-					swal('Thất bại...','Click Ok để tiếp tục!','error');
-				</script>
-	    <?php
     	return 0;
     }
     else {
-    	?>
-		    <script language="javascript">
-					swal('Thành công','Click Ok để tiếp tục!','success');
-				</script>
-	    <?php
-    
 			$sql = "DELETE FROM user WHERE id_user=:id ";
 			$arr =  Array(":id"=>$id);
 			return $this->exeNoneQuery($sql, $arr);	
@@ -77,12 +66,15 @@ class User extends Db
 	public function saveAddNew() {
 		$name_user = Utils::postIndex("name_user", "");
 		$email_user = Utils::postIndex("email_user", "");
+		$ngaysinh_user = postIndex("ngaysinh_user", "");
+		$gioitinh_user = Utils::postIndex("gioitinh_user", "");
+		$sdt_user = Utils::postIndex("sdt_user", "");
 		$pass_user = MD5(Utils::postIndex("pass2_user", ""));
 
 		if ($name_user=="" || $pass_user== "" || $email_user=="") return 0;
 		
-		$sql="INSERT INTO user(name_user, email_user, pass_user, level_user) values(:name_user, :email_user, :pass_user, 0) ";
-		$arr = array(":name_user"=>$name_user,":email_user"=>$email_user, ":pass_user"=>$pass_user);
+		$sql="INSERT INTO user(name_user, email_user, ngaysinh_user, gioitinh_user, sdt_user, pass_user, level_user) values(:name_user, :email_user, :ngaysinh_user, :gioitinh_user, :sdt_user, :pass_user, 0)";
+		$arr = array(":name_user"=>$name_user, ":email_user"=>$email_user, ":ngaysinh_user"=>$ngaysinh_user, "gioitinh_user"=>$gioitinh_user, ":sdt_user"=>$sdt_user, ":pass_user"=>$pass_user);
 
 		return $this->exeNoneQuery($sql, $arr);
 	}
