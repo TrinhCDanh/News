@@ -13,10 +13,10 @@ $mod = Utils::getIndex("mod");
 <meta name="description" content="Propeller Admin Dashboard">
 <meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport">
 
-<title>Admin - Material Design Responsive Dashboard Template Preview - Propeller</title>
+<title>Admin - Trang chủ</title>
 <meta name="description" content="Admin is a material design and bootstrap based responsive dashboard template created mainly for admin and backend applications."/>
 
-<link rel="shortcut icon" type="image/x-icon" href="../themes/images/Newspaper-icon-1.png">
+<link rel="shortcut icon" type="image/x-icon" href="themes/images/Newspaper-icon-1.png">
 
 <!-- Google icon -->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -71,7 +71,11 @@ $mod = Utils::getIndex("mod");
       if(isset($_SESSION["user_data"]))
         print_r($_SESSION["user_data"]);?>
     </div>
-    
+    <div class="container middle-page">
+      <?php 
+        
+      ?>
+    </div>
 
   </div>
     <!-- /#wrapper -->

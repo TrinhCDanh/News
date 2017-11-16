@@ -40,7 +40,7 @@ if (!isset($_SESSION["admin_login"])) {
 <meta name="description" content="Propeller Admin Dashboard">
 <meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport">
 
-<title>Admin - Material Design Responsive Dashboard Template Preview - Propeller</title>
+<title>Admin - VNNEWS</title>
 <meta name="description" content="Admin is a material design and bootstrap based responsive dashboard template created mainly for admin and backend applications."/>
 
 <link rel="shortcut icon" type="image/x-icon" href="../themes/images/Newspaper-icon-1.png">
