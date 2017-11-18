@@ -1,6 +1,6 @@
 <?php
   	
-  	$search = getIndex("search");
+  $search = getIndex("search");
 	if($search != "")
 	{
 		include "search/content.php";
@@ -10,8 +10,13 @@
 
 	if($mod == "register")
 		include "register.php";
-	else if ($mod == "logout")
-		include "logout.php";
+	else if($mod == "loaitin")
+		include "module/loaitin/index.php";
+	else if($mod == "theloai")
+		include "module/theloai/index.php";
+	else 
+		include "module/trangchu/index.php";
+
 	/*if($mod == "detail")
 		include "detail/content.php"; 
 	else if($mod == "category")
@@ -21,3 +26,4 @@
 	else if($mod == "contact")
 		include "contact/contact-container.php";
 	else include "homepage/content.php";*/
+	?>

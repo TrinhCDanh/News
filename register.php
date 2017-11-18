@@ -8,7 +8,7 @@ $sdt_user = Utils::postIndex("sdt_user");
 $pass1_user = Utils::postIndex("pass1_user");
 $pass2_user = Utils::postIndex("pass2_user");
 $err = "";
-print_r($_POST);
+//print_r($_POST);
 
 if(isset($_POST["submit"])) {
   $user = new User();
@@ -30,12 +30,14 @@ if(isset($_POST["submit"])) {
 }
  
 ?>
-
-<div class="content-block">
+<div class="jumbotron text-center" style="background-color: #1a2940">
+  <div class="header-page">
+    <span class="clip-text">ĐĂNG KÝ</span>
+    <p>Đăng ký để trở thành thành viên của VNNEWS</p>
+  </div>
+</div>
+<div class="main-content" style="display: flex; justify-content: center;">
   <div class="col-xs-12 col-lg-6">
-    <div class="content-block-header">
-      <p>Đăng ký</p>
-    </div>
 
     <?php 
       if($err != "") {
@@ -132,6 +134,8 @@ if(isset($_POST["submit"])) {
   </div>
 
 </form>
+</div>
+</div>
 
 <script>
   $( function() {

@@ -8,7 +8,7 @@
             <div class="page-content gs-content-games gs-genre-game"><a class="genre-tag hvr-bounce-to-right tag-pc" href="#">PC</a><a class="genre-tag hvr-bounce-to-right tag-ps4" href="#">PS4</a></div>
             <p class="c-title"> <a href="http://localhost:3000/review-single-two.html">Nier: Automata</a></p>
             <p class="c-dec">Despite some minor annoyances, NieR: Automata is brilliant. It strikes the balance between RPG and action game unlike anything else in the genre. It’s a game you kind of have to meet halfway, with a story that gets more complex and interesting the more you prod at it. If you’re willing to commit, though, you’ll be rewarded.</p><a href="http://localhost:3000/review-single-two.html"> 
-              <div class="c-read-more text-center">Read more</div></a>
+              <div class="c-read-more text-center pmd-ripple-effect">Read more</div></a>
           </div>
         </div>
       </div>
@@ -65,7 +65,7 @@
       <div class="related-primary intro-review"> 
         <div class="x-title-bar"> 
           <ul>
-            <li class="pa">New Post</li><a href="#">
+            <li class="pa">New Post</li><a href="index.php?mod=theloai&id_theloai=1">
               <li class="pb">View All</li></a>
           </ul>
         </div>
@@ -213,6 +213,24 @@
             <div class="vi-thumb"><img src="https://i.ytimg.com/vi/aDPWDkdNLEc/maxresdefault.jpg"></div>
             <div class="vi-caption">
               <p>E3 2017: Marvel's Spider-Man - PS4 Gameplay Impressions</p>
+            </div></a></div>
+      </div>
+      <div class="sidebar-primary-content"> 
+        <div class="x-title-bar"> 
+          <ul>
+            <li class="pa">Upcoming games</li>
+          </ul>
+        </div>
+        <div class="x-widget-primary x-upcoming-games"><a class="x-widget-item" href="#" style="background-image: url(https://i.ytimg.com/vi/TKLx5rhpS2k/maxresdefault.jpg)">
+            <div class="x-widget-content"> 
+              <h1>Hello Neighbor</h1>
+              <p>Ngày đăng 03/02/2018</p>
+              <p>Bởi Mr.D</p>
+            </div></a><a class="x-widget-item" href="#" style="background-image: url(https://www.callofduty.com/content/dam/atvi/callofduty/wwii/home/Stronghold_Metadata_Image.jpg)">
+            <div class="x-widget-content">
+              <h1>Call of Duty: WWII</h1>
+              <p>Ngày đăng 03/02/2018</p>
+              <p>Bởi Mr.D</p>
             </div></a></div>
       </div>
       <div class="sidebar-primary-content"> 
