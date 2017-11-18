@@ -20,30 +20,32 @@
 		<tbody>
 			<?php  
 				foreach ($data as $r) {
-					?>
-						<tr <?php if($r["duyet_baiviet"]==0) echo "class='table-danger'"?>>
-							<td></td>
-							<td class="col-md-6">
-								<?php echo $r["name_baiviet"]; ?>
-							</td>
-							<td>
-								<?php
-			          	foreach($getAll as $rw)
-			          		if($rw["id_loaitin"] == $r["id_loaitin"]) 
-											echo $rw["name_loaitin"]; 
-								?>	
-							</td>
-							<td><?php echo $r["name_tacgia"]; ?></td>
-							<td class="pmd-table-row-action">
-								<a href="index.php?mod=baiviet&id=<?php echo $r["id_baiviet"];?>" class="btn pmd-btn-fab pmd-btn-flat pmd-ripple-effect btn-default btn-sm">
-									<i class="material-icons md-dark pmd-sm">edit</i>
-								</a>
-								<a href="index.php?mod=baiviet&ac=delete&id=<?php echo $r["id_baiviet"];?>" class="btn pmd-btn-fab pmd-btn-flat pmd-ripple-effect btn-default btn-sm">
-									<i class="material-icons md-dark pmd-sm">delete</i>
-								</a>					
-							</td>
-						</tr>
-					<?php
+					if($r["trangthai_baiviet"] == 1) {
+						?>
+							<tr <?php if($r["duyet_baiviet"]==0) echo "class='table-danger'"?>>
+								<td></td>
+								<td class="col-md-6">
+									<?php echo $r["name_baiviet"]; ?>
+								</td>
+								<td>
+									<?php
+				          	foreach($getAll as $rw)
+				          		if($rw["id_loaitin"] == $r["id_loaitin"]) 
+												echo $rw["name_loaitin"]; 
+									?>	
+								</td>
+								<td><?php echo $r["name_tacgia"]; ?></td>
+								<td class="pmd-table-row-action">
+									<a href="index.php?mod=baiviet&id=<?php echo $r["id_baiviet"];?>" class="btn pmd-btn-fab pmd-btn-flat pmd-ripple-effect btn-default btn-sm">
+										<i class="material-icons md-dark pmd-sm">edit</i>
+									</a>
+									<a href="index.php?mod=baiviet&ac=delete&id=<?php echo $r["id_baiviet"];?>" class="btn pmd-btn-fab pmd-btn-flat pmd-ripple-effect btn-default btn-sm">
+										<i class="material-icons md-dark pmd-sm">delete</i>
+									</a>					
+								</td>
+							</tr>
+						<?php
+					}
 				}
 			?>
 			

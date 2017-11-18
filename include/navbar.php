@@ -35,7 +35,7 @@
     </div>
     <div class="menu-search"><a id="open-search"><span class="glyphicon glyphicon-search x-glyphicon"></span></a></div>
     <div class="searchbar" id="searchbar">
-      <form class="searchbox" method="get" action="#">
+      <form class="searchbox" method="get" action="index.php?mod=search">
         <input type="text" name="search" placeholder="Search...">
       </form><a class="close-search" id="close-search"><span class="glyphicon glyphicon-remove x-glyphicon"></span></a>
     </div>

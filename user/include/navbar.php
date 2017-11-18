@@ -89,7 +89,7 @@
 		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="navbar-header">
 			<a href="javascript:void(0);" class="btn btn-sm pmd-btn-fab pmd-btn-flat pmd-ripple-effect pull-left margin-r8 pmd-sidebar-toggle"><i class="material-icons">menu</i></a>	
-		  <a href="index.html" class="navbar-brand">
+		  <a href="../index.php" class="navbar-brand">
 		  	VNNEWS
 		  </a>
 		</div>

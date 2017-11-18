@@ -53,6 +53,12 @@
             <input type="radio" name="duyet_baiviet" id="click1" value="0" <?php if($row["duyet_baiviet"] == 0) echo "checked"; ?>>
             <span for="click1">No</span> </label>
         </div>
+        <div class="group-fields clearfix row">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <button class="btn pmd-ripple-effect btn-primary" type="submit" name="submit">Submit</button>
+            <button class="btn pmd-ripple-effect btn-default" type="reset">Cancel</button>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -93,14 +99,42 @@
         </div>
       </div>
       
-      <div class="pmd-card-actions">
-        <button class="btn pmd-ripple-effect btn-primary" type="submit" name="submit">Submit</button>
-        <button class="btn pmd-ripple-effect btn-default" type="reset">Cancel</button>
-      </div>
     </div>
   </div> 
 </form>
 
+<?php 
+if($row["name_tacgia"] != $name_tacgia["name_admin"]) {
+  ?>
+    <form action="index.php?mod=baiviet&ac=requestEdit&id=<?php echo $row["id_baiviet"]; ?>" method="post">
+      <div class="col-md-9">
+        <div class="pmd-card pmd-z-depth">
+          <div class="pmd-card-body">
+            <h2>Yêu cầu tác giả sửa bài viết (Nếu có)</h2>
+
+            <div class="group-fields clearfix row">
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="form-group pmd-textfield pmd-textfield-floating-label">
+                  <label class="control-label">Nhập yêu cầu của bạn</label>
+                  <textarea required class="form-control" name="yeucau_baiviet"></textarea>
+                </div>
+              </div>
+            </div>
+
+            <div class="group-fields clearfix row">
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <button class="btn pmd-ripple-effect btn-primary" type="submit" name="request">Gửi yêu cầu</button>
+                <button class="btn pmd-ripple-effect btn-default" type="reset">Cancel</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </form>
+  <?php
+} 
+?>
 
 
 <script type="text/javascript">

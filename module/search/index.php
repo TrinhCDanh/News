@@ -1,66 +1,10 @@
-<?php $data_theloai = $theloai->getAll(); ?>
-<section class="main-content">
-  <div class="gs-series-game home-series-game portfolio">
-    <div class="home-owl-carousel owl-carousel owl-theme"><!-- star owl carousel -->
-      <div class="item sidebar-item x-item" style="background-image: url(http://cdn.escapistmagazine.com/media/global/images/library/deriv/1386/1386473.jpg)">
-        <div class="box-post">
-          <div class="z-thumb"><img class="img-responsive" src="images/bag.png" alt="Item 1"></div>
-          <div class="caption">
-            <div class="page-content gs-content-games gs-genre-game"><a class="genre-tag hvr-bounce-to-right tag-pc" href="#">PC</a><a class="genre-tag hvr-bounce-to-right tag-ps4" href="#">PS4</a></div>
-            <p class="c-title"> <a href="http://localhost:3000/review-single-two.html">Nier: Automata</a></p>
-            <p class="c-dec">Despite some minor annoyances, NieR: Automata is brilliant. It strikes the balance between RPG and action game unlike anything else in the genre. It’s a game you kind of have to meet halfway, with a story that gets more complex and interesting the more you prod at it. If you’re willing to commit, though, you’ll be rewarded.</p><a href="http://localhost:3000/review-single-two.html"> 
-              <div class="c-read-more text-center pmd-ripple-effect">Read more</div></a>
-          </div>
-        </div>
-      </div>
-      <div class="item sidebar-item x-item" style="background-image: url(https://i.ytimg.com/vi/vZI2bh3cLKw/maxresdefault.jpg)">
-        <div class="box-post">
-          <div class="z-thumb"><img class="img-responsive" src="images/bag.png" alt="Item 1"></div>
-          <div class="caption">
-            <div class="page-content gs-content-game gs-genre-game"><a class="genre-tag hvr-bounce-to-right tag-pc" href="#">PC</a><a class="genre-tag hvr-bounce-to-right tag-xbox" href="#">XBOX</a><a class="genre-tag hvr-bounce-to-right tag-ps4" href="#">PS4</a></div>
-            <p class="c-title"> <a href="#">Watch Dogs 2</a></p>
-            <p class="c-dec">Despite some minor annoyances, NieR: Automata is brilliant. It strikes the balance between RPG and action game unlike anything else in the genre. It’s a game you kind of have to meet halfway, with a story that gets more complex and interesting the more you prod at it. If you’re willing to commit, though, you’ll be rewarded.</p><a href="#"> 
-              <div class="c-read-more text-center">Read more</div></a>
-          </div>
-        </div>
-        <!--include includes/pagination.pug -->
-      </div>
-      <div class="item sidebar-item x-item" style="background-image: url(https://i.ytimg.com/vi/jl2xNWeujZs/maxresdefault.jpg)">
-        <div class="box-post">
-          <div class="z-thumb"><img class="img-responsive" src="images/bag.png" alt="Item 1"></div>
-          <div class="caption">
-            <div class="page-content gs-content-game gs-genre-game"><a class="genre-tag hvr-bounce-to-right tag-pc" href="#">PC</a><a class="genre-tag hvr-bounce-to-right tag-xbox" href="#">XBOX</a><a class="genre-tag hvr-bounce-to-right tag-ps4" href="#">PS4</a></div>
-            <p class="c-title"> <a href="#">Grand Theft Auto V</a></p>
-            <p class="c-dec">Despite some minor annoyances, NieR: Automata is brilliant. It strikes the balance between RPG and action game unlike anything else in the genre. It’s a game you kind of have to meet halfway, with a story that gets more complex and interesting the more you prod at it. If you’re willing to commit, though, you’ll be rewarded.</p><a href="#"> 
-              <div class="c-read-more text-center">Read more</div></a>
-          </div>
-        </div>
-      </div>
-      <div class="item sidebar-item x-item" style="background-image: url(https://images2.alphacoders.com/600/thumb-1920-600255.jpg)">
-        <div class="box-post">
-          <div class="z-thumb"><img class="img-responsive" src="images/bag.png" alt="Item 1"></div>
-          <div class="caption">
-            <div class="page-content gs-content-game gs-genre-game"><a class="genre-tag hvr-bounce-to-right tag-pc" href="#">PC</a><a class="genre-tag hvr-bounce-to-right tag-xbox" href="#">XBOX</a><a class="genre-tag hvr-bounce-to-right tag-ps4" href="#">PS4</a></div>
-            <p class="c-title"> <a href="#">The Witcher 3: Wild Hunt </a></p>
-            <p class="c-dec">Despite some minor annoyances, NieR: Automata is brilliant. It strikes the balance between RPG and action game unlike anything else in the genre. It’s a game you kind of have to meet halfway, with a story that gets more complex and interesting the more you prod at it. If you’re willing to commit, though, you’ll be rewarded.</p><a href="#"> 
-              <div class="c-read-more text-center">Read more</div></a>
-          </div>
-        </div>
-      </div>
-      <div class="item sidebar-item x-item" style="background-image: url(https://images4.alphacoders.com/710/thumb-1920-710790.jpg)">
-        <div class="box-post">
-          <div class="z-thumb"><img class="img-responsive" src="images/bag.png" alt="Item 1"></div>
-          <div class="caption">
-            <div class="page-content gs-content-game gs-genre-game"><a class="genre-tag hvr-bounce-to-right tag-ps4" href="#">PS4</a></div>
-            <p class="c-title"> <a href="#">Spiderman</a></p>
-            <p class="c-dec">Despite some minor annoyances, NieR: Automata is brilliant. It strikes the balance between RPG and action game unlike anything else in the genre. It’s a game you kind of have to meet halfway, with a story that gets more complex and interesting the more you prod at it. If you’re willing to commit, though, you’ll be rewarded.</p><a href="#"> 
-              <div class="c-read-more text-center">Read more</div></a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!--include includes/sidebar-widget.pug-->
+<div class="jumbotron text-center" style="background-color: #1a2940">
+  <div class="header-page">
+    <span class="clip-text">SEARCH</span>
+    <p>Từ khóa tìm kiếm: <?php echo getIndex("search"); ?></p>
   </div>
+</div>
+<section class="main-content">
   <section class="news-container news-show-container container home-reviews">
     <section class="news-primary news-show-primary col-xs-12 col-sm-12 col-md-8 col-lg-8">
       <?php  
@@ -70,8 +14,7 @@
               <div class="related-primary intro-review"> 
                 <div class="x-title-bar"> 
                   <ul>
-                    <li class="pa"><?php echo $data_theloai[$i]["name_theloai"] ?></li><a href="index.php?mod=theloai&id_theloai=<?php echo $data_theloai[$i]["id_theloai"] ?>">
-                      <li class="pb">View All</li></a>
+                    <li class="pa">Kết quả tìm được</li>
                   </ul>
                 </div>
                 <div class="x-related-primary">
@@ -105,38 +48,6 @@
                   </div>
                 </div>
                 <!--include includes/pagination.pug -->
-              </div>
-            <?php
-          }
-          else {
-            ?>
-              <div class="related-primary"> 
-                <div class="x-title-bar"> 
-                  <ul>
-                    <li class="pa"><?php echo $data_theloai[$i]["name_theloai"] ?></li><a href="index.php?mod=theloai&id_theloai=<?php echo $data_theloai[$i]["id_theloai"] ?>">
-                      <li class="pb">View All</li></a>
-                  </ul>
-                </div>
-                <div class="x-related-primary">
-                  <div class="x-related-item">
-                    <div class="x-related-content"><img src="https://static.gamespot.com/uploads/screen_kubrick/1534/15343359/3220758-swbfii_reveal_screenshot_5_sp.jpg">
-                      <div class="news-share"><i class="fa fa-facebook-f"></i><i class="fa fa-twitter"></i><i class="fa fa-google-plus"></i></div>
-                    </div><a href="http://localhost:3000/news-single.html">
-                      <div class="x-related-caption"> 
-                        <h4>Star Wars Battlefront 2 Deluxe Edition And Pre-order Bonuses</h4><span><i class="fa fa-user"> </i>Mr.D</span><span><i class="fa fa-calendar"> </i>3/2/2018</span>
-                        <p class="descript">Along with a new trailer and story details, we also learned what you get if you pre-order the next Star Wars Battlefront.</p>
-                      </div></a>
-                  </div>
-                  <div class="x-related-item">
-                    <div class="x-related-content"><img src="https://static.gamespot.com/uploads/screen_kubrick/1534/15343359/3220758-swbfii_reveal_screenshot_5_sp.jpg">
-                      <div class="news-share"><i class="fa fa-facebook-f"></i><i class="fa fa-twitter"></i><i class="fa fa-google-plus"></i></div>
-                    </div><a href="http://localhost:3000/news-single.html">
-                      <div class="x-related-caption"> 
-                        <h4>Star Wars Battlefront 2 Deluxe Edition And Pre-order Bonuses</h4><span><i class="fa fa-user"> </i>Mr.D</span><span><i class="fa fa-calendar"> </i>3/2/2018</span>
-                        <p class="descript">Along with a new trailer and story details, we also learned what you get if you pre-order the next Star Wars Battlefront.</p>
-                      </div></a>
-                  </div>
-                </div>
               </div>
             <?php
           }

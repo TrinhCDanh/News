@@ -1,9 +1,8 @@
 <?php
   	
   $search = getIndex("search");
-	if($search != "")
-	{
-		include "search/content.php";
+	if($search != "") {
+		include "module/search/index.php";
 		return;
 	}
 	$mod = getIndex("mod", "homepage");

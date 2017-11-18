@@ -29,6 +29,7 @@ class Post extends Db {
 		$tomtat_baiviet = postIndex("tomtat_baiviet", "");
 		$anh_baiviet = $_FILES["anh_baiviet"]["name"];
 		$noidung_baiviet = Utils::postIndex("noidung_baiviet", "");
+		$trangthai_baiviet = Utils::postIndex("trangthai_baiviet");
 		$id_loaitin = Utils::postIndex("id_loaitin", "");
 		$ngay_tao = $ngay_capnhat = date("d-m-Y H:i:s");
 		
@@ -41,13 +42,15 @@ class Post extends Db {
 				anh_baiviet,
 				noidung_baiviet,
 				luotxem_baiviet,
+				trangthai_baiviet,
+				yeucau_baiviet,
 				duyet_baiviet,
 				id_loaitin,
 				ngay_tao,
 				ngay_capnhat 
-			) VALUES (NULL, :name_baiviet, :name_tacgia, :tomtat_baiviet, :anh_baiviet, :noidung_baiviet, 0, :duyet_baiviet, :id_loaitin, :ngay_tao, :ngay_capnhat) ";
+			) VALUES (NULL, :name_baiviet, :name_tacgia, :tomtat_baiviet, :anh_baiviet, :noidung_baiviet, 0, :trangthai_baiviet, NULL, :duyet_baiviet, :id_loaitin, :ngay_tao, :ngay_capnhat) ";
 
-		$arr = array(":name_baiviet"=>$name_baiviet, ":name_tacgia"=>$name_tacgia, ":tomtat_baiviet"=>$tomtat_baiviet, ":anh_baiviet"=>$anh_baiviet, ":noidung_baiviet"=>$noidung_baiviet, ":duyet_baiviet"=>$duyet_baiviet, ":id_loaitin"=>$id_loaitin, ":ngay_tao"=>$ngay_tao, ":ngay_capnhat"=>$ngay_capnhat);
+		$arr = array(":name_baiviet"=>$name_baiviet, ":name_tacgia"=>$name_tacgia, ":tomtat_baiviet"=>$tomtat_baiviet, ":anh_baiviet"=>$anh_baiviet, ":noidung_baiviet"=>$noidung_baiviet,  ":trangthai_baiviet"=>$trangthai_baiviet, ":duyet_baiviet"=>$duyet_baiviet, ":id_loaitin"=>$id_loaitin, ":ngay_tao"=>$ngay_tao, ":ngay_capnhat"=>$ngay_capnhat);
 		
 		return $this->exeNoneQuery($sql, $arr);
 	}
@@ -80,6 +83,7 @@ class Post extends Db {
 		$name_baiviet = Utils::postIndex("name_baiviet", "");
 		$tomtat_baiviet = postIndex("tomtat_baiviet", "");
 		$noidung_baiviet = Utils::postIndex("noidung_baiviet", "");
+		$trangthai_baiviet = Utils::postIndex("trangthai_baiviet");
 		$id_loaitin = Utils::postIndex("id_loaitin", "");
 		$ngay_capnhat = date("d-m-Y H:i:s");
 		
@@ -88,12 +92,29 @@ class Post extends Db {
 			SET name_baiviet=:name_baiviet,
 			tomtat_baiviet=:tomtat_baiviet,
 			anh_baiviet=:anh_baiviet,
-			noidung_baiviet=:noidung_baiviet, 
+			noidung_baiviet=:noidung_baiviet,
+			trangthai_baiviet=:trangthai_baiviet,
+			yeucau_baiviet=NULL, 
 			id_loaitin=:id_loaitin,
 			ngay_capnhat=:ngay_capnhat 
 			WHERE id_baiviet=:id_baiviet";
 		
-		$arr = array(":id_baiviet"=>$id_baiviet, ":name_baiviet"=>$name_baiviet, ":tomtat_baiviet"=>$tomtat_baiviet, ":anh_baiviet"=>$anh_baiviet, ":noidung_baiviet"=>$noidung_baiviet, ":id_loaitin"=>$id_loaitin, ":ngay_capnhat"=>$ngay_capnhat);
+		$arr = array(":id_baiviet"=>$id_baiviet, ":name_baiviet"=>$name_baiviet, ":tomtat_baiviet"=>$tomtat_baiviet, ":anh_baiviet"=>$anh_baiviet, ":noidung_baiviet"=>$noidung_baiviet, ":trangthai_baiviet"=>$trangthai_baiviet, ":id_loaitin"=>$id_loaitin, ":ngay_capnhat"=>$ngay_capnhat);
+
+		return $this->exeNoneQuery($sql, $arr);	
+	}
+
+	//Yêu cầu tác giả bài viết sửa
+	public function requestEdit($id_baiviet) {
+		$yeucau_baiviet = Utils::postIndex("yeucau_baiviet");
+		
+		$sql="
+			UPDATE baiviet 
+			SET trangthai_baiviet = 0, 
+			yeucau_baiviet = :yeucau_baiviet 
+			WHERE id_baiviet=:id_baiviet";
+		
+		$arr = array(":id_baiviet"=>$id_baiviet, ":yeucau_baiviet"=>$yeucau_baiviet);
 
 		return $this->exeNoneQuery($sql, $arr);	
 	}

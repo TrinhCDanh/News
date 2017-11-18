@@ -70,6 +70,17 @@
 			}	
 	  }
 	}
+	else if(isset($_POST["request"]) && $ac == "requestEdit") {
+		$post->requestEdit(Utils::getIndex("id"));
+  	?>
+	    <script language="javascript">
+				swal('Thành công!','Click Ok để tiếp tục!','success');
+				$('.swal2-confirm').click(function(){
+				  window.location="index.php?mod=baiviet&ac=showbaiviet";
+				});
+			</script>
+    <?php
+	} 
 ?>
 	
 
