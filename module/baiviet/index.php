@@ -1,6 +1,8 @@
 <?php  
   $id_baiviet = Utils::getIndex("id_baiviet");
+  $id_binhluan = Utils::getIndex("id_binhluan");
   $data_baiviet = $baiviet->getById($id_baiviet);
+  $data_binhluan = $binhluan->getAllwithBaiviet($id_baiviet);
 
   $ac = Utils::getIndex("ac");
   if (isset($_SESSION["user_login"])) {
@@ -8,7 +10,15 @@
   }
   $noidung_binhluan = Utils::postIndex("noidung_binhluan");
 
-  if(isset($_POST["submit"])) {
+  if($ac == "delete") {
+    $binhluan->delete($id_binhluan);
+    ?>
+      <script language="javascript">
+          window.location="index.php?mod=baiviet&id_baiviet=<?php echo $id_baiviet; ?>";
+      </script>
+    <?php
+  }
+  else if(isset($_POST["submit"])) {
     if($ac == "addBinhluan") {
       $binhluan->addBinhluan($id_baiviet, $id_user, $noidung_binhluan);
       ?>
@@ -81,7 +91,7 @@
         </div>
       </div>
       <div class="related-primary"> 
-        <div class="x-related-title">Comments</div>
+        <div class="x-related-title">Bình luận (<?php echo count($data_binhluan); ?>)</div>
         <div class="xx-related-primary" style="width:100%; background-color: #fff;">
           <form method="post" action="index.php?mod=baiviet&id_baiviet=<?php echo $data_baiviet["id_baiviet"]; ?>&ac=addBinhluan">
             <div class="pmd-card-body">
@@ -106,15 +116,43 @@
             </div>
           </form>
         </div>
-
-        <div class="x-show-comment" style="width:100%; background-color: #fff; padding:15px; margin-bottom: 5px;">
-          <div class="comment_info">
-            <strong>User Name</strong> - 19/11/2017
-          </div>
-          <div class="comment_content">
-            Hello
-          </div>
-        </div>
+        
+        <?php
+          foreach ($data_binhluan as $row) {
+            ?>
+              <div class="x-show-comment" style="width:100%; background-color: #fff; padding:15px; margin-bottom: 5px;">
+                <div class="comment_info">
+                  <strong><?php echo $row["name_user"]; ?></strong> - <?php echo $row["ngay_tao"]; ?>
+                 
+                    <span class="dropdown pmd-dropdown clearfix" style="float: right; margin-right: -10px; margin-top: -10px;">
+                      <button class="btn btn-sm pmd-btn-fab pmd-btn-flat pmd-ripple-effect btn-primary" type="button" id="dropdownMenuBottomRight" data-toggle="dropdown" aria-expanded="true"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></button>
+                      <ul aria-labelledby="dropdownMenuDivider" role="menu" class="dropdown-menu dropdown-menu-right">
+                        <?php  
+                          if($row["name_user"] == $data_user["name_user"]) {
+                            ?>
+                              <li role="presentation"><a href="index.php?mod=baiviet&id_baiviet=<?php echo $data_baiviet["id_baiviet"]; ?>&ac=delete&id_binhluan=<?php echo $row["id_binhluan"]; ?>" tabindex="-1" role="menuitem">Xóa</a></li>
+                              <li role="presentation"><a href="javascript:void(0);" tabindex="-1" role="menuitem">Chỉnh sửa</a></li>
+                            <?php
+                          }
+                          else {
+                            ?>
+                              <li role="presentation"><a href="javascript:void(0);" tabindex="-1" role="menuitem">Báo cáo vi phạm</a></li>
+                            <?php
+                          }
+                        ?>
+                        
+                      </ul>
+                    </span>
+                  
+                </div>
+                <div class="comment_content">
+                  <?php echo $row["noidung_binhluan"];?>
+                </div>
+              </div>
+            <?php
+          }
+        ?>
+        
 
         <div class="x-show-comment" style="width:100%; background-color: #fff; padding:15px; ">
           <div class="comment_info">

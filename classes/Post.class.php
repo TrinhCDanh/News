@@ -138,5 +138,15 @@ class Post extends Db {
 		return $this->exeNoneQuery($sql, $arr);
 	}
 
+	//Chức năng tìm kiếm tạm thời
+	public function searchBaiviet($keyword) {
+		$sql="SELECT * FROM baiviet
+				WHERE name_baiviet LIKE :keyword AND trangthai_baiviet = 1";
+		$arr = array(":keyword"=>"%". $keyword ."%");
+		$data = $this->exeQuery($sql, $arr);
+		if (Count($data)>0) return $data;
+		else return array();
+	}
+
 }
 ?>
