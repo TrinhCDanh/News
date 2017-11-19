@@ -38,7 +38,7 @@ body {
   flex-flow: wrap;
 }
 #wrapper > *:not(#back-to-top) {
-  font-family: 'Comfortaa', Arial;
+  font-family: 'Noto Sans', Arial;
   font-size: 15px;
   width: 100%;
 }
@@ -60,7 +60,7 @@ a:visited {
   text-decoration: none;
   color: #000;
 }
-h1, h2, h3, h4, h5, h6 {font-family: 'Comfortaa', Arial;}
+h1, h2, h3, h4, h5, h6 {font-family: 'Noto Sans', Arial;}
 .z-pagination ul li:after,
 .copyrights-right .fa:after {
   content: "";
@@ -1370,7 +1370,8 @@ footer {
 .news-title {
   color: #4285f4;
   font-weight: bold;
-  margin: 0;
+  font-size: 30px;
+  margin: 10px 0;
 }
 .news-meta {
   margin-bottom: 5px;
@@ -1383,7 +1384,16 @@ footer {
   margin-right: 10px;
 }
 .page-content * {
-  color: #323a45;
+  color: #000;
+  font-size: 16px;
+  font-family: 'Noto Sans', Arial;
+}
+.page-content img {
+  width: 100%!important;
+  height: auto!important;
+}
+.page-content iframe {
+  height: 100%;
 }
 .page-content .o-embed {
   margin-bottom: 12px;

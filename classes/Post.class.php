@@ -25,10 +25,10 @@ class Post extends Db {
 	}
 
 	public function saveAddNew($name_tacgia, $duyet_baiviet = 0) {
-		$name_baiviet = Utils::postIndex("name_baiviet", "");
+		$name_baiviet = postIndex("name_baiviet", "");
 		$tomtat_baiviet = postIndex("tomtat_baiviet", "");
 		$anh_baiviet = $_FILES["anh_baiviet"]["name"];
-		$noidung_baiviet = Utils::postIndex("noidung_baiviet", "");
+		$noidung_baiviet = stripslashes(postIndex("noidung_baiviet"));
 		$trangthai_baiviet = Utils::postIndex("trangthai_baiviet");
 		$id_loaitin = Utils::postIndex("id_loaitin", "");
 		$ngay_tao = $ngay_capnhat = date("d-m-Y H:i:s");
@@ -56,9 +56,9 @@ class Post extends Db {
 	}
 
 	public function saveEdit($id_baiviet, $anh_baiviet) {
-		$name_baiviet = Utils::postIndex("name_baiviet", "");
+		$name_baiviet = postIndex("name_baiviet", "");
 		$tomtat_baiviet = postIndex("tomtat_baiviet", "");
-		$noidung_baiviet = Utils::postIndex("noidung_baiviet", "");
+		$noidung_baiviet = stripslashes(postIndex("noidung_baiviet"));
 		$id_loaitin = Utils::postIndex("id_loaitin", "");
 		$ngay_capnhat = date("d-m-Y H:i:s");
 		$duyet_baiviet = Utils::postIndex("duyet_baiviet", "");
@@ -80,9 +80,9 @@ class Post extends Db {
 	}
 
 	public function saveEditUser($id_baiviet, $anh_baiviet) {
-		$name_baiviet = Utils::postIndex("name_baiviet", "");
+		$name_baiviet = postIndex("name_baiviet", "");
 		$tomtat_baiviet = postIndex("tomtat_baiviet", "");
-		$noidung_baiviet = Utils::postIndex("noidung_baiviet", "");
+		$noidung_baiviet = stripslashes(postIndex("noidung_baiviet"));
 		$trangthai_baiviet = Utils::postIndex("trangthai_baiviet");
 		$id_loaitin = Utils::postIndex("id_loaitin", "");
 		$ngay_capnhat = date("d-m-Y H:i:s");

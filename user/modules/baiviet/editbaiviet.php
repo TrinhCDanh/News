@@ -2,7 +2,7 @@
   if($row["yeucau_baiviet"] != "") {
     ?>
       <div class="col-md-12">
-        <div class="alert alert-danger">      
+        <div class="alert alert-warning">      
           <?php echo "Thông báo từ Admin: " . $row["yeucau_baiviet"]; ?>
         </div>
       </div>

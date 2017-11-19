@@ -10,6 +10,13 @@ if ($mod == "logout") {
 } 
 $theloai = new Theloai();
 $loaitin = new Loaitin();
+$baiviet = new Post();
+$binhluan = new Binhluan();
+$user = new User();
+
+if (isset($_SESSION["user_login"])) {
+  $data_user = $user->getById($_SESSION["user_data"]["id_user"]); 
+}
 
 ?>
 <!DOCTYPE html>
@@ -21,7 +28,7 @@ $loaitin = new Loaitin();
     <meta name="theme-color" content="#1d272b">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- TEXT FONT-->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fredoka+One|PT+Sans|Permanent+Marker|Righteous|Questrial|Signika|Bree+Serif|Comfortaa|Orbitron|Aldrich">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fredoka+One|PT+Sans|Permanent+Marker|Righteous|Questrial|Signika|Bree+Serif|Comfortaa|Orbitron|Aldrich|Noto+Sans">
     <!-- SYMPOL-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" href="images/fox3.png" type="image/x-icon">

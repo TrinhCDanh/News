@@ -13,6 +13,8 @@
 		include "module/loaitin/index.php";
 	else if($mod == "theloai")
 		include "module/theloai/index.php";
+	else if($mod == "baiviet")
+		include "module/baiviet/index.php";
 	else 
 		include "module/trangchu/index.php";
 
