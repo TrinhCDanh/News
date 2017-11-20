@@ -111,7 +111,8 @@ class Post extends Db {
 		$sql="
 			UPDATE baiviet 
 			SET trangthai_baiviet = 0, 
-			yeucau_baiviet = :yeucau_baiviet 
+			yeucau_baiviet = :yeucau_baiviet,
+			duyet_baiviet = 0 
 			WHERE id_baiviet=:id_baiviet";
 		
 		$arr = array(":id_baiviet"=>$id_baiviet, ":yeucau_baiviet"=>$yeucau_baiviet);

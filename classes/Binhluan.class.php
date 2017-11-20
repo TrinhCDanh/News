@@ -1,6 +1,15 @@
 <?php
 class Binhluan extends Db{
 	
+	public function getById($id_binhluan) {
+		$sql="SELECT * 
+			FROM binhluan where id_binhluan=:id_binhluan";
+		$arr = array(":id_binhluan"=>$id_binhluan);
+		$data = $this->exeQuery($sql, $arr);
+		if (Count($data)>0) return $data[0];
+		else return array();
+	}
+
 	public function getAllwithBaiviet($id_baiviet)
 	{
 		$sql="SELECT * 

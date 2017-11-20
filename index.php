@@ -22,7 +22,7 @@ if (isset($_SESSION["user_login"])) {
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>FoxCoy | Homepage</title>
+    <title>Vnnews | Trang báo điện tử hàng đầu</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="theme-color" content="#1d272b">
@@ -31,7 +31,7 @@ if (isset($_SESSION["user_login"])) {
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fredoka+One|PT+Sans|Permanent+Marker|Righteous|Questrial|Signika|Bree+Serif|Comfortaa|Orbitron|Aldrich|Noto+Sans">
     <!-- SYMPOL-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="icon" href="images/fox3.png" type="image/x-icon">
+    <link rel="icon" href="themes/images/Newspaper-icon-1.png" type="image/x-icon">
     <!-- BOOTSTRAP-->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <!-- // CSS-->
