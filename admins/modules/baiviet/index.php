@@ -5,6 +5,8 @@
 	$loaitin = new Loaitin();
 	$getAll = $loaitin->getAll();
 
+	$chitiet_duyetbai = new Chitiet_duyetbai();
+
 	$name_tacgia = $admin->getById($_SESSION["admin_data"]["id_admin"]); 
 	$info = "";
 	$err = "";
@@ -72,6 +74,7 @@
 	}
 	else if(isset($_POST["request"]) && $ac == "requestEdit") {
 		$post->requestEdit(Utils::getIndex("id"));
+		$chitiet_duyetbai->requestEdit($name_tacgia["id_admin"],$id);
   	?>
 	    <script language="javascript">
 				swal('Thành công!','Click Ok để tiếp tục!','success');
@@ -96,7 +99,7 @@
 		<!--breadcrum start-->
 		<ol class="breadcrumb text-left">
 		  <li><a href="index.php?mod=dashboard">Dashboard</a></li>
-		  <li class="active">Bài viết</li>
+		  <li class="active">Bài viết <?php echo $name_tacgia["id_admin"]; ?></li>
 		</ol><!--breadcrum end-->
 		
 		<?php  

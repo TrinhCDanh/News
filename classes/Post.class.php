@@ -3,7 +3,7 @@ class Post extends Db {
 	
 	/*Back-end*/
 	public function getAll() {
-		return $this->exeQuery("SELECT * FROM baiviet ORDER BY id_baiviet DESC");
+		return $this->exeQuery("SELECT * FROM baiviet ORDER BY baiviet.id_baiviet DESC");
 	}
 
 	public function getById($id_baiviet) {
