@@ -74,7 +74,7 @@
 	}
 	else if(isset($_POST["request"]) && $ac == "requestEdit") {
 		$post->requestEdit(Utils::getIndex("id"));
-		$chitiet_duyetbai->requestEdit($name_tacgia["id_admin"],$id);
+		//$chitiet_duyetbai->requestEdit($name_tacgia["id_admin"],$id);
   	?>
 	    <script language="javascript">
 				swal('Thành công!','Click Ok để tiếp tục!','success');

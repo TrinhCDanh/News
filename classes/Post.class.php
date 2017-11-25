@@ -86,8 +86,9 @@ class Post extends Db {
 		$trangthai_baiviet = Utils::postIndex("trangthai_baiviet");
 		$id_loaitin = Utils::postIndex("id_loaitin", "");
 		$ngay_capnhat = date("d-m-Y H:i:s");
-		
-		$sql="
+
+		if($trangthai_baiviet == 1) {
+			$sql="
 			UPDATE baiviet 
 			SET name_baiviet=:name_baiviet,
 			tomtat_baiviet=:tomtat_baiviet,
@@ -99,8 +100,22 @@ class Post extends Db {
 			ngay_capnhat=:ngay_capnhat 
 			WHERE id_baiviet=:id_baiviet";
 		
-		$arr = array(":id_baiviet"=>$id_baiviet, ":name_baiviet"=>$name_baiviet, ":tomtat_baiviet"=>$tomtat_baiviet, ":anh_baiviet"=>$anh_baiviet, ":noidung_baiviet"=>$noidung_baiviet, ":trangthai_baiviet"=>$trangthai_baiviet, ":id_loaitin"=>$id_loaitin, ":ngay_capnhat"=>$ngay_capnhat);
-
+			$arr = array(":id_baiviet"=>$id_baiviet, ":name_baiviet"=>$name_baiviet, ":tomtat_baiviet"=>$tomtat_baiviet, ":anh_baiviet"=>$anh_baiviet, ":noidung_baiviet"=>$noidung_baiviet, ":trangthai_baiviet"=>$trangthai_baiviet, ":id_loaitin"=>$id_loaitin, ":ngay_capnhat"=>$ngay_capnhat);
+		}
+		else {
+			$sql="
+			UPDATE baiviet 
+			SET name_baiviet=:name_baiviet,
+			tomtat_baiviet=:tomtat_baiviet,
+			anh_baiviet=:anh_baiviet,
+			noidung_baiviet=:noidung_baiviet,
+			trangthai_baiviet=:trangthai_baiviet,
+			id_loaitin=:id_loaitin,
+			ngay_capnhat=:ngay_capnhat 
+			WHERE id_baiviet=:id_baiviet";
+		
+			$arr = array(":id_baiviet"=>$id_baiviet, ":name_baiviet"=>$name_baiviet, ":tomtat_baiviet"=>$tomtat_baiviet, ":anh_baiviet"=>$anh_baiviet, ":noidung_baiviet"=>$noidung_baiviet, ":trangthai_baiviet"=>$trangthai_baiviet, ":id_loaitin"=>$id_loaitin, ":ngay_capnhat"=>$ngay_capnhat);
+		}		
 		return $this->exeNoneQuery($sql, $arr);	
 	}
 

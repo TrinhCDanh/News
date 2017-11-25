@@ -1,6 +1,9 @@
 <?php  
 	$post = new Post();
 	$ac = Utils::getIndex("ac");
+	$getById_baiviet = $post->getById(Utils::getIndex("id"));
+
+	$chitiet_suabai = new Chitiet_suabai();
 
 	$loaitin = new Loaitin();
 	$getAll = $loaitin->getAll();
@@ -15,6 +18,7 @@
 	$name_baiviet = postIndex("name_baiviet", "");
 	$tomtat_baiviet = postIndex("tomtat_baiviet", "");
 	$noidung_baiviet = postIndex("noidung_baiviet", "");
+	$trangthai_baiviet = postIndex("trangthai_baiviet", "");
 	if(isset($_POST["submit"]))
 		$anh_baiviet = $_FILES["anh_baiviet"]["name"];
 	$id_loaitin = postIndex("id_loaitin", "");
@@ -57,6 +61,10 @@
 			else
 				$anh_baiviet = $row["anh_baiviet"];
 			if ($err == "") {
+				if($trangthai_baiviet == 1) {
+					$yeucau_baiviet = $getById_baiviet["yeucau_baiviet"];
+					$chitiet_suabai->addEdit($name_tacgia["id_user"], $id, $anh_baiviet, $yeucau_baiviet);
+				}
 				$post->saveEditUser(Utils::getIndex("id"), $anh_baiviet);
 		  	?>
 			    <script language="javascript">
