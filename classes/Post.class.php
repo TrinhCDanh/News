@@ -164,5 +164,25 @@ class Post extends Db {
 		else return array();
 	}
 
+	//Hiện bài viết theo thể loại
+	public function getBaivietbyTheloai($id_theloai) {
+		$sql="SELECT * FROM baiviet JOIN loaitin ON baiviet.id_loaitin = loaitin.id_loaitin JOIN theloai on loaitin.id_theloai = theloai.id_theloai WHERE theloai.id_theloai =:id_theloai LIMIT 4";
+		$arr= array(":id_theloai" => $id_theloai);
+
+		$data = $this->exeQuery($sql, $arr);
+		if (Count($data)>0) return $data;
+		else return array();
+	}
+
+	//Hiện bài viết ngẫu nhiên
+	public function RandomBaiviet() {
+		return $this->exeQuery("SELECT * FROM baiviet WHERE duyet_baiviet=1 ORDER BY rand() LIMIT 6");
+	}
+
+	//Hiện bài viết xem nhiều nhất
+	public function MostViewBaiviet() {
+		return $this->exeQuery("SELECT * FROM baiviet WHERE duyet_baiviet=1 ORDER BY luotxem_baiviet DESC LIMIT 5");
+	}
+
 }
 ?>

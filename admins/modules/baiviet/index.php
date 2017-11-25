@@ -6,6 +6,7 @@
 	$getAll = $loaitin->getAll();
 
 	$chitiet_duyetbai = new Chitiet_duyetbai();
+	$getId_chitiet_duyetbai = $chitiet_duyetbai->getById(Utils::getIndex("id"));
 
 	$name_tacgia = $admin->getById($_SESSION["admin_data"]["id_admin"]); 
 	$info = "";
@@ -73,16 +74,29 @@
 	  }
 	}
 	else if(isset($_POST["request"]) && $ac == "requestEdit") {
-		$post->requestEdit(Utils::getIndex("id"));
-		//$chitiet_duyetbai->requestEdit($name_tacgia["id_admin"],$id);
-  	?>
-	    <script language="javascript">
-				swal('Thành công!','Click Ok để tiếp tục!','success');
-				$('.swal2-confirm').click(function(){
-				  window.location="index.php?mod=baiviet&ac=showbaiviet";
-				});
-			</script>
-    <?php
+		if($name_tacgia["id_admin"] != $getId_chitiet_duyetbai["id_admin"]) {
+			?>
+		    <script language="javascript">
+					swal('Thất bại!','Bài viết đang được duyệt bởi Admin khác!','error');
+					$('.swal2-confirm').click(function(){
+					  window.location="index.php?mod=baiviet&ac=showchuaduyet";
+					});
+				</script>
+	    <?php
+		}
+		else {
+			$post->requestEdit(Utils::getIndex("id"));
+			$chitiet_duyetbai->requestEdit($name_tacgia["id_admin"],$id);
+	  	?>
+		    <script language="javascript">
+					swal('Thành công!','Click Ok để tiếp tục!','success');
+					$('.swal2-confirm').click(function(){
+					  window.location="index.php?mod=baiviet&ac=showchuaduyet";
+					});
+				</script>
+	    <?php
+		}
+		
 	} 
 ?>
 	
@@ -99,7 +113,7 @@
 		<!--breadcrum start-->
 		<ol class="breadcrumb text-left">
 		  <li><a href="index.php?mod=dashboard">Dashboard</a></li>
-		  <li class="active">Bài viết <?php echo $name_tacgia["id_admin"]; ?></li>
+		  <li class="active">Bài viết <?php print_r($getId_chitiet_duyetbai); ?></li>
 		</ol><!--breadcrum end-->
 		
 		<?php  
@@ -114,8 +128,10 @@
 		
 		<section class="row component-section dashboard">
 			 <?php
-				if ($ac == "showbaiviet" || $ac == "delete") 
-					include "modules/baiviet/showbaiviet.php";
+				if ($ac == "showdaduyet" || $ac == "delete") 
+					include "modules/baiviet/showdaduyet.php";
+				else if ($ac == "showchuaduyet") 
+					include "modules/baiviet/showchuaduyet.php";
 				else if (Count($row) == 0) {
   				$info = "Thêm bài viết mới";
 					include "modules/baiviet/addbaiviet.php";

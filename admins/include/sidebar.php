@@ -64,8 +64,9 @@
 				<div class="media-right media-bottom"><i class="dic-more-vert dic"></i></div>
 			</a> 
 			<ul class="dropdown-menu">
-				<li><a href="index.php?mod=baiviet&ac=showbaiviet">Danh sách</a></li>
-				<li><a href="index.php?mod=baiviet&ac=addNew">Thêm</a></li>
+				<li><a href="index.php?mod=baiviet&ac=showchuaduyet">Chưa duyệt</a></li>
+				<li><a href="index.php?mod=baiviet&ac=showdaduyet">Đã duyệt</a></li>
+				<!--<li><a href="index.php?mod=baiviet&ac=addNew">Thêm</a></li>-->
 			</ul>
 		</li>
 
