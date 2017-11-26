@@ -21,7 +21,7 @@
 			<?php  
 				foreach ($data_chitietsuabai as $r) {
 					?>
-						<tr <?php if($r["yeucau_baiviet"]!="") echo "class='table-danger'"?>>
+						<tr>
 							<td></td>
 							<td class="col-md-6">
 								<?php echo $r["name_baiviet"]; ?>
@@ -34,11 +34,8 @@
 								?>	
 							</td>
 							<td class="pmd-table-row-action">
-								<a href="index.php?mod=baiviet&id=<?php echo $r["id_baiviet"];?>" class="btn pmd-btn-fab pmd-btn-flat pmd-ripple-effect btn-default btn-sm">
-									<i class="material-icons md-dark pmd-sm">edit</i>
-								</a>
-								<a href="index.php?mod=baiviet&ac=delete&id=<?php echo $r["id_baiviet"];?>" class="btn pmd-btn-fab pmd-btn-flat pmd-ripple-effect btn-default btn-sm">
-									<i class="material-icons md-dark pmd-sm">delete</i>
+								<a href="index.php?mod=baiviet&ac=showsuabai&id_suabai=<?php echo $r["id_suabai"];?>" class="btn pmd-btn-fab pmd-btn-flat pmd-ripple-effect btn-default btn-sm">
+									<i class="material-icons md-dark pmd-sm">remove_red_eye</i>
 								</a>					
 							</td>
 						</tr>

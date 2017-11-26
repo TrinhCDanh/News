@@ -118,6 +118,8 @@
 					include "modules/baiviet/showdahuy.php";
 				else if ($ac == "history")
 					include "modules/history/index.php";
+				else if ($ac == "showsuabai")
+					include "modules/history/showsuabai.php";
 				else if (Count($row) == 0) {
   				$info = "Thêm bài viết mới";
 					include "modules/baiviet/addbaiviet.php";

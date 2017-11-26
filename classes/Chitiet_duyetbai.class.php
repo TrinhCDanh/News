@@ -14,7 +14,7 @@ class Chitiet_duyetbai extends Db {
 		$noidung_yeucau = Utils::postIndex("yeucau_baiviet");
 		$ngay_tao = date("d-m-Y H:i:s");
 
-		$sql="INSERT INTO chitiet_duyetbai(id_admin, id_baiviet, noidung_yeucau, ngay_tao) VALUES(:id_admin, :id_baiviet, :noidung_yeucau, :ngay_tao)";
+		$sql="INSERT INTO chitiet_duyetbai(id_duyetbai, id_admin, id_baiviet, noidung_yeucau, ngay_tao) VALUES(NULL, :id_admin, :id_baiviet, :noidung_yeucau, :ngay_tao)";
 		
 		$arr = array(":id_admin"=>$id_admin, ":id_baiviet"=>$id_baiviet, ":noidung_yeucau"=>$noidung_yeucau, ":ngay_tao"=>$ngay_tao);
 
