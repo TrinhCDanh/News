@@ -74,7 +74,7 @@
 	  }
 	}
 	else if(isset($_POST["request"]) && $ac == "requestEdit") {
-		if($name_tacgia["id_admin"] != $getId_chitiet_duyetbai["id_admin"]) {
+		if(!empty($getId_chitiet_duyetbai) && $name_tacgia["id_admin"] != $getId_chitiet_duyetbai["id_admin"]) {
 			?>
 		    <script language="javascript">
 					swal('Thất bại!','Bài viết đang được duyệt bởi Admin khác!','error');

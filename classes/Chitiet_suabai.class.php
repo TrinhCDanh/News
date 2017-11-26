@@ -1,6 +1,19 @@
 <?php 
 class Chitiet_suabai extends Db {
 
+	public function getAll() {
+		return $this->exeQuery("SELECT * FROM chitiet_suabai");
+	}
+
+	public function getByBaiviet($id_baiviet) {
+		$sql = "SELECT * FROM chitiet_suabai WHERE id_baiviet=:id_baiviet";
+		$arr = array(":id_baiviet" => $id_baiviet);
+		
+		$data = $this->exeQuery($sql, $arr);
+		if (Count($data)>0) return $data;
+		else return array();	
+	}
+
 	public function addEdit($id_user, $id_baiviet, $anh_baiviet, $yeucau_baiviet) {
 		$name_baiviet = postIndex("name_baiviet", "");
 		$tomtat_baiviet = postIndex("tomtat_baiviet", "");

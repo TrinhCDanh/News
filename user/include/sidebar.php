@@ -46,92 +46,11 @@
 				<div class="media-right media-bottom"><i class="dic-more-vert dic"></i></div>
 			</a> 
 			<ul class="dropdown-menu">
-				<li><a href="index.php?mod=baiviet&ac=showbaiviet">Danh sách</a></li>
 				<li><a href="index.php?mod=baiviet&ac=addNew">Thêm</a></li>
-			</ul>
-		</li>
-
-		<li class="dropdown pmd-dropdown"> 
-			<a aria-expanded="false" data-toggle="dropdown" class="btn-user dropdown-toggle media" data-sidebar="true" href="javascript:void(0);">	
-				<i class="media-left media-middle"><svg version="1.1" x="0px" y="0px" width="18px" height="18.001px" viewBox="0 0 18 18.001" enable-background="new 0 0 18 18.001" xml:space="preserve">
-<path fill="#C9C8C8" d="M6.188,0.001C5.232,0.001,4.5,0.732,4.5,1.688c0,0.394,0.166,0.739,0.334,1.02L5.45,3.71
-	c0.113,0.113,0.176,0.341,0.176,0.51v0.281c0,0.619-0.506,1.125-1.125,1.125H0.282c-0.169,0-0.281,0.112-0.281,0.281V17.72
-	c0,0.168,0.112,0.281,0.281,0.281h4.219c0.619,0,1.125-0.506,1.125-1.125v-0.281c0-0.168-0.063-0.397-0.176-0.509
-	c0,0-0.615-0.946-0.615-1.002C4.666,14.802,4.5,14.457,4.5,14.063c0-0.956,0.731-1.688,1.688-1.688s1.688,0.731,1.688,1.688
-	c0,0.394-0.166,0.739-0.334,1.02l-0.616,1.002c-0.056,0.112-0.176,0.341-0.176,0.509v0.281c0,0.619,0.506,1.125,1.125,1.125h4.219
-	c0.168,0,0.281-0.113,0.281-0.281V13.5c0-0.619,0.506-1.125,1.125-1.125h0.281c0.169,0,0.396,0.063,0.51,0.176
-	c0,0,0.945,0.616,1.002,0.616c0.337,0.168,0.626,0.334,1.02,0.334c0.956,0,1.687-0.731,1.687-1.687c0-0.957-0.731-1.688-1.687-1.688
-	c-0.394,0-0.738,0.166-1.02,0.334l-1.002,0.616c-0.113,0.056-0.341,0.176-0.51,0.176H13.5c-0.619,0-1.125-0.506-1.125-1.125V5.908
-	c0-0.168-0.113-0.281-0.281-0.281H7.875c-0.619,0-1.125-0.506-1.125-1.125V4.221c0-0.168,0.063-0.397,0.176-0.51
-	c0,0,0.616-0.945,0.616-1.001c0.168-0.281,0.334-0.626,0.334-1.02C7.875,0.733,7.144,0.002,6.188,0.001L6.188,0.001z"/>
-</svg></i> 
-				<span class="media-body">UI Elements</span>
-				<div class="media-right media-bottom"><i class="dic-more-vert dic"></i></div>
-			</a> 
-			<ul class="dropdown-menu">
-				<li><a href="typography.html">Typography</a></li>
-				<li><a href="icons.html">Icons</a></li>
-				<li><a href="shadow.html">Shadow</a></li>
-				<li><a href="accordion.html">Accordion</a></li>
-				<li><a href="alert.html">Alert</a></li>
-				<li><a href="badge.html">Badge</a></li>
-				<li><a href="button.html">Button</a></li>
-				<li><a href="modal.html">Modal</a></li>
-				<li><a href="dropdown.html">Dropdown</a></li>
-				<li><a href="list.html">List</a></li>
-				<li><a href="navbar.html">Navbar</a></li>
-				<li><a href="popover.html">Popover</a></li>
-				<li><a href="progressbar.html">Progressbar</a></li>
-				<!--<li><a href="sidebar.html">Sidebar</a></li> -->
-				<li><a href="tab.html">Tab</a></li>
-				<li><a href="tooltip.html">Tooltip</a></li>
-				<li><a href="card.html">Card</a></li>
-				<li><a href="floating-button.html">Floating Action Button</a></li>
-			</ul>
-		</li>
-		<li class="dropdown pmd-dropdown"> 
-			<a aria-expanded="false" data-toggle="dropdown" class="btn-user dropdown-toggle media" data-sidebar="true" href="javascript:void(0);">	
-				<i class="material-icons media-left pmd-sm">swap_calls</i> 
-				<span class="media-body">Third Party Elements</span>
-				<div class="media-right media-bottom"><i class="dic-more-vert dic"></i></div>
-			</a> 
-			<ul class="dropdown-menu">
-				<li><a href="custom-scroll.html">Custom Scrollbar</a></li>
-				<li><a href="datetimepicker.html">Datetimepicker</a></li>
-				<li><a href="range-slider.html">Range Slider</a></li>
-				<li><a href="select2.html">Select2</a></li>
-			</ul>
-		</li>
-		
-		<li class="dropdown pmd-dropdown"> 
-			<a aria-expanded="false" data-toggle="dropdown" class="btn-user dropdown-toggle media" data-sidebar="true" href="javascript:void(0);">	
-				<i class="media-left media-middle"><svg version="1.1" x="0px" y="0px" width="14.187px" height="18px" viewBox="0 0 14.187 18" enable-background="new 0 0 14.187 18" xml:space="preserve">
-<path fill="#C9C8C8" d="M0,0v18h14.187V0H0z M3.121,3.293h2.023v4.767H3.121V3.293z M11.211,14.764H2.948v-2.022h8.263V14.764
-	L11.211,14.764z M11.211,11.585H2.948V9.563h8.263V11.585L11.211,11.585z M11.211,8.407H7.455V6.385h3.756V8.407z M11.211,5.229
-	H7.455V3.207h3.756V5.229z"/>
-</svg></i>
-				<span class="media-body">Form</span>
-				<div class="media-right media-bottom"><i class="dic-more-vert dic"></i></div>
-			</a> 
-			<ul class="dropdown-menu">
-				<li><a href="form-element.html">Form Elements</a></li>
-				<li><a href="form.html">Form Examples</a></li>
-			</ul>
-		</li>
-		<li class="dropdown pmd-dropdown"> 
-			<a aria-expanded="false" data-toggle="dropdown" class="btn-user dropdown-toggle media" data-sidebar="true" href="javascript:void(0);">	
-				<i class="media-left media-middle"><svg version="1.1" x="0px" y="0px" width="18px" height="12.706px" viewBox="0 0 18 12.706" enable-background="new 0 0 18 12.706" xml:space="preserve">
-<path fill="#C9C8C8" d="M0,0v12.706h18V0H0z M12.706,4.235v3.176H9.108V4.235H12.706z M8.049,4.235v3.176h-6.99V4.235H8.049z
-	 M1.059,8.47h6.99v3.177h-6.99V8.47z M9.108,11.647V8.47h3.599v3.177H9.108z M13.766,11.647V8.47h3.176v3.177H13.766z M16.942,7.412
-	h-3.176V4.235h3.176V7.412L16.942,7.412z"/>
-</svg></i> 
-				<span class="media-body">Table</span>
-				<div class="media-right media-bottom"><i class="dic-more-vert dic"></i></div>
-			</a> 
-			<ul class="dropdown-menu">
-				<li><a href="table.html">Normal Table</a></li>
-				<li><a href="data-table.html">Data Table</a></li>
-				<li><a href="table-with-expand-collapse.html">Table with Expand/Collapse</a></li>
+				<li><a href="index.php?mod=baiviet&ac=showbaiviet">Bài nháp</a></li>
+				<li><a href="index.php?mod=baiviet&ac=showchoduyet">Đang chờ duyệt</a></li>
+				<li><a href="index.php?mod=baiviet&ac=showdaduyet">Đã duyệt</a></li>
+				<li><a href="index.php?mod=baiviet&ac=showdahuy">Đã hủy</a></li>
 			</ul>
 		</li>
 

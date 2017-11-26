@@ -63,7 +63,8 @@
 			if ($err == "") {
 				if($trangthai_baiviet == 1) {
 					$yeucau_baiviet = $getById_baiviet["yeucau_baiviet"];
-					$chitiet_suabai->addEdit($name_tacgia["id_user"], $id, $anh_baiviet, $yeucau_baiviet);
+					if($yeucau_baiviet != "")
+						$chitiet_suabai->addEdit($name_tacgia["id_user"], $id, $anh_baiviet, $yeucau_baiviet);
 				}
 				$post->saveEditUser(Utils::getIndex("id"), $anh_baiviet);
 		  	?>
@@ -109,6 +110,14 @@
 			 <?php
 				if ($ac == "showbaiviet" || $ac == "delete") 
 					include "modules/baiviet/showbaiviet.php";
+				else if ($ac == "showchoduyet")
+					include "modules/baiviet/showchoduyet.php";
+				else if ($ac == "showdaduyet")
+					include "modules/baiviet/showdaduyet.php";
+				else if ($ac == "showdahuy")
+					include "modules/baiviet/showdahuy.php";
+				else if ($ac == "history")
+					include "modules/history/index.php";
 				else if (Count($row) == 0) {
   				$info = "Thêm bài viết mới";
 					include "modules/baiviet/addbaiviet.php";

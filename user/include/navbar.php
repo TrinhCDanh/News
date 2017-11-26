@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse navbar-fixed-top pmd-navbar pmd-z-depth">
+<nav class="navbar navbar-inverse navbar-fixed-top pmd-navbar pmd-z-depth" style="background-color: #ee6e73; border-color: #ee6e73">
 
 	<div class="container-fluid">
 		<div class="pmd-navbar-right-icon pull-right navigation">

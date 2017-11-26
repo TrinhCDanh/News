@@ -1,6 +1,7 @@
 <?php
-	$data = $post->getAll();
-?> 
+	$author = $user->getById($_SESSION["user_data"]["id_user"]); 
+	$data = $post->getByAuthor($author["name_user"]);
+?>
  
 <div class="col-md-12 col-lg-12">
 <div class="component-box">
@@ -20,9 +21,9 @@
 		<tbody>
 			<?php  
 				foreach ($data as $r) {
-					if($r["trangthai_baiviet"] == 1 && $r["duyet_baiviet"] == 0) {
+					if($r["trangthai_baiviet"] == 0) {
 						?>
-							<tr <?php if($r["duyet_baiviet"]==0) echo "class='table-danger'"?>>
+							<tr <?php if($r["yeucau_baiviet"]!="") echo "class='table-danger'"?>>
 								<td></td>
 								<td class="col-md-6">
 									<?php echo $r["name_baiviet"]; ?>
