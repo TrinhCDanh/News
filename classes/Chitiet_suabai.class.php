@@ -36,6 +36,12 @@ class Chitiet_suabai extends Db {
 
 		return $this->exeNoneQuery($sql, $arr);	
 	}
+
+	public function delete($id) {
+		$sql="DELETE FROM chitiet_suabai WHERE id_baiviet=:id ";
+		$arr =  Array(":id"=>$id);
+		return $this->exeNoneQuery($sql, $arr);	
+	}
 }
 
 ?>

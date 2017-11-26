@@ -136,7 +136,7 @@ class Post extends Db {
 	}
 
 	public function delete($id) {
-		$sql="DELETE FROM baiviet WHERE id_baiviet=:id ";
+		$sql="DELETE FROM baiviet WHERE id_baiviet=:id";
 		$arr =  Array(":id"=>$id);
 		return $this->exeNoneQuery($sql, $arr);	
 	}
@@ -166,12 +166,20 @@ class Post extends Db {
 
 	//Hiện bài viết theo thể loại
 	public function getBaivietbyTheloai($id_theloai) {
-		$sql="SELECT * FROM baiviet JOIN loaitin ON baiviet.id_loaitin = loaitin.id_loaitin JOIN theloai on loaitin.id_theloai = theloai.id_theloai WHERE theloai.id_theloai =:id_theloai LIMIT 4";
+		$sql="SELECT * FROM baiviet JOIN loaitin ON baiviet.id_loaitin = loaitin.id_loaitin JOIN theloai on loaitin.id_theloai = theloai.id_theloai WHERE theloai.id_theloai =:id_theloai AND duyet_baiviet=1 ORDER BY baiviet.id_baiviet DESC LIMIT 4";
 		$arr= array(":id_theloai" => $id_theloai);
 
 		$data = $this->exeQuery($sql, $arr);
 		if (Count($data)>0) return $data;
 		else return array();
+	}
+
+	//Hủy bài viết 
+	public function huyBaiviet($id_baiviet) {
+		$sql = "UPDATE baiviet SET duyet_baiviet=2, trangthai_baiviet=0 WHERE id_baiviet=:id_baiviet";
+		$arr = array(':id_baiviet' => $id_baiviet);
+
+		return $this->exeNoneQuery($sql, $arr);
 	}
 
 	//Hiện bài viết ngẫu nhiên

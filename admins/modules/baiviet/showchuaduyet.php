@@ -1,5 +1,8 @@
 <?php
 	$data = $post->getAll();
+	$getAll_duyetbai = $chitiet_duyetbai->getByAdmin($name_tacgia["id_admin"]);
+	//print_r($getAll_duyetbai);
+	
 ?> 
  
 <div class="col-md-12 col-lg-12">
@@ -20,7 +23,10 @@
 		<tbody>
 			<?php  
 				foreach ($data as $r) {
-					if($r["trangthai_baiviet"] == 1 && $r["duyet_baiviet"] == 0) {
+					$getId_duyetbai = $chitiet_duyetbai->getById($r["id_baiviet"]);
+					//print_r($getId_duyetbai);
+					if(!empty($getId_duyetbai) && $name_tacgia["id_admin"] == $getId_duyetbai["id_admin"] || !in_array($r["id_baiviet"],$getId_duyetbai)) {
+						if($r["trangthai_baiviet"] == 1 && $r["duyet_baiviet"] == 0) {
 						?>
 							<tr <?php if($r["duyet_baiviet"]==0) echo "class='table-danger'"?>>
 								<td></td>
@@ -45,7 +51,7 @@
 								</td>
 							</tr>
 						<?php
-					}
+					}}
 				}
 			?>
 			

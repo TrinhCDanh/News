@@ -24,12 +24,12 @@
 	$duyet_baiviet = postIndex("duyet_baiviet", "");
 
 	if ($ac == "delete") {
-  	$post->delete(Utils::getIndex("id"));
+  	$post->huyBaiviet(Utils::getIndex("id"));
   	?>
 	    <script language="javascript">
 				swal('Thành công!','Click Ok để tiếp tục!','success');
 				$('.swal2-confirm').click(function(){
-				  window.location="index.php?mod=baiviet&ac=showbaiviet";
+				  window.location="index.php?mod=baiviet&ac=showdaduyet";
 				});
 			</script>
     <?php
@@ -66,7 +66,7 @@
 			    <script language="javascript">
 						swal('Thành công!','Click Ok để tiếp tục!','success');
 						$('.swal2-confirm').click(function(){
-						  window.location="index.php?mod=baiviet&ac=showbaiviet";
+						  window.location="index.php?mod=baiviet&ac=showdaduyet";
 						});
 					</script>
 		    <?php
@@ -138,7 +138,18 @@
   			}
 				else {
 					$info = "Chỉnh sửa viết mới";
-					include "modules/baiviet/editbaiviet.php";
+					if(!empty($getId_chitiet_duyetbai) && $name_tacgia["id_admin"] != $getId_chitiet_duyetbai["id_admin"]) {
+						?>
+					    <script language="javascript">
+								swal('Thất bại!','Bài viết đang được duyệt bởi Admin khác!','error');
+								$('.swal2-confirm').click(function(){
+								  window.location="index.php?mod=baiviet&ac=showchuaduyet";
+								});
+							</script>
+				    <?php
+					}
+					else
+					 include "modules/baiviet/editbaiviet.php";
 				}
   				
   		?>

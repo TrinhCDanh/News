@@ -1,3 +1,18 @@
+<?php
+  $getAll_duyetbai = $chitiet_duyetbai->getAll(); 
+  foreach ($getAll_duyetbai as $row_db) {
+    if($row_db["id_baiviet"] == Utils::getIndex("id")) {
+      ?>
+        <div class="col-md-12">
+          <div class="alert alert-warning">
+            <?php echo "Ngày yêu cầu: " . $row_db["ngay_tao"]; ?><br>      
+            <?php echo "Nội dung yêu cầu: " . $row_db["noidung_yeucau"]; ?>
+          </div>
+        </div>
+      <?php
+    }
+  }
+?>
 <form id="validationForm" action="index.php?mod=baiviet&ac=saveEdit&id=<?php echo $row["id_baiviet"]; ?>" method="post"  enctype="multipart/form-data">
   <div class="col-md-9">
     <div class="pmd-card pmd-z-depth">

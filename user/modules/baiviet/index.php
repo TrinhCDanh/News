@@ -4,6 +4,7 @@
 	$getById_baiviet = $post->getById(Utils::getIndex("id"));
 
 	$chitiet_suabai = new Chitiet_suabai();
+	$chitiet_duyetbai = new Chitiet_duyetbai();
 
 	$loaitin = new Loaitin();
 	$getAll = $loaitin->getAll();
@@ -24,7 +25,9 @@
 	$id_loaitin = postIndex("id_loaitin", "");
 
 	if ($ac == "delete") {
-  	$post->delete(Utils::getIndex("id"));
+  	$chitiet_suabai->delete($id);
+  	$chitiet_duyetbai->delete($id);
+  	$post->delete($id);
   	?>
 	    <script language="javascript">
 				swal('Thành công!','Click Ok để tiếp tục!','success');
