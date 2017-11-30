@@ -165,8 +165,8 @@ class Post extends Db {
 	}
 
 	//Hiện bài viết theo thể loại
-	public function getBaivietbyTheloai($id_theloai) {
-		$sql="SELECT * FROM baiviet JOIN loaitin ON baiviet.id_loaitin = loaitin.id_loaitin JOIN theloai on loaitin.id_theloai = theloai.id_theloai WHERE theloai.id_theloai =:id_theloai AND duyet_baiviet=1 ORDER BY baiviet.id_baiviet DESC LIMIT 4";
+	public function getBaivietbyTheloai($id_theloai, $so_baiviet = 4) {
+		$sql="SELECT * FROM baiviet JOIN loaitin ON baiviet.id_loaitin = loaitin.id_loaitin JOIN theloai on loaitin.id_theloai = theloai.id_theloai WHERE theloai.id_theloai =:id_theloai AND duyet_baiviet=1 ORDER BY baiviet.id_baiviet DESC LIMIT $so_baiviet";
 		$arr= array(":id_theloai" => $id_theloai);
 
 		$data = $this->exeQuery($sql, $arr);
