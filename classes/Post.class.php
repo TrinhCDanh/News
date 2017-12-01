@@ -173,6 +173,15 @@ class Post extends Db {
 		if (Count($data)>0) return $data;
 		else return array();
 	}
+	//Hiển thị bài viết theo loại tin
+	public function getBaivietbyLoaitin($id_loaitin, $so_baiviet = 4) {
+		$sql="SELECT * FROM baiviet JOIN loaitin ON baiviet.id_loaitin = loaitin.id_loaitin WHERE loaitin.id_loaitin =:id_loaitin AND duyet_baiviet=1 ORDER BY baiviet.id_baiviet DESC LIMIT $so_baiviet";
+		$arr= array(":id_loaitin" => $id_loaitin);
+
+		$data = $this->exeQuery($sql, $arr);
+		if (Count($data)>0) return $data;
+		else return array();
+	}
 
 	//Hủy bài viết 
 	public function huyBaiviet($id_baiviet) {
@@ -192,5 +201,12 @@ class Post extends Db {
 		return $this->exeQuery("SELECT * FROM baiviet WHERE duyet_baiviet=1 ORDER BY luotxem_baiviet DESC LIMIT 5");
 	}
 
+	//Tăng sồ lượt xem
+	public function viewCount($id_baiviet) {
+		$sql = "UPDATE baiviet SET luotxem_baiviet=luotxem_baiviet+1 WHERE id_baiviet=:id_baiviet";
+		$arr = array(':id_baiviet' => $id_baiviet);
+
+		return $this->exeNoneQuery($sql, $arr);
+	}
 }
 ?>

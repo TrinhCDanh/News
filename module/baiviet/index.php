@@ -2,13 +2,23 @@
   $id_baiviet = Utils::getIndex("id_baiviet");
   $id_binhluan = Utils::getIndex("id_binhluan");
   $data_baiviet = $baiviet->getById($id_baiviet);
-  //$data_binhluan = $binhluan->getAllwithBaiviet($id_baiviet);
+  $data_binhluan = $binhluan->getAllwithBaiviet($id_baiviet);
+  $baivietbyLoaitin = $baiviet->getBaivietbyLoaitin($data_baiviet["id_loaitin"], 6);
 
   $ac = Utils::getIndex("ac");
   if (isset($_SESSION["user_login"])) {
     $id_user = $data_user["id_user"];
   }
   $noidung_binhluan = Utils::postIndex("noidung_binhluan");
+  $name_binhluan = Utils::postIndex("name_binhluan");
+  $email_binhluan = Utils::postIndex("email_binhluan");
+
+  // Đếm số lượt xem
+  $module_name = 'baiviet';
+  if( !isset($_SESSION[$module_name . '_' . $id_baiviet]) ){
+    $_SESSION[$module_name . '_' . $id_baiviet] = 1;
+    $baiviet->viewCount($id_baiviet);
+  }
 
   if($ac == "delete") {
     $binhluan->delete($id_binhluan);
@@ -20,7 +30,7 @@
   }
   else if(isset($_POST["submit"])) {
     if($ac == "addBinhluan") {
-      $binhluan->addBinhluan($id_baiviet, $id_user, $noidung_binhluan);
+      $binhluan->addBinhluan($id_baiviet, $name_binhluan, $email_binhluan, $noidung_binhluan);
       ?>
         <script language="javascript">
             window.location="index.php?mod=baiviet&id_baiviet=<?php echo $id_baiviet; ?>";
@@ -45,137 +55,55 @@
             echo $data_baiviet["noidung_baiviet"];
           ?>
         </div>
-        <div class="page-footer">
-          <div class="page-content gs-content-game gs-genre-game"><i class="fa fa-tags" style="margin-right: 2px"> </i>Tags: <a class="genre-tag hvr-bounce-to-right" href="#">Action</a><a class="genre-tag hvr-bounce-to-right" href="#">Open World</a><a class="genre-tag hvr-bounce-to-right" href="#">Park Out</a><a class="genre-tag hvr-bounce-to-right" href="#">Comedy</a><a class="genre-tag hvr-bounce-to-right" href="#">Sealth</a></div>
-        </div>
       </div>
-      <div class="related-primary"> 
-        <div class="x-related-title">Related Post</div>
+      <div class="related-primary">
+        <div class="x-title-bar"> 
+          <ul>
+            <li class="pa">Bài viết liên quan</li>
+          </ul>
+        </div>
         <div class="x-related-primary">
-          <div class="x-related-item">
-            <div class="x-related-content"><img src="https://static.gamespot.com/uploads/screen_kubrick/123/1239113/3227217-doom.jpg">
-              <div class="news-share"><i class="fa fa-facebook-f"></i><i class="fa fa-twitter"></i><i class="fa fa-google-plus"></i></div>
-            </div><a href="http://localhost:3000/news-single.html">
-              <div class="x-related-caption">Check Out Bethesda's E3 Showcase Invite, Which May Tease Two Announcements</div></a>
-          </div>
-          <div class="x-related-item">
-            <div class="x-related-content"><img src="https://static.gamespot.com/uploads/screen_kubrick/1556/15568848/3226985-1041069493-22820.jpg">
-              <div class="news-share"><i class="fa fa-facebook-f"></i><i class="fa fa-twitter"></i><i class="fa fa-google-plus"></i></div>
-            </div><a href="http://localhost:3000/news-single.html">
-              <div class="x-related-caption">Mega Man 7, 8, 9, 10 Collection Leaked (Possibly)</div></a>
-          </div>
-          <div class="x-related-item">
-            <div class="x-related-content"><img src="https://i.ytimg.com/vi/MkO6P-WA_vY/maxresdefault.jpg">
-              <div class="news-share"><i class="fa fa-facebook-f"></i><i class="fa fa-twitter"></i><i class="fa fa-google-plus"></i></div>
-            </div><a href="http://localhost:3000/news-single.html">
-              <div class="x-related-caption">Everything we know about Call of Duty: WWII</div></a>
-          </div>
-          <div class="x-related-item">
-            <div class="x-related-content"><img src="https://static.gamespot.com/uploads/screen_kubrick/123/1239113/3227217-doom.jpg">
-              <div class="news-share"><i class="fa fa-facebook-f"></i><i class="fa fa-twitter"></i><i class="fa fa-google-plus"></i></div>
-            </div><a href="http://localhost:3000/news-single.html">
-              <div class="x-related-caption">Check Out Bethesda's E3 Showcase Invite, Which May Tease Two Announcements</div></a>
-          </div>
-          <div class="x-related-item">
-            <div class="x-related-content"><img src="https://static.gamespot.com/uploads/screen_kubrick/1556/15568848/3226985-1041069493-22820.jpg">
-              <div class="news-share"><i class="fa fa-facebook-f"></i><i class="fa fa-twitter"></i><i class="fa fa-google-plus"></i></div>
-            </div><a href="http://localhost:3000/news-single.html">
-              <div class="x-related-caption">Mega Man 7, 8, 9, 10 Collection Leaked (Possibly)</div></a>
-          </div>
-          <div class="x-related-item">
-            <div class="x-related-content"><img src="https://i.ytimg.com/vi/MkO6P-WA_vY/maxresdefault.jpg">
-              <div class="news-share"><i class="fa fa-facebook-f"></i><i class="fa fa-twitter"></i><i class="fa fa-google-plus"></i></div>
-            </div><a href="http://localhost:3000/news-single.html">
-              <div class="x-related-caption">Everything we know about Call of Duty: WWII</div></a>
-          </div>
+          <?php 
+            foreach ($baivietbyLoaitin as $row_baiviet) {
+              ?>
+                <div class="x-related-item">
+                  <div class="x-related-content"><img src="assets/images/<?php echo $row_baiviet["anh_baiviet"]; ?>">
+                    <div class="news-share"><i class="fa fa-facebook-f"></i><i class="fa fa-twitter"></i><i class="fa fa-google-plus"></i></div>
+                  </div><a href="index.php?mod=baiviet&id_baiviet=<?php echo $row_baiviet["id_baiviet"]; ?>">
+                    <div class="x-related-caption"><?php echo $row_baiviet["name_baiviet"]; ?></div></a>
+                </div>
+              <?php
+            }
+          ?>
         </div>
       </div>
       
-    </section>
-    <section class="sidebar-primary col-xs-12 col-sm-12 col-md-4 col-lg-4">
-      <div class="sidebar-primary-content"> 
+      <div class="related-primary">
         <div class="x-title-bar"> 
           <ul>
-            <li class="pa">Xem nhiều nhất</li>
+            <li class="pa">Bình luận (<?php echo count($data_binhluan); ?>)</li>
           </ul>
         </div>
-        <div class="x-widget-primary x-top-news"><a class="x-video-item" href="#">
-            <div class="vi-thumb"><img src="https://cdn.eblnews.com/sites/default/files/styles/img_684x385/public/cover/2017-06/772one8fgzM.jpg?itok=5qPQQTVC"></div>
-            <div class="vi-caption">
-              <p>New Releases: Crash Bandicoot N.</p>
-            </div></a><a class="x-video-item" href="#">
-            <div class="vi-thumb"><img src="https://cdn.eblnews.com/sites/default/files/styles/img_684x385/public/cover/2017-06/772one8fgzM.jpg?itok=5qPQQTVC"></div>
-            <div class="vi-caption">
-              <p>New Releases: Crash Bandicoot N. Sane Trilogy, Danganronpa Another Episode, Breath Of The Wild DLC</p>
-            </div></a><a class="x-video-item" href="#">
-            <div class="vi-thumb"><img src="https://i.ytimg.com/vi/aDPWDkdNLEc/maxresdefault.jpg"></div>
-            <div class="vi-caption">
-              <p>E3 2017: Marvel's Spider-Man - PS4 Gameplay Impressions</p>
-            </div></a><a class="x-video-item" href="#">
-            <div class="vi-thumb"><img src="https://i.ytimg.com/vi/aDPWDkdNLEc/maxresdefault.jpg"></div>
-            <div class="vi-caption">
-              <p>E3 2017: Marvel's Spider-Man - PS4 Gameplay Impressions</p>
-            </div></a><a class="x-video-item" href="#">
-            <div class="vi-thumb"><img src="https://i.ytimg.com/vi/aDPWDkdNLEc/maxresdefault.jpg"></div>
-            <div class="vi-caption">
-              <p>E3 2017: Marvel's Spider-Man - PS4 Gameplay Impressions</p>
-            </div></a></div>
-      </div>
-      <div class="sidebar-primary-content"> 
-        <div class="x-title-bar"> 
-          <ul>
-            <li class="pa">Upcoming games</li>
-          </ul>
+        <div class="xx-related-primary" style="width:100%; background-color: #fff;">
+          <?php include "addBinhluan.php"; ?>
         </div>
-        <div class="x-widget-primary x-upcoming-games"><a class="x-widget-item" href="#" style="background-image: url(https://i.ytimg.com/vi/TKLx5rhpS2k/maxresdefault.jpg)">
-            <div class="x-widget-content"> 
-              <h1>Hello Neighbor</h1>
-              <p>Ngày đăng 03/02/2018</p>
-              <p>Bởi Mr.D</p>
-            </div></a><a class="x-widget-item" href="#" style="background-image: url(https://www.callofduty.com/content/dam/atvi/callofduty/wwii/home/Stronghold_Metadata_Image.jpg)">
-            <div class="x-widget-content">
-              <h1>Call of Duty: WWII</h1>
-              <p>Ngày đăng 03/02/2018</p>
-              <p>Bởi Mr.D</p>
-            </div></a></div>
-      </div>
-      <div class="sidebar-primary-content"> 
-        <div class="x-title-bar"> 
-          <ul>
-            <li class="pa">Ngẫu nhiên</li>
-          </ul>
-        </div>
-        <div class="vi-widget-primary-lastest"><a class="x-video-item" href="#">
-            <div class="vi-thumb"><img src="https://i.ytimg.com/vi/aDPWDkdNLEc/maxresdefault.jpg"></div>
-            <div class="vi-caption">
-              <p>E3 2017: Marvel's Spider-Man - PS4 Gameplay Impressions</p>
-            </div></a><a class="x-video-item" href="#">
-            <div class="vi-thumb"><img src="https://cdn.eblnews.com/sites/default/files/styles/img_684x385/public/cover/2017-06/772one8fgzM.jpg?itok=5qPQQTVC"></div>
-            <div class="vi-caption">
-              <p>New Releases: Crash Bandicoot N. Sane Trilogy, Danganronpa Another Episode, Breath Of The Wild DLC</p>
-            </div></a><a class="x-video-item" href="#">
-            <div class="vi-thumb"><img src="https://i.ytimg.com/vi/aDPWDkdNLEc/maxresdefault.jpg"></div>
-            <div class="vi-caption">
-              <p>E3 2017: Marvel's Spider-Man - PS4 Gameplay Impressions</p>
-            </div></a><a class="x-video-item" href="#">
-            <div class="vi-thumb"><img src="https://i.ytimg.com/vi/aDPWDkdNLEc/maxresdefault.jpg"></div>
-            <div class="vi-caption">
-              <p>E3 2017: Marvel's Spider-Man - PS4 Gameplay Impressions</p>
-            </div></a><a class="x-video-item" href="#">
-            <div class="vi-thumb"><img src="https://i.ytimg.com/vi/aDPWDkdNLEc/maxresdefault.jpg"></div>
-            <div class="vi-caption">
-              <p>E3 2017: Marvel's Spider-Man - PS4 Gameplay Impressions</p>
-            </div></a><a class="x-video-item" href="#">
-            <div class="vi-thumb"><img src="https://i.ytimg.com/vi/aDPWDkdNLEc/maxresdefault.jpg"></div>
-            <div class="vi-caption">
-              <p>E3 2017: Marvel's Spider-Man - PS4 Gameplay Impressions   </p>
-            </div></a></div>
-      </div>
-      <div class="sidebar-primary-content x-google-ads">
-        <div class="x-widget-primary"><a class="x-widget-item" href="#">
-            <div class="x-widget-content"><img src="http://planetshine.net/demo/goodgame/wp-content/themes/planetshine-goodgame/theme/assets/images/banner-300x300.jpg"></div></a><a class="x-widget-item" href="#">
-            <div class="x-widget-content"><img src="http://planetshine.net/demo/goodgame/wp-content/themes/planetshine-goodgame/theme/assets/images/banner-300x300.jpg"></div></a></div>
+        
+        <?php
+          foreach ($data_binhluan as $row) {
+            ?>
+              <div class="x-show-comment" style="width:100%; background-color: #fff; padding:15px; margin-bottom: 5px;">
+                <div class="comment_info">
+                  <strong><?php echo $row["name_binhluan"]; ?></strong> - <?php echo $row["ngay_tao"]; ?> 
+                </div>
+                <div class="comment_content">
+                  <?php echo $row["noidung_binhluan"];?>
+                </div>
+              </div>
+            <?php
+          }
+        ?>
       </div>
     </section>
+    <?php include ROOT."/module/sidebar/getAll.php"; ?>
   </section>
 </section>
