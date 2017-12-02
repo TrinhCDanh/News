@@ -90,13 +90,13 @@
 <div class="container-fluid full-width-container data-tables">
 		<!-- Title -->
 		<h1 class="section-title" id="services">
-			<span>Quản lý bài viết</span>
+			<span>Quản lý bài nháp</span>
 		</h1><!-- End Title -->
 	
 		<!--breadcrum start-->
 		<ol class="breadcrumb text-left">
 		  <li><a href="index.php?mod=dashboard">Dashboard</a></li>
-		  <li class="active">Bài viết</li>
+		  <li class="active">Bài nháp</li>
 		</ol><!--breadcrum end-->
 		
 		<?php  

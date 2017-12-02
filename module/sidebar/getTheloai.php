@@ -1,6 +1,6 @@
 <?php  
 $rand_baiviet = $baiviet->RandomBaiviet();
-$most_baiviet = $baiviet->MostViewBaiviet();
+$most_baiviet = $baiviet->MostViewTheloai($id_theloai);
 $baiviet_noibat = $baiviet->baivietNoibat();
 ?>
 <section class="sidebar-primary col-xs-12 col-sm-12 col-md-4 col-lg-4">

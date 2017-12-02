@@ -45,8 +45,8 @@
     <section class="news-primary single-news-primary col-xs-12 col-sm-12 col-md-8 col-lg-8">
       <ul id="breadcrumb">
         <li><a href="index.php"><i class="fa fa-home" aria-hidden="true"></i></a></li>
-        <li><a href="#">Thể loại</a></li>
-        <li><a href="#">Loại tin</a></li>
+        <li><a href="index.php?mod=theloai&id_theloai=<?php echo $data_baiviet["id_theloai"] ?>"><?php echo $data_baiviet["name_theloai"]; ?></a></li>
+        <li><a href="index.php?mod=loaitin&id_loaitin=<?php echo $data_baiviet["id_loaitin"] ?>"><?php echo $data_baiviet["name_loaitin"]; ?></a></li>
       </ul>
       <div class="news-content">
         <div class="page-header">

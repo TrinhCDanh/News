@@ -7,8 +7,7 @@ class Post extends Db {
 	}
 
 	public function getById($id_baiviet) {
-		$sql="SELECT * 
-			FROM baiviet where id_baiviet=:id_baiviet ";
+		$sql="SELECT * FROM baiviet JOIN loaitin ON baiviet.id_loaitin = loaitin.id_loaitin JOIN theloai on loaitin.id_theloai = theloai.id_theloai where id_baiviet=:id_baiviet ";
 		$arr = array(":id_baiviet"=>$id_baiviet);
 		$data = $this->exeQuery($sql, $arr);
 		if (Count($data)>0) return $data[0];
@@ -119,6 +118,17 @@ class Post extends Db {
 		return $this->exeNoneQuery($sql, $arr);	
 	}
 
+	//User gửi bài cho Admin
+	public function sendBaiviet($id_baiviet) {
+		$sql="
+			UPDATE baiviet 
+			SET trangthai_baiviet = 1, 
+			yeucau_baiviet = NULL
+			WHERE id_baiviet=:id_baiviet";
+		$arr = array(":id_baiviet"=>$id_baiviet);
+		return $this->exeNoneQuery($sql, $arr);	
+	}
+
 	//Yêu cầu tác giả bài viết sửa
 	public function requestEdit($id_baiviet) {
 		$yeucau_baiviet = Utils::postIndex("yeucau_baiviet");
@@ -199,6 +209,29 @@ class Post extends Db {
 	//Hiện bài viết xem nhiều nhất
 	public function MostViewBaiviet() {
 		return $this->exeQuery("SELECT * FROM baiviet WHERE duyet_baiviet=1 ORDER BY luotxem_baiviet DESC LIMIT 5");
+	}
+
+	public function MostViewTheloai($id_theloai) {
+		$sql="SELECT * FROM baiviet JOIN loaitin ON baiviet.id_loaitin = loaitin.id_loaitin JOIN theloai on loaitin.id_theloai = theloai.id_theloai WHERE theloai.id_theloai=:id_theloai AND duyet_baiviet=1 ORDER BY luotxem_baiviet DESC LIMIT 5";
+		$arr= array(":id_theloai" => $id_theloai);
+
+		$data = $this->exeQuery($sql, $arr);
+		if (Count($data)>0) return $data;
+		else return array();
+	}
+
+	public function MostViewLoaitin($id_loaitin) {
+		$sql="SELECT * FROM baiviet JOIN loaitin ON baiviet.id_loaitin = loaitin.id_loaitin WHERE loaitin.id_loaitin=:id_loaitin AND duyet_baiviet=1 ORDER BY luotxem_baiviet DESC LIMIT 5";
+		$arr= array(":id_loaitin" => $id_loaitin);
+
+		$data = $this->exeQuery($sql, $arr);
+		if (Count($data)>0) return $data;
+		else return array();
+	}
+
+	//Hiển thị bài viết nổi bật
+	public function baivietNoibat() {
+		return $this->exeQuery("SELECT *, COUNT(*) as luot_binhluan FROM baiviet JOIN binhluan on binhluan.id_baiviet = baiviet.id_baiviet GROUP BY baiviet.id_baiviet DESC LIMIT 5");
 	}
 
 	//Tăng sồ lượt xem

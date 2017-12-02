@@ -21,9 +21,9 @@
 		<tbody>
 			<?php  
 				foreach ($data as $r) {
-					if($r["trangthai_baiviet"] == 0 && $r["duyet_baiviet"] != 2 && $r["yeucau_baiviet"] == "") {
+					if($r["trangthai_baiviet"] == 0 && $r["duyet_baiviet"] == 0 && $r["yeucau_baiviet"]!= "") {
 						?>
-							<tr>
+							<tr <?php if($r["yeucau_baiviet"]!="") echo "class='table-danger'"?>>
 								<td></td>
 								<td class="col-md-6">
 									<?php echo $r["name_baiviet"]; ?>
@@ -40,8 +40,8 @@
 									<a href="index.php?mod=baiviet&id=<?php echo $r["id_baiviet"];?>" class="btn pmd-btn-fab pmd-btn-flat pmd-ripple-effect btn-default btn-sm">
 										<i class="material-icons md-dark pmd-sm">edit</i>
 									</a>
-									<a href="index.php?mod=baiviet&ac=delete&id=<?php echo $r["id_baiviet"];?>" class="btn pmd-btn-fab pmd-btn-flat pmd-ripple-effect btn-default btn-sm">
-										<i class="material-icons md-dark pmd-sm">delete</i>
+									<a href="index.php?mod=baigui&ac=send&id=<?php echo $r["id_baiviet"];?>" class="btn pmd-btn-fab pmd-btn-flat pmd-ripple-effect btn-default btn-sm">
+										<i class="material-icons md-dark pmd-sm">send</i>
 									</a>					
 								</td>
 							</tr>
