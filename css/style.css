@@ -1151,6 +1151,9 @@ footer {
 .footer-content {
   padding: 0;
 }
+.footer-content h3 {
+  color: #fbfafc;
+}
 .footer-content > * {
   color: #fbfafc;
   padding: 5px;

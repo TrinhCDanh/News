@@ -2,7 +2,6 @@
   $id_theloai = Utils::getIndex("id_theloai");
   $data_theloai = $theloai->getById($id_theloai);
   $baivietbytheloai = $baiviet->getBaivietbyTheloai($data_theloai["id_theloai"], 100);
-  //print_r($baivietbytheloai);
 ?>
 <section class="main-content">
   <section class="news-container news-show-container container home-reviews">
@@ -52,14 +51,14 @@
       <div class="related-primary"> 
         <div class="x-title-bar"> 
           <ul>
-            <li class="pa">What's New</li>
+            <li class="pa">Tin mới</li>
           </ul>
         </div>
         <div class="x-related-primary">
           <?php  
             for($i=3; $i<count($baivietbytheloai); $i++) {
               ?>
-                <div class="x-related-item">
+                <div class="x-related-item <?php if($i>6) echo "foo"; ?>">
                   <div class="x-related-content"><img src="assets/images/<?php echo $baivietbytheloai[$i]["anh_baiviet"]; ?>">
                     <div class="news-share"><i class="fa fa-facebook-f"></i><i class="fa fa-twitter"></i><i class="fa fa-google-plus"></i></div>
                   </div><a href="index.php?mod=baiviet&id_baiviet=<?php echo $baivietbytheloai[$i]["id_baiviet"]; ?>">
@@ -72,16 +71,6 @@
             }
           ?>
         </div>
-        <section class="z-pagination"> 
-          <ul class="text-center"><a href="#">
-              <li>❮</li></a><a href="#">
-              <li>1</li></a><a href="#">
-              <li>2</li></a><a href="#">
-              <li>3</li></a><a href="#">
-              <li>4</li></a><a href="#">
-              <li>5</li></a><a href="#">
-              <li>❯</li></a></ul>
-        </section>
       </div>
     </section>
     <section class="sidebar-primary col-xs-12 col-sm-12 col-md-4 col-lg-4">
@@ -171,3 +160,9 @@
     </section>
   </section>
 </section>
+
+<script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
+<script type="text/javascript">
+  window.sr = ScrollReveal({ reset: true });
+  sr.reveal('.foo');
+</script>

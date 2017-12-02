@@ -43,10 +43,15 @@
 <section class="main-content">
   <section class="news-container news-show-container container home-reviews">
     <section class="news-primary single-news-primary col-xs-12 col-sm-12 col-md-8 col-lg-8">
+      <ul id="breadcrumb">
+        <li><a href="index.php"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+        <li><a href="#">Thể loại</a></li>
+        <li><a href="#">Loại tin</a></li>
+      </ul>
       <div class="news-content">
         <div class="page-header">
           <h1 class="news-title"><?php echo $data_baiviet["name_baiviet"]; ?></h1>
-          <div class="news-meta"><span><i class="fa fa-user"> </i><?php echo $data_baiviet["name_tacgia"] ?></span><span><i class="fa fa-calendar"> </i><?php echo $data_baiviet["ngay_tao"]; ?></span><span><i class="fa fa-eye"> </i>1000</span></div>
+          <div class="news-meta"><span><i class="fa fa-user"> </i><?php echo $data_baiviet["name_tacgia"] ?></span><span><i class="fa fa-calendar"> </i><?php echo $data_baiviet["ngay_tao"]; ?></span><span><i class="fa fa-eye"> </i><?php echo $data_baiviet["luotxem_baiviet"] ?></span></div>
           <div class="news-share"><i class="fa fa-facebook-f"></i><i class="fa fa-twitter"></i><i class="fa fa-google-plus"></i></div>
         </div>
         <div class="page-content">
@@ -107,3 +112,89 @@
     <?php include ROOT."/module/sidebar/getAll.php"; ?>
   </section>
 </section>
+
+<style type="text/css">
+  #breadcrumb {
+  list-style: none;
+  display: inline-block;
+  padding: 0;
+}
+#breadcrumb .icon {
+  font-size: 14px;
+}
+#breadcrumb li {
+  float: left;
+}
+#breadcrumb li a {
+  color: #fff;
+  display: block;
+  background: #4285f4;
+  text-decoration: none;
+  position: relative;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 10px 0 5px;
+  text-align: center;
+  margin-right: 23px;
+  transition: 0.25s;
+}
+#breadcrumb li:nth-child(even) a {
+  background-color: #2980b9;
+}
+#breadcrumb li:nth-child(even) a:before {
+  border-color: #2980b9;
+  border-left-color: transparent;
+}
+#breadcrumb li:nth-child(even) a:after {
+  border-left-color: #2980b9;
+}
+#breadcrumb li:first-child a {
+  padding-left: 15px;
+  -moz-border-radius: 4px 0 0 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px 0 0 4px;
+}
+#breadcrumb li:first-child a:before {
+  border: none;
+}
+#breadcrumb li a:before, #breadcrumb li a:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  border: 0 solid #4285f4;
+  border-width: 20px 10px;
+  width: 0;
+  height: 0;
+}
+#breadcrumb li a:before {
+  left: -20px;
+  border-left-color: transparent;
+  transition: 0.25s;
+}
+#breadcrumb li a:after {
+  left: 100%;
+  border-color: transparent;
+  border-left-color: #4285f4;
+  transition: 0.25s;
+}
+#breadcrumb li a:hover {
+  background-color: #1abc9c;
+}
+#breadcrumb li a:hover:before {
+  border-color: #1abc9c;
+  border-left-color: transparent;
+}
+#breadcrumb li a:hover:after {
+  border-left-color: #1abc9c;
+}
+#breadcrumb li a:active {
+  background-color: #16a085;
+}
+#breadcrumb li a:active:before {
+  border-color: #16a085;
+  border-left-color: transparent;
+}
+#breadcrumb li a:active:after {
+  border-left-color: #16a085;
+}
+</style>
