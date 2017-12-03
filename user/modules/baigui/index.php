@@ -3,10 +3,23 @@ $post = new Post();
 $ac = Utils::getIndex("ac");
 $getById_baiviet = $post->getById(Utils::getIndex("id"));
 
+$chitiet_suabai = new Chitiet_suabai();
+$chitiet_duyetbai = new Chitiet_duyetbai();
+
 $loaitin = new Loaitin();
 $getAll = $loaitin->getAll();
 $id_baiviet = Utils::getIndex("id");
+$row = $post->getById($id_baiviet);
+$err = "";
 
+$name_tacgia = $user->getById($_SESSION["user_data"]["id_user"]);
+$name_baiviet = postIndex("name_baiviet", "");
+$tomtat_baiviet = postIndex("tomtat_baiviet", "");
+$noidung_baiviet = postIndex("noidung_baiviet", "");
+$trangthai_baiviet = postIndex("trangthai_baiviet", "");
+if(isset($_POST["submit"]))
+	$anh_baiviet = $_FILES["anh_baiviet"]["name"];
+$id_loaitin = postIndex("id_loaitin", "");
 
 if ($ac == "send") {
   $post->sendBaiviet($id_baiviet);
@@ -19,8 +32,34 @@ if ($ac == "send") {
 		</script>
   <?php
 }
-	 
-
+else if(isset($_POST["submit"])) {
+  if ($ac == "saveEdit") {
+  	if (isset($_FILES["anh_baiviet"]) && $_FILES["anh_baiviet"]["name"] != "") {
+			$anh_baiviet = $_FILES["anh_baiviet"]["name"];
+			if (isValidImage($_FILES["anh_baiviet"]) != "") {
+				$err .= isValidImage($_FILES["anh_baiviet"]);
+			}
+  	}
+		else
+			$anh_baiviet = $row["anh_baiviet"];
+		if ($err == "") {
+			if($trangthai_baiviet == 1) {
+				$yeucau_baiviet = $getById_baiviet["yeucau_baiviet"];
+				if($yeucau_baiviet != "")
+					$chitiet_suabai->addEdit($name_tacgia["id_user"], $id_baiviet, $anh_baiviet, $yeucau_baiviet);
+			}
+			$post->saveEditUser(Utils::getIndex("id"), $anh_baiviet);
+	  	?>
+		    <script language="javascript">
+					swal('Thành công!','Click Ok để tiếp tục!','success');
+					$('.swal2-confirm').click(function(){
+					  window.location="index.php?mod=baigui&ac=listyeucau";
+					});
+				</script>
+	    <?php
+		}	
+  }
+}
 ?>
 
 <div id="content" class="pmd-content inner-page">
@@ -37,7 +76,19 @@ if ($ac == "send") {
 		  <li><a href="index.php?mod=dashboard">Dashboard</a></li>
 		  <li class="active">Bài gửi</li>
 		</ol><!--breadcrum end-->
-	
+		
+		<?php  
+      if($err != "") {
+        ?>
+        <div class="col-md-12">
+        	<div class="alert alert-danger">      
+            <?php echo $err; ?>
+          </div>
+        </div>
+        <?php
+      }
+    ?>
+
 		<section class="row component-section dashboard">
 			 <?php
 				if ($ac == "listchuagui") 
@@ -45,7 +96,11 @@ if ($ac == "send") {
 				else if ($ac == "listdagui")
 					include "modules/baigui/listdagui.php";
 				else if ($ac == "listyeucau")
-					include "modules/baigui/listyeucau.php";	
+					include "modules/baigui/listyeucau.php";
+				else if (Count($row) != 0) {
+					$info = "Chỉnh sửa bài viết theo yêu cầu";
+					include "modules/baigui/editbaiviet.php";
+				}	
   		?>
 		</section>
 

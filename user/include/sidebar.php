@@ -57,13 +57,13 @@
 		</li>
 
 		<li> 
-			<a class="pmd-ripple-effect" href="index.php?mod=baiviet&ac=showdaduyet">	
+			<a class="pmd-ripple-effect" href="index.php?mod=baidadang">	
 				<i class="media-left media-middle material-icons md-dark pmd-sm" style="color: #C9C8C8">backup</i> 
 				<span class="media-body">Bài đã đăng</span>
 			</a> 
 		</li>
 		<li> 
-			<a class="pmd-ripple-effect" href="index.php?mod=baiviet&ac=showdahuy">	
+			<a class="pmd-ripple-effect" href="index.php?mod=baidahuy">	
 				<i class="media-left media-middle material-icons md-dark pmd-sm" style="color: #C9C8C8">delete_forever</i> 
 				<span class="media-body">Bài đã hủy</span>
 			</a> 

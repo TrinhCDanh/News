@@ -12,17 +12,20 @@
 		<thead>
 			<tr>
 				<th></th>
+				<th>Lần sửa thứ</th>
 				<th>Tiêu đề bài viết</th>
 				<th>Loại tin</th>
 				<th>Thao tác</th>
 			</tr>
 		</thead>
 		<tbody>
-			<?php  
+			<?php
+				$i=1;  
 				foreach ($data_chitietsuabai as $r) {
 					?>
 						<tr>
 							<td></td>
+							<td><?php echo $i++; ?></td>
 							<td class="col-md-6">
 								<?php echo $r["name_baiviet"]; ?>
 							</td>

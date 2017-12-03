@@ -3,6 +3,54 @@
 	<div class="container-fluid">
 		<div class="row" id="card-masonry">
 		 
+		<!-- Propeller Marketplace-->
+		 <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+			<div class="pmd-card pmd-z-depth advertising-info">
+				<div class="pmd-card-title">
+					<h2 class="pmd-card-title-text typo-fill-secondary propeller-title">Bài đã đăng</h2>
+				</div>
+				<div class="pmd-card-body">
+					
+				</div>
+			</div>
+		 </div><!-- end Propeller Marketplace -->
+
+		 <!-- Propeller Marketplace-->
+		 <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+			<div class="pmd-card pmd-z-depth advertising-info">
+				<div class="pmd-card-title">
+					<h2 class="pmd-card-title-text typo-fill-secondary propeller-title">Lượt xem</h2>
+				</div>
+				<div class="pmd-card-body">
+					
+				</div>
+			</div>
+		 </div><!-- end Propeller Marketplace -->
+
+		 <!-- Propeller Marketplace-->
+		 <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+			<div class="pmd-card pmd-z-depth advertising-info">
+				<div class="pmd-card-title">
+					<h2 class="pmd-card-title-text typo-fill-secondary propeller-title">Lượt bình luận</h2>
+				</div>
+				<div class="pmd-card-body">
+					
+				</div>
+			</div>
+		 </div><!-- end Propeller Marketplace -->
+
+		 <!-- Propeller Marketplace-->
+		 <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+			<div class="pmd-card pmd-z-depth advertising-info">
+				<div class="pmd-card-title">
+					<h2 class="pmd-card-title-text typo-fill-secondary propeller-title">Bài chưa duyệt</h2>
+				</div>
+				<div class="pmd-card-body">
+					
+				</div>
+			</div>
+		 </div><!-- end Propeller Marketplace -->
+
 		 <!-- Today's Site Activity -->
 		 <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
 			<div class="pmd-card pmd-z-depth">      
@@ -87,7 +135,7 @@
 						<!--circle chart-->
 						<div class="chart circle-chart border-right pull-left">
 							<div class="circle">
-								<div id="circles-1"></div>
+								<div id="circles-1">100</div>
 								<div class="source-semibold text-center chart-title">Users</div>
 							</div>
 							<div class="circle">
