@@ -115,9 +115,9 @@ if (!isset($_SESSION["admin_login"])) {
 
 <?php 
 
-if($mod == "theloai" || $mod == "loaitin" || $mod == "baiviet")
+if($mod == "theloai" || $mod == "loaitin" || $mod == "baiviet" || $mod == "dashboard")
 	include "modules/custom_js/data_table.html";
-else
+if($mod == "dashboard")
 	include "modules/custom_js/dashboard.html";
 ?>
 

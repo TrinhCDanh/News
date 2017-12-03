@@ -129,7 +129,7 @@ class Post extends Db {
 		return $this->exeNoneQuery($sql, $arr);	
 	}
 
-	//Yêu cầu tác giả bài viết sửa
+	//Admin yêu cầu User sửa bài viết
 	public function requestEdit($id_baiviet) {
 		$yeucau_baiviet = Utils::postIndex("yeucau_baiviet");
 		
@@ -241,5 +241,16 @@ class Post extends Db {
 
 		return $this->exeNoneQuery($sql, $arr);
 	}
+
+	//Đếm số bài viết của từng user
+	public function countBaivietbyUser() {
+		return $this->exeQuery("SELECT name_user, COUNT(id_baiviet) as sobaiviet FROM user left JOIN baiviet on user.name_user = baiviet.name_tacgia GROUP BY name_user ORDER BY sobaiviet DESC");
+	}
+
+	//Đếm số bài viết của từng loại tin 
+	public function countBaivietbyLoaitin() {
+		return $this->exeQuery("SELECT name_loaitin, COUNT(id_baiviet) as sobaiviet FROM baiviet JOIN loaitin ON baiviet.id_loaitin = loaitin.id_loaitin WHERE duyet_baiviet=1 GROUP BY name_loaitin");
+	}
 }
+
 ?>

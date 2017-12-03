@@ -113,7 +113,7 @@
 		<!--breadcrum start-->
 		<ol class="breadcrumb text-left">
 		  <li><a href="index.php?mod=dashboard">Dashboard</a></li>
-		  <li class="active">Bài viết <?php print_r($getId_chitiet_duyetbai); ?></li>
+		  <li class="active">Bài viết</li>
 		</ol><!--breadcrum end-->
 		
 		<?php  
@@ -137,7 +137,7 @@
 					include "modules/baiviet/addbaiviet.php";
   			}
 				else {
-					$info = "Chỉnh sửa viết mới";
+					$info = "Xem và duyệt bài";
 					if(!empty($getId_chitiet_duyetbai) && $name_tacgia["id_admin"] != $getId_chitiet_duyetbai["id_admin"]) {
 						?>
 					    <script language="javascript">

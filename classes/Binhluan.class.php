@@ -1,5 +1,9 @@
 <?php
 class Binhluan extends Db{
+
+	public function getAll() {
+		return $this->exeQuery("SELECT * FROM binhluan ORDER BY id_binhluan DESC");
+	}
 	
 	public function getById($id_binhluan) {
 		$sql="SELECT * 
@@ -32,5 +36,10 @@ class Binhluan extends Db{
 		$arr =  Array(":id_binhluan"=>$id_binhluan);
 		return $this->exeNoneQuery($sql, $arr);	
 	}
+
+	public function countBinhluan() {
+		return $this->exeQuery("SELECT count(*) as luotbinhluan FROM binhluan");
+	}
+
 	
 }

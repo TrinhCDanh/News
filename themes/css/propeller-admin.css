@@ -128,7 +128,7 @@ h2.typo-fill-secondary{ color:rgba(77, 87, 93, 0.68); font-size:22px;}
 }
 
 /*====================== browser usage ================*/
-.value-added .value-added-section { border-right:1px solid #dfe3e7;  border-bottom:1px solid #dfe3e7; padding-top:14px; padding-bottom:13px;}
+.value-added .value-added-section { border-right:1px solid #dfe3e7; padding-top:14px; padding-bottom:13px;}
 .value-added .value-added-section .title { font-size:18px; line-height:1.2; color:rgba(77, 87, 93, 0.68); font-weight:500;}
 .value-added .value-added-section:nth-child(2), .value-added .value-added-section:nth-child(4),.value-added .value-added-section:nth-child(6) { border-right:0;}
 .value-added .value-added-section:nth-child(5), .value-added .value-added-section:nth-child(6) { border-bottom:0;}
