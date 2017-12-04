@@ -1,28 +1,3 @@
-<style type="text/css">
-	.info-page {
-		margin-bottom: 20px;
-	}
-	.tcd-card-title {
-		background-color: #1f2f46;
-		padding: 16px;
-	}
-	.tcd-card-title-text {
-		color: #C9C8C8;
-		margin: 0;
-	}
-	.tcd-card-body {
-		padding: 10px;
-	}
-	.info-page .material-icons {
-		color: #fff; 
-		font-size: 100px;
-	}
-	.tcd-card-body-text {
-		color: #fff;
-		margin: 0;
-	}
-</style>
-
 <?php  
 	$baiviet = new Post();
 	$binhluan = new Binhluan();

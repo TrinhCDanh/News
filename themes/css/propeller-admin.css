@@ -572,3 +572,42 @@ td {overflow: hidden; white-space: normal!important;}
   padding: 0;
   background-color: #fff;
 }
+/*-- xem nội dung bài viết --*/
+.tcd-card-body {
+  padding: 16px;
+}
+.review-post img {
+  display: block;
+  margin: auto;
+  width: 50%!important;
+  height: auto!important;
+}
+
+@media only screen and (max-width: 800px) {
+  .review-post img {
+    width: 100%!important;
+  }
+}
+/*-- dashboard --*/
+.info-page {
+  margin-bottom: 20px;
+}
+.tcd-card-title {
+  background-color: #1f2f46;
+  padding: 16px;
+}
+.tcd-card-title-text {
+  color: #C9C8C8;
+  margin: 0;
+}
+.tcd-card-body {
+  padding: 10px;
+}
+.info-page .material-icons {
+  color: #fff; 
+  font-size: 100px;
+}
+.tcd-card-body-text {
+  color: #fff;
+  margin: 0;
+}

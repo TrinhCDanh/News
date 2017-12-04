@@ -37,7 +37,7 @@
 								?>	
 							</td>
 							<td class="pmd-table-row-action">
-								<a href="index.php?mod=baiviet&ac=showsuabai&id_suabai=<?php echo $r["id_suabai"];?>" class="btn pmd-btn-fab pmd-btn-flat pmd-ripple-effect btn-default btn-sm">
+								<a href="index.php?mod=history&ac=showsuabai&id_suabai=<?php echo $r["id_suabai"];?>" class="btn pmd-btn-fab pmd-btn-flat pmd-ripple-effect btn-default btn-sm">
 									<i class="material-icons md-dark pmd-sm">remove_red_eye</i>
 								</a>					
 							</td>

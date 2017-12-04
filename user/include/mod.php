@@ -11,6 +11,10 @@ else if ($mod == "baidadang")
 	include "modules/baidadang/index.php";
 else if ($mod == "baidahuy")
 	include "modules/baidahuy/index.php";
+else if ($mod == "history")
+	include "modules/history/index.php";
+else
+	include "modules/dashboard/index.php";
 /*else if ($mod=="user")
 	include "modules/user/index.php";
 else if ($mod=="ttadmin")
