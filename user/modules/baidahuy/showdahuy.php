@@ -37,10 +37,10 @@
 								</td>
 								<td><?php echo $r["name_tacgia"]; ?></td>
 								<td class="pmd-table-row-action">
-									<a href="index.php?mod=baiviet&ac=history&id_baiviet=<?php echo $r["id_baiviet"];?>" class="btn pmd-btn-fab pmd-btn-flat pmd-ripple-effect btn-default btn-sm">
+									<a href="index.php?mod=baiviet&ac=history&id_baiviet=<?php echo $r["id_baiviet"];?>" class="btn pmd-btn-fab pmd-btn-flat pmd-ripple-effect btn-default btn-sm pmd-tooltip" data-toggle="tooltip" data-placement="top" title="Xem lại nội dung bài viết bị hủy">
 										<i class="material-icons md-dark pmd-sm">remove_red_eye</i>
 									</a>
-									<a href="index.php?mod=baidahuy&ac=delete&id=<?php echo $r["id_baiviet"];?>" class="btn pmd-btn-fab pmd-btn-flat pmd-ripple-effect btn-default btn-sm">
+									<a href="index.php?mod=baidahuy&ac=delete&id=<?php echo $r["id_baiviet"];?>" class="btn pmd-btn-fab pmd-btn-flat pmd-ripple-effect btn-default btn-sm" data-toggle="tooltip" data-placement="top" title="Xóa bài viết bị hủy">
 										<i class="material-icons md-dark pmd-sm">delete</i>
 									</a>					
 								</td>

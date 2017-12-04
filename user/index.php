@@ -119,7 +119,13 @@ if($mod == "theloai" || $mod == "loaitin" || $mod == "baiviet" || $mod == "baigu
 else
     include "modules/custom_js/dashboard.html";
 ?>
-
+<script>
+	$(document).ready(function(){
+		$(function () {
+			$('[data-toggle="tooltip"]').tooltip()
+		})
+	});
+</script>
 
 
 </body>

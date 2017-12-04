@@ -37,10 +37,10 @@
 								</td>
 								<td><?php echo $r["name_tacgia"]; ?></td>
 								<td class="pmd-table-row-action">
-									<a href="index.php?mod=baiviet&id=<?php echo $r["id_baiviet"];?>" class="btn pmd-btn-fab pmd-btn-flat pmd-ripple-effect btn-default btn-sm">
+									<a href="index.php?mod=baiviet&id=<?php echo $r["id_baiviet"];?>" class="btn pmd-btn-fab pmd-btn-flat pmd-ripple-effect btn-default btn-sm pmd-tooltip" data-toggle="tooltip" data-placement="top" title="Chỉnh sửa bài nháp">
 										<i class="material-icons md-dark pmd-sm">edit</i>
 									</a>
-									<a href="index.php?mod=baiviet&ac=delete&id=<?php echo $r["id_baiviet"];?>" class="btn pmd-btn-fab pmd-btn-flat pmd-ripple-effect btn-default btn-sm">
+									<a href="index.php?mod=baiviet&ac=delete&id=<?php echo $r["id_baiviet"];?>" class="btn pmd-btn-fab pmd-btn-flat pmd-ripple-effect btn-default btn-sm" data-toggle="tooltip" data-placement="top" title="Xóa bài nháp">
 										<i class="material-icons md-dark pmd-sm">delete</i>
 									</a>					
 								</td>

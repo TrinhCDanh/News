@@ -52,20 +52,22 @@
 		<div class="row" id="card-masonry">
 		 
 		<!-- Propeller Marketplace-->
-		 <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
-			<div class="card pmd-z-depth info-page">
-				<div class="tcd-card-title text-center">
-					<h2 class="tcd-card-title-text">Bài chưa duyệt</h2>
+		 <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 pmd-tooltip" data-toggle="tooltip" data-placement="bottom" title="Tổng số bài viết chưa được xét duyệt">
+		 	<a href="index.php?mod=baiviet&ac=showchuaduyet">
+				<div class="card pmd-z-depth info-page">
+					<div class="tcd-card-title text-center">
+						<h2 class="tcd-card-title-text">Bài chưa duyệt</h2>
+					</div>
+					<div class="tcd-card-body text-center" style="background-color: #3F51B5;">
+						<i class="material-icons md-dark pmd-sm">library_books</i>
+						<h2 class="tcd-card-body-text"><?php echo $baichuaduyet; ?></h2>
+					</div>
 				</div>
-				<div class="tcd-card-body text-center" style="background-color: #3F51B5;">
-					<i class="material-icons md-dark pmd-sm">library_books</i>
-					<h2 class="tcd-card-body-text"><?php echo $baichuaduyet; ?></h2>
-				</div>
-			</div>
+			</a>
 		 </div><!-- end Propeller Marketplace -->
 
 		 <!-- Propeller Marketplace-->
-		 <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+		 <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3" data-toggle="tooltip" data-placement="bottom" title="Tổng số bài viết đã được đăng lên trang chủ">
 			<div class="card pmd-z-depth info-page">
 				<div class="tcd-card-title text-center">
 					<h2 class="tcd-card-title-text">Bài đã đăng</h2>
@@ -78,7 +80,7 @@
 		 </div><!-- end Propeller Marketplace -->
 
 		 <!-- Propeller Marketplace-->
-		 <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+		 <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3" data-toggle="tooltip" data-placement="bottom" title="Tổng số lượt xem của các bài viết được đăng trên website">
 			<div class="card pmd-z-depth info-page">
 				<div class="tcd-card-title text-center">
 					<h2 class="tcd-card-title-text">Số lượt xem</h2>
@@ -91,7 +93,7 @@
 		 </div><!-- end Propeller Marketplace -->
 
 		 <!-- Propeller Marketplace-->
-		 <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+		 <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3"  data-toggle="tooltip" data-placement="bottom" title="Tổng số lượt bình luận của các bài viết được đăng trên website">
 			<div class="card pmd-z-depth info-page">
 				<div class="tcd-card-title text-center">
 					<h2 class="tcd-card-title-text">Số bình luận</h2>
@@ -233,13 +235,17 @@
 											<img alt="40x40" data-src="holder.js/40x40" class="img-responsive" src="../themes/images/user-icon.png" data-holder-rendered="true"> 
 										</a> 
 									</div>
-									<div class="media-body media-middle">
-										<h3 class="list-group-item-heading"><?php echo $row_chuaduyet["name_tacgia"]; ?></h3>
-										<span class="list-group-item-text"><?php echo $row_chuaduyet["name_baiviet"]; ?></span>
-									</div>
-									<div class="media-right post">
-										<span class="post-time"><?php echo $row_chuaduyet["ngay_capnhat"]; ?></span>
-									</div>
+									
+										<div class="media-body media-middle">
+											<a href="index.php?mod=baiviet&id=<?php echo $row_chuaduyet["id_baiviet"];?>">
+												<h3 class="list-group-item-heading"><?php echo $row_chuaduyet["name_tacgia"]; ?></h3>
+												<span class="list-group-item-text"><?php echo $row_chuaduyet["name_baiviet"]; ?></span>
+											</a>
+										</div>
+										<div class="media-right post">
+											<span class="post-time"><?php echo $row_chuaduyet["ngay_capnhat"]; ?></span>
+										</div>
+
 								</li>
 							<?php
 						}

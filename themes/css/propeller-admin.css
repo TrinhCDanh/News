@@ -68,7 +68,7 @@ nav .notification .notification-blank span.dic { display:block; font-size:58px; 
 .dashboard .row > div{ padding-left: 10px; padding-right: 10px;}
 
 /* Dashboard card*/
-.dashboard .pmd-card-title {font-size: 18px; margin-top:0; margin-bottom:0;}
+.dashboard .pmd-card-title {font-size: 18px; margin-top:0; /*margin-bottom:0;*/}
 .dashboard .pmd-card { margin-bottom:20px;}
 .dashboard .pmd-card-body, .dashboard .notification .content-section { min-height:100px;}
 h2.typo-fill-secondary{ color:rgba(77, 87, 93, 0.68); font-size:22px;}

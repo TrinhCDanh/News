@@ -120,7 +120,13 @@ if($mod == "theloai" || $mod == "loaitin" || $mod == "baiviet" || $mod == "dashb
 if($mod == "dashboard")
 	include "modules/custom_js/dashboard.html";
 ?>
-
+<script>
+	$(document).ready(function(){
+		$(function () {
+			$('[data-toggle="tooltip"]').tooltip()
+		})
+	});
+</script>
 
 
 </body>

@@ -17,7 +17,7 @@
 
 
     
-      <div class="col-md-9">
+      <div class="col-md-9 review-post">
        <?php 
         if($row["name_tacgia"] != $name_tacgia["name_admin"] && $row["duyet_baiviet"]==0) {
         ?> 
@@ -167,6 +167,18 @@
 <style type="text/css">
   .tcd-card-body {
     padding: 16px;
+  }
+  .review-post img {
+    display: block;
+    margin: auto;
+    width: 50%!important;
+    height: auto!important;
+  }
+
+  @media only screen and (max-width: 800px) {
+    .review-post img {
+      width: 100%!important;
+    }
   }
 </style>
 

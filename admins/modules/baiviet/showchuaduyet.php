@@ -42,7 +42,7 @@
 								</td>
 								<td><?php echo $r["name_tacgia"]; ?></td>
 								<td class="pmd-table-row-action">
-									<a href="index.php?mod=baiviet&id=<?php echo $r["id_baiviet"];?>" class="btn pmd-btn-fab pmd-btn-flat pmd-ripple-effect btn-default btn-sm" data-toggle="tooltip" data-placement="top" title="Xem và duyệt bài">
+									<a href="index.php?mod=baiviet&id=<?php echo $r["id_baiviet"];?>" class="btn pmd-btn-fab pmd-btn-flat pmd-ripple-effect btn-default btn-sm pmd-tooltip" data-toggle="tooltip" data-placement="top" title="Xem và duyệt bài">
 										<i class="material-icons md-dark pmd-sm">remove_red_eye</i>
 									</a>
 									<a href="index.php?mod=baiviet&ac=delete&id=<?php echo $r["id_baiviet"];?>" class="btn pmd-btn-fab pmd-btn-flat pmd-ripple-effect btn-default btn-sm" data-toggle="tooltip" data-placement="top" title="Hủy bài">
@@ -63,10 +63,4 @@
 
 </div>
 			</div> 
-<script>
-	$(document).ready(function(){
-		$(function () {
-			$('[data-toggle="tooltip"]').tooltip()
-		})
-	});
-</script>
+

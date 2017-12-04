@@ -40,7 +40,7 @@
 									<a href="index.php?mod=baiviet&id=<?php echo $r["id_baiviet"];?>" class="btn pmd-btn-fab pmd-btn-flat pmd-ripple-effect btn-default btn-sm">
 										<i class="material-icons md-dark pmd-sm">edit</i>
 									</a>
-									<a href="index.php?mod=baigui&ac=send&id=<?php echo $r["id_baiviet"];?>" class="btn pmd-btn-fab pmd-btn-flat pmd-ripple-effect btn-default btn-sm">
+									<a href="index.php?mod=baigui&ac=send&id=<?php echo $r["id_baiviet"];?>" class="btn pmd-btn-fab pmd-btn-flat pmd-ripple-effect btn-default btn-sm pmd-tooltip" data-toggle="tooltip" data-placement="top" title="Gửi bài và được duyệt">
 										<i class="material-icons md-dark pmd-sm">send</i>
 									</a>					
 								</td>
