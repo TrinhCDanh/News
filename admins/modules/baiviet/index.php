@@ -18,8 +18,6 @@
 	$name_baiviet = postIndex("name_baiviet", "");
 	$tomtat_baiviet = postIndex("tomtat_baiviet", "");
 	$noidung_baiviet = postIndex("noidung_baiviet", "");
-	if(isset($_POST["submit"]))
-		$anh_baiviet = $_FILES["anh_baiviet"]["name"];
 	$id_loaitin = postIndex("id_loaitin", "");
 	$duyet_baiviet = postIndex("duyet_baiviet", "");
 
@@ -34,44 +32,16 @@
 			</script>
     <?php
   }
-	else if(isset($_POST["submit"])) {
-		if ($ac == "saveAdd") {
-			if (isValidImage($_FILES["anh_baiviet"]) != "") {
-				$err .= isValidImage($_FILES["anh_baiviet"]);
-			}
-			else {
-		    $post->saveAddNew($name_tacgia["name_admin"],$duyet_baiviet=1);
-		    ?>
-			    <script language="javascript">
-						swal('Thành công!','Click Ok để tiếp tục!','success');
-						$('.swal2-confirm').click(function(){
-						  window.location="index.php?mod=baiviet&ac=showbaiviet";
-						});
-					</script>
-		    <?php
-	  	}
-	  }
-	  else if ($ac == "saveEdit") {
-	  	if (isset($_FILES["anh_baiviet"]) && $_FILES["anh_baiviet"]["name"] != "") {
-				$anh_baiviet = $_FILES["anh_baiviet"]["name"];
-				if (isValidImage($_FILES["anh_baiviet"]) != "") {
-					$err .= isValidImage($_FILES["anh_baiviet"]);
-				}
-	  	}
-			else
-				$anh_baiviet = $row["anh_baiviet"];
-			if ($err == "") {
-				$post->saveEdit(Utils::getIndex("id"), $anh_baiviet);
-		  	?>
-			    <script language="javascript">
-						swal('Thành công!','Click Ok để tiếp tục!','success');
-						$('.swal2-confirm').click(function(){
-						  window.location="index.php?mod=baiviet&ac=showdaduyet";
-						});
-					</script>
-		    <?php
-			}	
-	  }
+	else if(isset($_POST["submit"]) && $ac == "saveEdit") {
+		$post->postBaiviet(Utils::getIndex("id"));
+  	?>
+	    <script language="javascript">
+				swal('Thành công!','Click Ok để tiếp tục!','success');
+				$('.swal2-confirm').click(function(){
+				  window.location="index.php?mod=baiviet&ac=showdaduyet";
+				});
+			</script>
+    <?php	
 	}
 	else if(isset($_POST["request"]) && $ac == "requestEdit") {
 		if(!empty($getId_chitiet_duyetbai) && $name_tacgia["id_admin"] != $getId_chitiet_duyetbai["id_admin"]) {
@@ -137,7 +107,7 @@
 					include "modules/baiviet/addbaiviet.php";
   			}
 				else {
-					$info = "Xem và duyệt bài";
+					$info = "Nội dung bài viết";
 					if(!empty($getId_chitiet_duyetbai) && $name_tacgia["id_admin"] != $getId_chitiet_duyetbai["id_admin"]) {
 						?>
 					    <script language="javascript">

@@ -251,6 +251,15 @@ class Post extends Db {
 	public function countBaivietbyLoaitin() {
 		return $this->exeQuery("SELECT name_loaitin, COUNT(id_baiviet) as sobaiviet FROM baiviet JOIN loaitin ON baiviet.id_loaitin = loaitin.id_loaitin WHERE duyet_baiviet=1 GROUP BY name_loaitin");
 	}
+
+	//Duyệt và đăng bài viết lên trang chủ sồ lượt xem
+	public function postBaiviet($id_baiviet) {
+		$duyet_baiviet = Utils::postIndex("duyet_baiviet");
+		$ngay_capnhat = date("d-m-Y H:i:s");
+		$sql = "UPDATE baiviet SET duyet_baiviet=:duyet_baiviet, ngay_capnhat=:ngay_capnhat WHERE id_baiviet=:id_baiviet";
+		$arr = array(':id_baiviet' => $id_baiviet, ":ngay_capnhat"=>$ngay_capnhat, ":duyet_baiviet"=>$duyet_baiviet);
+		return $this->exeNoneQuery($sql, $arr);
+	}
 }
 
 ?>

@@ -37,7 +37,7 @@
 								<td><?php echo $r["name_tacgia"]; ?></td>
 								<td class="pmd-table-row-action">
 									<a href="index.php?mod=baiviet&id=<?php echo $r["id_baiviet"];?>" class="btn pmd-btn-fab pmd-btn-flat pmd-ripple-effect btn-default btn-sm">
-										<i class="material-icons md-dark pmd-sm">edit</i>
+										<i class="material-icons md-dark pmd-sm">remove_red_eye</i>
 									</a>
 									<a href="index.php?mod=baiviet&ac=delete&id=<?php echo $r["id_baiviet"];?>" class="btn pmd-btn-fab pmd-btn-flat pmd-ripple-effect btn-default btn-sm">
 										<i class="material-icons md-dark pmd-sm">delete</i>
