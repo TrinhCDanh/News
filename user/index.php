@@ -114,7 +114,7 @@ if (!isset($_SESSION["user_login"])) {
 
 <?php 
 
-if($mod == "theloai" || $mod == "loaitin" || $mod == "baiviet" || $mod == "baigui" || $mod == "baidadang" || $mod == "baidahuy" || $mod == "history")
+if($mod == "theloai" || $mod == "loaitin" || $mod == "baiviet" || $mod == "baigui" || $mod == "baidadang" || $mod == "baidahuy" || $mod == "history" || $mod == "dashboard")
     include "modules/custom_js/data_table.html";
 else
     include "modules/custom_js/dashboard.html";

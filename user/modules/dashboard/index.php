@@ -7,11 +7,11 @@
 	$data_baiviet = $baiviet->getByAuthor($author["name_user"]);
 
 	$data_binhluan = $binhluan->getAll();
-	$luotbinhluan = $binhluan->countBinhluan();
+	//$luotbinhluan = $binhluan->countBinhluan();
 	$countBaivietbyUser = $baiviet->countBaivietbyUser();
 	$countBaivietbyLoaitin = $baiviet->countBaivietbyLoaitin();
 
-	$baidagui = $baidadang = $soluotxem = $baibihuy = $bainhap = $baiyeucausua = 0;
+	$baidagui = $baidadang = $soluotxem = $baibihuy = $bainhap = $baiyeucausua = $luotbinhluan = 0;
 
 	foreach ($data_baiviet as $row_baiviet) {
 		if ($row_baiviet["trangthai_baiviet"] == 1) {
@@ -28,7 +28,11 @@
 			if ($row_baiviet["duyet_baiviet"] == 0 && $row_baiviet["yeucau_baiviet"] != "")
 				$baiyeucausua++;
 		}
-		$soluotxem += $row_baiviet["luotxem_baiviet"]; 
+		$soluotxem += $row_baiviet["luotxem_baiviet"];
+		foreach ($data_binhluan as $row_binhluan) {
+		 		if ($row_binhluan["id_baiviet"] == $row_baiviet["id_baiviet"])
+		 			$luotbinhluan++;
+		 } 
 	}
 ?>
 
@@ -83,15 +87,15 @@
 		 </div><!-- end Propeller Marketplace -->
 		 
 		<!-- Propeller Marketplace-->
-		 <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 pmd-tooltip" data-toggle="tooltip" data-placement="bottom" title="Tổng số bài viết chưa được xét duyệt">
+		 <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 pmd-tooltip" data-toggle="tooltip" data-placement="bottom" title="Các bài viết chưa được gửi cho Admin xét duyệt">
 		 	<a href="index.php?mod=baiviet&ac=showchuaduyet">
 				<div class="card pmd-z-depth info-page">
 					<div class="tcd-card-title text-center">
-						<h2 class="tcd-card-title-text">Bài chưa duyệt</h2>
+						<h2 class="tcd-card-title-text">Bài chưa gửi</h2>
 					</div>
 					<div class="tcd-card-body text-center" style="background-color: #3F51B5;">
 						<i class="material-icons md-dark pmd-sm">library_books</i>
-						<h2 class="tcd-card-body-text"><?php echo $baidagui; ?></h2>
+						<h2 class="tcd-card-body-text"><?php echo $bainhap; ?></h2>
 					</div>
 				</div>
 			</a>
@@ -109,6 +113,18 @@
 				</div>
 			</div>
 		 </div><!-- end Propeller Marketplace -->
+
+		<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3"  data-toggle="tooltip" data-placement="bottom" title="Các bài viết bị hủy do không đạt yêu cầu hoặc bài viết đã cũ">
+			<div class="card pmd-z-depth info-page">
+				<div class="tcd-card-title text-center">
+					<h2 class="tcd-card-title-text">Bài bị hủy</h2>
+				</div>
+				<div class="tcd-card-body text-center" style="background-color: #00BCD4;">
+					<i class="material-icons md-dark pmd-sm">comment</i>
+					<h2 class="tcd-card-body-text"><?php echo $baibihuy; ?></h2>
+				</div>
+			</div>
+		 </div>
 
 		 <!-- Propeller Marketplace-->
 		 <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3" data-toggle="tooltip" data-placement="bottom" title="Tổng số lượt xem của các bài viết được đăng trên website">
@@ -131,48 +147,35 @@
 				</div>
 				<div class="tcd-card-body text-center" style="background-color: #00BCD4;">
 					<i class="material-icons md-dark pmd-sm">comment</i>
-					<h2 class="tcd-card-body-text"><?php echo $luotbinhluan[0]["luotbinhluan"]; ?></h2>
+					<h2 class="tcd-card-body-text"><?php echo $luotbinhluan; ?></h2>
 				</div>
 			</div>
 		 </div>
 
-		 <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3"  data-toggle="tooltip" data-placement="bottom" title="Tổng số bài viết bị hủy do không đạt yêu cầu hoặc bài viết đã cũ">
-			<div class="card pmd-z-depth info-page">
-				<div class="tcd-card-title text-center">
-					<h2 class="tcd-card-title-text">Bài bị hủy</h2>
-				</div>
-				<div class="tcd-card-body text-center" style="background-color: #00BCD4;">
-					<i class="material-icons md-dark pmd-sm">comment</i>
-					<h2 class="tcd-card-body-text"><?php echo $baibihuy; ?></h2>
-				</div>
-			</div>
-		 </div>
 		 <!-- Today's Site Activity -->
-		 <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+		 <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12" data-toggle="tooltip" data-placement="bottom" title="Danh sách bài viết được Admin yêu cầu sửa lại">
 			<div class="pmd-card pmd-z-depth">      
 				<div class="table-responsive">
 					<table id="example-checkbox" class="table pmd-table table-hover table-striped display responsive nowrap" cellspacing="0" width="100%">
 					<thead>
 						<tr>
 							<th></th>
-							<th>Tác giả</th>
-							<th>Số bài viết</th>
+							<th>Tên bài viết</th>
+							<th>Nội dung yêu cầu sửa</th>
 						</tr>
 					</thead>
 					<tbody>
-						<?php
-							$sothanhvien = $dacobai = $chuacobai = 0;  
-							foreach ($countBaivietbyUser as $r) {
+						<?php 
+							foreach ($data_baiviet as $r) {
+								if($r["trangthai_baiviet"] == 0 && $r["duyet_baiviet"] == 0 && $r["yeucau_baiviet"]!= "") {
 								?>
 									<tr>
 										<td></td>
-										<td><?php echo $r["name_user"]; ?></td>
-										<td><?php echo $r["sobaiviet"]; ?></td>
+										<td><?php echo $r["name_baiviet"]; ?></td>
+										<td class="col-md-5"><?php echo $r["yeucau_baiviet"]; ?></td>
 									</tr>
 								<?php
-								$sothanhvien++;
-								if($r["sobaiviet"] == 0) $chuacobai++;
-								else $dacobai++;
+								}
 							}
 						?>
 					</tbody>
@@ -181,124 +184,7 @@
 			</div>
 		 </div> <!--end Today's Site Activity -->
 		 
-		 <!-- Propeller Marketplace-->
-		 <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-			<div class="pmd-card pmd-z-depth advertising-info">
-				<div class="pmd-card-title">
-					<div class="media-left set-svg">
-						<span class="service-icon img-circle bg-fill-red text-center">
-							<i class="material-icons md-dark pmd-sm" style="color: #fff; line-height: 40px;">supervisor_account</i>
-						</span>
-					</div>
-					<div class="media-body media-middle">
-						<h2 class="pmd-card-title-text typo-fill-secondary">Thành viên</h2>
-					</div>
-				</div>
-				<div class="pmd-card-body">
-					<p>Vnnews hiện đang có <strong><?php echo $sothanhvien; ?></strong> thành viên. Trong đó có:</p>
-					<p class="services-active">
-						<span class="pmd-display2 media-middle activated-service"><?php echo $dacobai; ?></span>
-						<span class="typo-fill-secondary source-semibold media-middle">Thành viên đã viết bài</span>
-					</p>
-					<p class="services-active">
-						<span class="pmd-display2 media-middle activated-service"><?php echo $chuacobai; ?></span>
-						<span class="typo-fill-secondary source-semibold media-middle">Thành viên chưa viết bài</span>
-					</p>
-					<a href="../../../get-started/" type="button" class="btn pmd-ripple-effect btn-services bg-fill-primary-color" title="get-started">Get Started</a>
-				</div>
-				<span class="btn-loader loader hidden">Loading...</span>
-			</div>
-		 </div><!-- end Propeller Marketplace -->
-
-		 <!--Browser Usage card-->
-		 <div class="col-lg-4 col-sm-6 col-xs-12 value-added-service-card">
-			<div class="pmd-card pmd-z-depth">     
-				<div class="pmd-card-title">
-					<div class="media-left set-svg">
-						<span class="service-icon img-circle bg-fill-violet">
-							<svg  x="0px" y="0px" width="32px" height="30px" viewBox="0 0 32 30" enable-background="new 0 0 32 30" xml:space="preserve">
-								<g>
-									<path fill="#FFFFFF" d="M16.413,3.584l2.832,6.83l0.594,1.431l1.546,0.105l7.196,0.491L23,17.036l-1.227,1.01l0.394,1.539
-										l1.835,7.174l-6.187-3.846l-1.32-0.82l-1.32,0.82L8.99,26.758l1.834-7.173l0.394-1.539l-1.226-1.01l-5.579-4.595l7.194-0.491
-										l1.583-0.108l0.577-1.477L16.413,3.584 M16.395-0.053c-0.708,0-1.416,0.404-1.72,1.213l-3.238,8.296l-8.902,0.607
-										c-1.619,0.202-2.428,2.226-1.011,3.237l6.879,5.665l-2.225,8.701c-0.316,1.263,0.724,2.28,1.87,2.28
-										c0.322,0,0.651-0.08,0.962-0.258l7.486-4.653l7.486,4.653c0.311,0.178,0.641,0.258,0.962,0.258c1.146,0,2.187-1.018,1.871-2.28
-										l-2.226-8.701l6.88-5.665c1.416-1.012,0.606-3.036-1.012-3.237l-8.903-0.607l-3.439-8.296C17.811,0.352,17.103-0.053,16.395-0.053
-										L16.395-0.053z"/>
-								</g>
-							</svg>
-						</span>
-					</div>
-					<div class="media-body media-middle">
-						<h2 class="pmd-card-title-text typo-fill-secondary">Bài viết theo loại tin</h2>
-					</div>
-				</div>
-				<div class="pmd-card-body text-center value-added">
-					<div class="row">
-						<?php  
-							foreach ($countBaivietbyLoaitin as $row_bvloaitin) {
-								?>
-									<div class="col-xs-6 value-added-section">
-										<div class="source-semibold typo-fill-secondary title"><?php echo $row_bvloaitin["name_loaitin"] ?></div>
-										<div class="pmd-display2"><a href="javascript:void(0)"><?php echo $row_bvloaitin["sobaiviet"] ?></a></div>
-									</div>
-								<?php
-							}
-						?>
-					</div>
-				</div>
-				<span class="btn-loader loader hidden">Loading...</span>
-			</div>
-		 </div><!--end Browser Usage card-->
-		 
-		 
-		 
-		 <!--Recent Posts-->
-		 <div class="col-lg-4 col-sm-6 col-xs-12">
-			<div class="pmd-card pmd-z-depth recent-post">      
-				<div class="pmd-card-title">
-					<div class="media-left set-svg">
-						<span class="service-icon img-circle bg-fill-red">
-							<svg version="1.1" id="XMLID_1_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="32px" height="32px" viewBox="0 0 32 32" enable-background="new 0 0 32 32" xml:space="preserve">
-								<path fill="#FFFFFF" d="M10,22h6L32,6l-6-6L10,16V22z M13,17L25,5l2,2L15,19h-2V17z M22,28H4V10h8l4-4H0v26h26V16l-4,4V28z"/>
-							</svg>
-						</span>
-					</div>
-					<div class="media-body media-middle">
-						<h2 class="pmd-card-title-text typo-fill-secondary">Bài viết chưa duyệt</h2>
-					</div>
-				</div>
-				<ul class="list-group pmd-card-list pmd-list-avatar">
-					<?php foreach ($data_baiviet as $row_chuaduyet) {
-						if($row_chuaduyet["duyet_baiviet"] == 0 && $row_chuaduyet["trangthai_baiviet"] == 1) {
-							?>
-								<li class="list-group-item">
-									<div class="media-left"> 
-										<a href="javascript:void(0);" class="avatar-list-img" title="profile-link"> 
-											<img alt="40x40" data-src="holder.js/40x40" class="img-responsive" src="../themes/images/user-icon.png" data-holder-rendered="true"> 
-										</a> 
-									</div>
-									
-										<div class="media-body media-middle">
-											<a href="index.php?mod=baiviet&id=<?php echo $row_chuaduyet["id_baiviet"];?>">
-												<h3 class="list-group-item-heading"><?php echo $row_chuaduyet["name_tacgia"]; ?></h3>
-												<span class="list-group-item-text"><?php echo $row_chuaduyet["name_baiviet"]; ?></span>
-											</a>
-										</div>
-										<div class="media-right post">
-											<span class="post-time"><?php echo $row_chuaduyet["ngay_capnhat"]; ?></span>
-										</div>
-
-								</li>
-							<?php
-						}
-					} ?>
-				</ul>
-				<span class="btn-loader loader hidden">Loading...</span>
-			</div>
-		 </div><!-- end Recent Posts-->	
-		 
-		 <!--project progress -->
+		<!--project progress -->
 	 	 <div class="col-lg-4 col-sm-6 col-xs-12">
 			<div class="pmd-card pmd-z-depth project-progress">      
 				 <div class="pmd-card-title">
@@ -313,12 +199,17 @@
 				</div>
 				<div class="content-section">
 					<ul class="list-group pmd-card-list pmd-list todo-lists">
-						<?php for ($i=0; $i < 3; $i++) { 
-							?>
-								<li class="list-group-item timeline project-info"><?php echo $data_binhluan[$i]["noidung_binhluan"]; ?>
+						<?php for ($i=0; $i < 3; $i++) {
+						foreach ($data_baiviet as $row_baiviet) {
+						 		if($data_binhluan[$i]["id_baiviet"] == $row_baiviet["id_baiviet"]) {
+						 			?>
+								<li class="list-group-item timeline project-info pmd-tooltip" data-toggle="tooltip" data-placement="left" title="Bài viết <?php echo $row_baiviet["name_baiviet"]; ?>"><?php echo $data_binhluan[$i]["noidung_binhluan"]; ?>
 									<h5 class="typo-fill-secondary"><?php echo $data_binhluan[$i]["name_binhluan"]; ?> - <?php echo $data_binhluan[$i]["ngay_tao"]; ?></h5>
 								</li>
 							<?php
+						 		}
+						 } 
+							
 						} ?>
 					</ul>
 					<div class="blank-state-section hidden">	
@@ -344,6 +235,98 @@
 				 <span class="btn-loader loader hidden">Loading...</span>
 			</div>
 	 	 </div><!-- end project progress -->	
+ 
+		 <!--Recent Posts-->
+		 <div class="col-lg-6 col-sm-6 col-xs-12">
+			<div class="pmd-card pmd-z-depth recent-post">      
+				<div class="pmd-card-title">
+					<div class="media-left set-svg">
+						<span class="service-icon img-circle bg-fill-red">
+							<svg version="1.1" id="XMLID_1_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="32px" height="32px" viewBox="0 0 32 32" enable-background="new 0 0 32 32" xml:space="preserve">
+								<path fill="#FFFFFF" d="M10,22h6L32,6l-6-6L10,16V22z M13,17L25,5l2,2L15,19h-2V17z M22,28H4V10h8l4-4H0v26h26V16l-4,4V28z"/>
+							</svg>
+						</span>
+					</div>
+					<div class="media-body media-middle">
+						<h2 class="pmd-card-title-text typo-fill-secondary">Bài viết chưa gửi</h2>
+					</div>
+				</div>
+				<ul class="list-group pmd-card-list pmd-list-avatar">
+					<?php foreach ($data_baiviet as $row_chuagui) {
+						if($row_chuagui["duyet_baiviet"] == 0 && $row_chuagui["trangthai_baiviet"] == 0) {
+							?>
+								<li class="list-group-item">
+									<div class="media-left"> 
+										<a href="javascript:void(0);" class="avatar-list-img" title="profile-link"> 
+											<img alt="40x40" data-src="holder.js/40x40" class="img-responsive" src="../themes/images/user-icon.png" data-holder-rendered="true"> 
+										</a> 
+									</div>
+									
+										<div class="media-body media-middle">
+											<a href="index.php?mod=baiviet&id=<?php echo $row_chuagui["id_baiviet"];?>">
+												<h3 class="list-group-item-heading"><?php echo $row_chuagui["name_baiviet"]; ?></h3>
+												<span class="list-group-item-text"><?php echo $row_chuagui["name_tacgia"]; ?></span>
+											</a>
+										</div>
+										<div class="media-right post">
+											<span class="post-time"><?php echo $row_chuagui["ngay_capnhat"]; ?></span>
+										</div>
+
+								</li>
+							<?php
+						}
+					} ?>
+				</ul>
+				<span class="btn-loader loader hidden">Loading...</span>
+			</div>
+		 </div><!-- end Recent Posts-->	
+
+		 <!--Recent Posts-->
+		 <div class="col-lg-6 col-sm-6 col-xs-12">
+			<div class="pmd-card pmd-z-depth recent-post">      
+				<div class="pmd-card-title">
+					<div class="media-left set-svg">
+						<span class="service-icon img-circle bg-fill-red">
+							<svg version="1.1" id="XMLID_1_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="32px" height="32px" viewBox="0 0 32 32" enable-background="new 0 0 32 32" xml:space="preserve">
+								<path fill="#FFFFFF" d="M10,22h6L32,6l-6-6L10,16V22z M13,17L25,5l2,2L15,19h-2V17z M22,28H4V10h8l4-4H0v26h26V16l-4,4V28z"/>
+							</svg>
+						</span>
+					</div>
+					<div class="media-body media-middle">
+						<h2 class="pmd-card-title-text typo-fill-secondary">Bài viết đang được Admin xét duyệt</h2>
+					</div>
+				</div>
+				<ul class="list-group pmd-card-list pmd-list-avatar">
+					<?php foreach ($data_baiviet as $row_choduyet) {
+						if($row_choduyet["duyet_baiviet"] == 0 && $row_choduyet["trangthai_baiviet"] == 1) {
+							?>
+								<li class="list-group-item">
+									<div class="media-left"> 
+										<a href="javascript:void(0);" class="avatar-list-img" title="profile-link"> 
+											<img alt="40x40" data-src="holder.js/40x40" class="img-responsive" src="../themes/images/user-icon.png" data-holder-rendered="true"> 
+										</a> 
+									</div>
+									
+										<div class="media-body media-middle">
+											<a href="index.php?mod=baiviet&id=<?php echo $row_choduyet["id_baiviet"];?>">
+												<h3 class="list-group-item-heading"><?php echo $row_choduyet["name_tacgia"]; ?></h3>
+												<span class="list-group-item-text"><?php echo $row_choduyet["name_baiviet"]; ?></span>
+											</a>
+										</div>
+										<div class="media-right post">
+											<span class="post-time"><?php echo $row_choduyet["ngay_capnhat"]; ?></span>
+										</div>
+
+								</li>
+							<?php
+						}
+					} ?>
+				</ul>
+				<span class="btn-loader loader hidden">Loading...</span>
+			</div>
+		 </div><!-- end Recent Posts-->	
+		 
+		 
 	</div>
 </div>
 
