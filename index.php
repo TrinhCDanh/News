@@ -87,7 +87,7 @@ if (isset($_SESSION["user_login"])) {
     <script src="public/assets/js/birthday.js"></script>
     <link rel="stylesheet" href="public/assets/css/birthday.css">
 
-    <link href="css/style.css" rel="stylesheet">
+    <link href="public/css/style.css" rel="stylesheet">
   </head>
   <body>
     <div id="wrapper">

@@ -85,7 +85,7 @@
               <h2>Ảnh đại diện</h2>
               <div class="file-upload">
                   <input type='file' id="imgInp" style="width: 100%" name="anh_baiviet"/>
-                  <button class="btn pmd-ripple-effect btn-primary btn-image"><img id="blah" src="../themes/images/image-not-available.png" alt="your image" style="width: 100%" /></button>
+                  <button class="btn pmd-ripple-effect btn-primary btn-image"><img id="blah" src="../public/themes/images/image-not-available.png" alt="your image" style="width: 100%" /></button>
               </div>
               
             </div>

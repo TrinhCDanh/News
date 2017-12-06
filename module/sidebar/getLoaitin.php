@@ -15,7 +15,7 @@ $baiviet_noibat = $baiviet->baivietNoibat();
         foreach ($most_baiviet as $row_mostviewbaiviet) {
           ?>
             <a class="x-video-item" href="index.php?mod=baiviet&id_baiviet=<?php echo $row_mostviewbaiviet["id_baiviet"]; ?>">
-              <div class="vi-thumb"><img src="assets/images/<?php echo $row_mostviewbaiviet["anh_baiviet"]; ?>"></div>
+              <div class="vi-thumb"><img src="public/assets/images/<?php echo $row_mostviewbaiviet["anh_baiviet"]; ?>"></div>
               <div class="vi-caption">
                 <p><?php echo $row_mostviewbaiviet["name_baiviet"]; ?></p>
               </div>
@@ -35,7 +35,7 @@ $baiviet_noibat = $baiviet->baivietNoibat();
       <?php 
         foreach ($baiviet_noibat as $row_noibat) {
           ?>
-            <a class="x-widget-item" href="index.php?mod=baiviet&id_baiviet=<?php echo $row_noibat["id_baiviet"]; ?>" style="background-image: url(assets/images/<?php echo $row_noibat["anh_baiviet"]; ?>)">
+            <a class="x-widget-item" href="index.php?mod=baiviet&id_baiviet=<?php echo $row_noibat["id_baiviet"]; ?>" style="background-image: url(public/assets/images/<?php echo $row_noibat["anh_baiviet"]; ?>)">
               <div class="x-widget-content"> 
                 <h1><?php echo $row_noibat["name_baiviet"]; ?></h1>
                 <p>Ngày đăng <?php echo $row_noibat["ngay_capnhat"]; ?></p>
@@ -59,7 +59,7 @@ $baiviet_noibat = $baiviet->baivietNoibat();
           if($row_randbaiviet["duyet_baiviet"] == 1) {
             ?>
               <a class="x-video-item" href="index.php?mod=baiviet&id_baiviet=<?php echo $row_randbaiviet["id_baiviet"]; ?>">
-                <div class="vi-thumb"><img src="assets/images/<?php echo $row_randbaiviet["anh_baiviet"]; ?>"></div>
+                <div class="vi-thumb"><img src="public/assets/images/<?php echo $row_randbaiviet["anh_baiviet"]; ?>"></div>
                 <div class="vi-caption">
                   <p><?php echo $row_randbaiviet["name_baiviet"]; ?></p>
                 </div>

@@ -92,7 +92,7 @@ function isValidImage($img) {
 	  $file_type = $img['type'];
 	  $arrayImg = array("jpeg","jpg","png");
 
-	  $target_dir = ROOT . "/assets/images/";
+	  $target_dir = ROOT . "/public/assets/images/";
 	  $target_file = $target_dir .basename($file_name);
 	  $uploadOK = 1;
 	  $image_type = pathinfo($target_file,PATHINFO_EXTENSION);

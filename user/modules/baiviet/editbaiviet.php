@@ -100,7 +100,7 @@
             <h2>Ảnh đại diện</h2>
             <div class="file-upload">
                 <input type='file' id="imgInp" style="width: 100%" name="anh_baiviet"/>
-                <button class="btn pmd-ripple-effect btn-primary btn-image"><img id="blah" src="<?php echo "../assets/images/" . $row["anh_baiviet"]; ?>" alt="your image" style="width: 100%" /></button>
+                <button class="btn pmd-ripple-effect btn-primary btn-image"><img id="blah" src="<?php echo "../public/assets/images/" . $row["anh_baiviet"]; ?>" alt="your image" style="width: 100%" /></button>
             </div>
             
           </div>

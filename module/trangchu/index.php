@@ -14,7 +14,7 @@
         foreach($data_baiviet as $row) {
           if($row["duyet_baiviet"]==1 && $j>0) {
             ?>
-              <div class="item sidebar-item x-item" style="background-image: url(<?php echo "assets/images/" . $row["anh_baiviet"]; ?>)">
+              <div class="item sidebar-item x-item" style="background-image: url(<?php echo "public/assets/images/" . $row["anh_baiviet"]; ?>)">
                 <div class="box-post">
                   <div class="z-thumb"><img class="img-responsive" src="images/bag.png" alt="Item 1"></div>
                   <div class="caption">
@@ -61,7 +61,7 @@
                       if($row_baivietbytheloai["duyet_baiviet"] == 1) {
                       ?>
                         <div class="x-related-item x-intro-game">
-                          <div class="x-related-content"><img src="assets/images/<?php echo $row_baivietbytheloai["anh_baiviet"]; ?>">
+                          <div class="x-related-content"><img src="public/assets/images/<?php echo $row_baivietbytheloai["anh_baiviet"]; ?>">
                             <div class="news-share"><i class="fa fa-facebook-f"></i><i class="fa fa-twitter"></i><i class="fa fa-google-plus"></i></div>
                           </div><a class="x-related-caption" href="index.php?mod=baiviet&id_baiviet=<?php echo $row_baivietbytheloai["id_baiviet"]; ?>">
                             <h4><?php echo $row_baivietbytheloai["name_baiviet"]; ?></h4><span><i class="fa fa-user"> </i><?php echo $row_baivietbytheloai["name_tacgia"]; ?></span><span><i class="fa fa-calendar"> </i><?php echo $row_baivietbytheloai["ngay_tao"]; ?></span>
@@ -93,7 +93,7 @@
                       if($row_baivietbytheloai["duyet_baiviet"] == 1) {
                       ?>
                         <div class="x-related-item">
-                          <div class="x-related-content"><img src="assets/images/<?php echo $row_baivietbytheloai["anh_baiviet"]; ?>">
+                          <div class="x-related-content"><img src="public/assets/images/<?php echo $row_baivietbytheloai["anh_baiviet"]; ?>">
                             <div class="news-share"><i class="fa fa-facebook-f"></i><i class="fa fa-twitter"></i><i class="fa fa-google-plus"></i></div>
                           </div><a href="index.php?mod=baiviet&id_baiviet=<?php echo $row_baivietbytheloai["id_baiviet"]; ?>">
                             <div class="x-related-caption"> 

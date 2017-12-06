@@ -13,7 +13,7 @@
             for($i=0 ; $i<3 ; $i++) {
               if($i==0 && !empty($baivietbytheloai[$i])) {
                 ?>
-                  <div class="x-large"><a class="xinner" href="index.php?mod=baiviet&id_baiviet=<?php echo $baivietbytheloai[$i]["id_baiviet"]; ?>"><img src="assets/images/<?php echo $baivietbytheloai[$i]["anh_baiviet"]; ?>">
+                  <div class="x-large"><a class="xinner" href="index.php?mod=baiviet&id_baiviet=<?php echo $baivietbytheloai[$i]["id_baiviet"]; ?>"><img src="public/assets/images/<?php echo $baivietbytheloai[$i]["anh_baiviet"]; ?>">
                     <div class="x-feature-caption">
                       <div class="x-feature-title"> 
                         <h2 class="light-text"><?php echo $baivietbytheloai[$i]["name_baiviet"]; ?></h2><span><i class="fa fa-user"> </i><?php echo $baivietbytheloai[$i]["name_tacgia"]; ?></span><span><i class="fa fa-calendar"> </i><?php echo $baivietbytheloai[$i]["ngay_capnhat"]; ?></span>
@@ -25,7 +25,7 @@
               else if($i==1 && !empty($baivietbytheloai[$i])){
                 ?>
                   <div class="x-small">
-                    <section class="xitem"><a class="xinner xinner-b" href="index.php?mod=baiviet&id_baiviet=<?php echo $baivietbytheloai[$i]["id_baiviet"]; ?>"><img src="assets/images/<?php echo $baivietbytheloai[$i]["anh_baiviet"]; ?>">
+                    <section class="xitem"><a class="xinner xinner-b" href="index.php?mod=baiviet&id_baiviet=<?php echo $baivietbytheloai[$i]["id_baiviet"]; ?>"><img src="public/assets/images/<?php echo $baivietbytheloai[$i]["anh_baiviet"]; ?>">
                         <div class="x-feature-caption">
                           <div class="x-feature-title"> 
                             <h3 class="light-text"><?php echo $baivietbytheloai[$i]["name_baiviet"]; ?></h3><span><i class="fa fa-user"> </i><?php echo $baivietbytheloai[$i]["name_tacgia"]; ?></span><span><i class="fa fa-calendar"> </i><?php echo $baivietbytheloai[$i]["ngay_capnhat"]; ?></span>
@@ -35,7 +35,7 @@
               }
               else if($i==2 && !empty($baivietbytheloai[$i])){
                 ?>
-                  <section class="xitem"><a class="xinner xinner-b" href="index.php?mod=baiviet&id_baiviet=<?php echo $baivietbytheloai[$i]["id_baiviet"]; ?>"><img src="assets/images/<?php echo $baivietbytheloai[$i]["anh_baiviet"]; ?>">
+                  <section class="xitem"><a class="xinner xinner-b" href="index.php?mod=baiviet&id_baiviet=<?php echo $baivietbytheloai[$i]["id_baiviet"]; ?>"><img src="public/assets/images/<?php echo $baivietbytheloai[$i]["anh_baiviet"]; ?>">
                         <div class="x-feature-caption">
                           <div class="x-feature-title"> 
                             <h3 class="light-text"><?php echo $baivietbytheloai[$i]["name_baiviet"]; ?></h3><span><i class="fa fa-user"> </i><?php echo $baivietbytheloai[$i]["name_tacgia"]; ?></span><span><i class="fa fa-calendar"> </i><?php echo $baivietbytheloai[$i]["ngay_capnhat"]; ?></span>
@@ -59,7 +59,7 @@
             for($i=3; $i<count($baivietbytheloai); $i++) {
               ?>
                 <div class="x-related-item <?php if($i>6) echo "foo"; ?>">
-                  <div class="x-related-content"><img src="assets/images/<?php echo $baivietbytheloai[$i]["anh_baiviet"]; ?>">
+                  <div class="x-related-content"><img src="public/assets/images/<?php echo $baivietbytheloai[$i]["anh_baiviet"]; ?>">
                     <div class="news-share"><i class="fa fa-facebook-f"></i><i class="fa fa-twitter"></i><i class="fa fa-google-plus"></i></div>
                   </div><a href="index.php?mod=baiviet&id_baiviet=<?php echo $baivietbytheloai[$i]["id_baiviet"]; ?>">
                     <div class="x-related-caption"> 

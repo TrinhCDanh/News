@@ -155,7 +155,7 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
           
           <div class="file-upload">
-            <img id="blah" src="<?php echo "../assets/images/" . $row["anh_baiviet"]; ?>" alt="your image" style="width: 100%" />
+            <img id="blah" src="<?php echo "../public/assets/images/" . $row["anh_baiviet"]; ?>" alt="your image" style="width: 100%" />
           </div>
         </div>
       </div>

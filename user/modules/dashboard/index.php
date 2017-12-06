@@ -203,7 +203,7 @@
 				</div>
 				<div class="content-section">
 					<ul class="list-group pmd-card-list pmd-list todo-lists">
-						<?php for ($i=0; $i < 3; $i++) {
+						<?php for ($i=0; $i < 5; $i++) {
 						foreach ($data_baiviet as $row_baiviet) {
 						 		if($data_binhluan[$i]["id_baiviet"] == $row_baiviet["id_baiviet"]) {
 						 			?>

@@ -84,6 +84,14 @@
 		<ol class="breadcrumb text-left">
 		  <li><a href="index.php?mod=dashboard">Dashboard</a></li>
 		  <li class="active">Bài viết</li>
+		  <?php 
+		  	$content = ""; 
+		  	if ($ac == "showdaduyet" || $ac == "delete") 
+					$content .= "Danh sách bài viết đã đăng";
+				else if ($ac == "showchuaduyet") 
+					$content .= "Danh sách bài viết chưa đăng";
+		  	?>
+		   <li class="active"><?php echo $content; ?></li>
 		</ol><!--breadcrum end-->
 		
 		<?php  

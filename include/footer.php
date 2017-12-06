@@ -25,6 +25,6 @@
   </section>
 </footer><a class="btn btn-primary pmd-ripple-effect btn-xm" id="back-to-top">Back to top
     <!--(role="button" title="Back to Top" data-toggle="tooltip" data-placement="left")--></i></a>
-<script src="js/custom.js">       </script>
+<script src="public/js/custom.js">       </script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="assets/js/propeller.min.js"></script> 
+<script src="public/assets/js/propeller.min.js"></script> 

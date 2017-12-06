@@ -72,7 +72,7 @@
             foreach ($baivietbyLoaitin as $row_baiviet) {
               ?>
                 <div class="x-related-item">
-                  <div class="x-related-content"><img src="assets/images/<?php echo $row_baiviet["anh_baiviet"]; ?>">
+                  <div class="x-related-content"><img src="public/assets/images/<?php echo $row_baiviet["anh_baiviet"]; ?>">
                     <div class="news-share"><i class="fa fa-facebook-f"></i><i class="fa fa-twitter"></i><i class="fa fa-google-plus"></i></div>
                   </div><a href="index.php?mod=baiviet&id_baiviet=<?php echo $row_baiviet["id_baiviet"]; ?>">
                     <div class="x-related-caption"><?php echo $row_baiviet["name_baiviet"]; ?></div></a>
