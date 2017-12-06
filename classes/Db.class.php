@@ -3,8 +3,7 @@ class Db{
 		private $_numRow;
 		private $dbh= null;
 		
-		public function __construct()
-		{
+		public function __construct() {
 			$driver="mysql:host=". HOST."; dbname=". DB_NAME;
 			try
 			{
@@ -18,18 +17,15 @@ class Db{
 			}
 		}
 		
-		public function __destruct()
-		{
+		public function __destruct() {
 			$this->dbh= null;
 		}
 	
-		public function getRowCount()
-		{
+		public function getRowCount() {
 			return $this->_numRow;	
 		}
 		
-		private function query($sql, $arr = array(), $mode = PDO::FETCH_ASSOC)
-		{
+		private function query($sql, $arr = array(), $mode = PDO::FETCH_ASSOC) {
 			$stm = $this->dbh->prepare($sql);
 			if (!$stm->execute( $arr)) {
 					echo "Sql lỗi."; 
@@ -40,8 +36,7 @@ class Db{
 			return $stm->fetchAll($mode);
 		}
 		
-		public function getPDOstm($sql, $arr = array(), $mode = PDO::FETCH_ASSOC)
-		{
+		public function getPDOstm($sql, $arr = array(), $mode = PDO::FETCH_ASSOC) {
 			$stm = $this->dbh->prepare($sql);
 			try
 			{
@@ -53,25 +48,19 @@ class Db{
 			return $stm;
 		}
 		
-		/*
-		Sử dụng cho các sql select
-		*/
-		public function exeQuery($sql,  $arr = array(), $mode = PDO::FETCH_ASSOC)
-		{
+		// Sử dụng cho các sql select
+		public function exeQuery($sql,  $arr = array(), $mode = PDO::FETCH_ASSOC) {
 			return $this->query($sql, $arr, $mode);	
 		}
-		/*
-		Sử dụng cho các sql cập nhật dữ liệu. Kết quả trả về số dòng bị tác động
-		*/
-		public function exeNoneQuery($sql,  $arr = array(), $mode = PDO::FETCH_ASSOC)
-		{
+
+		// Sử dụng cho các sql cập nhật dữ liệu. Kết quả trả về số dòng bị tác động
+		public function exeNoneQuery($sql,  $arr = array(), $mode = PDO::FETCH_ASSOC) {
 			$this->query($sql, $arr, $mode);	
 			return $this->getRowCount();
 		}
 		
-		/* su dung de dem so phan tu cua table ...*/
-		public function countItems($sql, $arr= array())
-		{
+		// su dung de dem so phan tu cua table ...
+		public function countItems($sql, $arr= array()) {
 			$data = $this->exeQuery($sql, $arr, PDO::FETCH_BOTH);
 			return $data[0][0];
 		}

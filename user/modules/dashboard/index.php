@@ -43,14 +43,14 @@
 
 		<!-- Propeller Marketplace-->
 		 <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 pmd-tooltip" data-toggle="tooltip" data-placement="bottom" title="Tổng số bài viết nháp">
-		 	<a href="index.php?mod=baiviet&ac=showchuaduyet">
+		 	<a href="index.php?mod=baiviet&ac=showbaiviet">
 				<div class="card pmd-z-depth info-page">
 					<div class="tcd-card-title text-center">
 						<h2 class="tcd-card-title-text">Bài nháp</h2>
 					</div>
-					<div class="tcd-card-body text-center" style="background-color: #3F51B5;">
-						<i class="material-icons md-dark pmd-sm">library_books</i>
-						<h2 class="tcd-card-body-text"><?php echo $bainhap; ?></h2>
+					<div class="tcd-card-body text-center" style="background-color: #64FFDA;">
+						<i class="material-icons md-dark pmd-sm" style="color: #1f2f46;">library_books</i>
+						<h2 class="tcd-card-body-text" style="color: #1f2f46;"> <?php echo $bainhap; ?></h2>
 					</div>
 				</div>
 			</a>
@@ -58,29 +58,14 @@
 
 		 <!-- Propeller Marketplace-->
 		 <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 pmd-tooltip" data-toggle="tooltip" data-placement="bottom" title="Tổng số bài viết đã được gửi và đang chờ duyệt">
-		 	<a href="index.php?mod=baiviet&ac=showchuaduyet">
+		 	<a href="index.php?mod=baigui&ac=listdagui">
 				<div class="card pmd-z-depth info-page">
 					<div class="tcd-card-title text-center">
 						<h2 class="tcd-card-title-text">Bài đã gửi</h2>
 					</div>
-					<div class="tcd-card-body text-center" style="background-color: #3F51B5;">
-						<i class="material-icons md-dark pmd-sm">library_books</i>
-						<h2 class="tcd-card-body-text"><?php echo $baidagui; ?></h2>
-					</div>
-				</div>
-			</a>
-		 </div><!-- end Propeller Marketplace -->
-
-		 <!-- Propeller Marketplace-->
-		 <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 pmd-tooltip" data-toggle="tooltip" data-placement="bottom" title="Tổng số bài viết bị yêu cầu sửa lại theo yêu cầu của Admin">
-		 	<a href="index.php?mod=baiviet&ac=showchuaduyet">
-				<div class="card pmd-z-depth info-page">
-					<div class="tcd-card-title text-center">
-						<h2 class="tcd-card-title-text">Bài yêu cầu sửa</h2>
-					</div>
-					<div class="tcd-card-body text-center" style="background-color: #3F51B5;">
-						<i class="material-icons md-dark pmd-sm">library_books</i>
-						<h2 class="tcd-card-body-text"><?php echo $baiyeucausua; ?></h2>
+					<div class="tcd-card-body text-center" style="background-color: #00B0FF;">
+						<i class="material-icons md-dark pmd-sm" style="color: #1f2f46;">send</i>
+						<h2 class="tcd-card-body-text" style="color: #1f2f46;"><?php echo $baidagui; ?></h2>
 					</div>
 				</div>
 			</a>
@@ -88,14 +73,29 @@
 		 
 		<!-- Propeller Marketplace-->
 		 <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 pmd-tooltip" data-toggle="tooltip" data-placement="bottom" title="Các bài viết chưa được gửi cho Admin xét duyệt">
-		 	<a href="index.php?mod=baiviet&ac=showchuaduyet">
+		 	<a href="index.php?mod=baigui&ac=listchuagui">
 				<div class="card pmd-z-depth info-page">
 					<div class="tcd-card-title text-center">
 						<h2 class="tcd-card-title-text">Bài chưa gửi</h2>
 					</div>
-					<div class="tcd-card-body text-center" style="background-color: #3F51B5;">
-						<i class="material-icons md-dark pmd-sm">library_books</i>
-						<h2 class="tcd-card-body-text"><?php echo $bainhap; ?></h2>
+					<div class="tcd-card-body text-center" style="background-color: #76FF03;">
+						<i class="material-icons md-dark pmd-sm" style="color: #1f2f46;">drafts</i>
+						<h2 class="tcd-card-body-text" style="color: #1f2f46;"><?php echo $bainhap; ?></h2>
+					</div>
+				</div>
+			</a>
+		 </div><!-- end Propeller Marketplace -->
+
+		  <!-- Propeller Marketplace-->
+		 <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 pmd-tooltip" data-toggle="tooltip" data-placement="bottom" title="Những bài viết đã gửi nhưng bị yêu cầu sửa lại theo yêu cầu của Admin">
+		 	<a href="index.php?mod=baigui&ac=listyeucau">
+				<div class="card pmd-z-depth info-page">
+					<div class="tcd-card-title text-center">
+						<h2 class="tcd-card-title-text">Bài yêu cầu sửa</h2>
+					</div>
+					<div class="tcd-card-body text-center" style="background-color: #F44336;">
+						<i class="material-icons md-dark pmd-sm" style="color: #1f2f46;">edit</i>
+						<h2 class="tcd-card-body-text" style="color: #1f2f46;"><?php echo $baiyeucausua; ?></h2>
 					</div>
 				</div>
 			</a>
@@ -103,27 +103,31 @@
 
 		 <!-- Propeller Marketplace-->
 		 <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3" data-toggle="tooltip" data-placement="bottom" title="Tổng số bài viết đã được Admin duyệt và đăng lên trang chủ">
-			<div class="card pmd-z-depth info-page">
-				<div class="tcd-card-title text-center">
-					<h2 class="tcd-card-title-text">Bài được đăng</h2>
+		 	<a href="index.php?mod=baidadang">
+				<div class="card pmd-z-depth info-page">
+					<div class="tcd-card-title text-center">
+						<h2 class="tcd-card-title-text">Bài được đăng</h2>
+					</div>
+					<div class="tcd-card-body text-center" style="background-color: #FFD600;">
+						<i class="material-icons md-dark pmd-sm" style="color: #1f2f46;">history</i>
+						<h2 class="tcd-card-body-text" style="color: #1f2f46;"><?php echo $baidadang; ?></h2>
+					</div>
 				</div>
-				<div class="tcd-card-body text-center" style="background-color: #FFD600;">
-					<i class="material-icons md-dark pmd-sm" style="color: #1f2f46;">history</i>
-					<h2 class="tcd-card-body-text" style="color: #1f2f46;"><?php echo $baidadang; ?></h2>
-				</div>
-			</div>
+			</a>
 		 </div><!-- end Propeller Marketplace -->
 
 		<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3"  data-toggle="tooltip" data-placement="bottom" title="Các bài viết bị hủy do không đạt yêu cầu hoặc bài viết đã cũ">
-			<div class="card pmd-z-depth info-page">
-				<div class="tcd-card-title text-center">
-					<h2 class="tcd-card-title-text">Bài bị hủy</h2>
+			<a href="index.php?mod=baidahuy">
+				<div class="card pmd-z-depth info-page">
+					<div class="tcd-card-title text-center">
+						<h2 class="tcd-card-title-text">Bài bị hủy</h2>
+					</div>
+					<div class="tcd-card-body text-center" style="background-color: #00BCD4;">
+						<i class="material-icons md-dark pmd-sm">delete_sweep</i>
+						<h2 class="tcd-card-body-text"><?php echo $baibihuy; ?></h2>
+					</div>
 				</div>
-				<div class="tcd-card-body text-center" style="background-color: #00BCD4;">
-					<i class="material-icons md-dark pmd-sm">comment</i>
-					<h2 class="tcd-card-body-text"><?php echo $baibihuy; ?></h2>
-				</div>
-			</div>
+			</a>
 		 </div>
 
 		 <!-- Propeller Marketplace-->
@@ -145,7 +149,7 @@
 				<div class="tcd-card-title text-center">
 					<h2 class="tcd-card-title-text">Số bình luận</h2>
 				</div>
-				<div class="tcd-card-body text-center" style="background-color: #00BCD4;">
+				<div class="tcd-card-body text-center" style="background-color: #3F51B5;">
 					<i class="material-icons md-dark pmd-sm">comment</i>
 					<h2 class="tcd-card-body-text"><?php echo $luotbinhluan; ?></h2>
 				</div>
@@ -253,7 +257,7 @@
 				</div>
 				<ul class="list-group pmd-card-list pmd-list-avatar">
 					<?php foreach ($data_baiviet as $row_chuagui) {
-						if($row_chuagui["duyet_baiviet"] == 0 && $row_chuagui["trangthai_baiviet"] == 0) {
+						if($row_chuagui["duyet_baiviet"] == 0 && $row_chuagui["trangthai_baiviet"] == 0 && $row_chuagui["yeucau_baiviet"] == "") {
 							?>
 								<li class="list-group-item">
 									<div class="media-left"> 

@@ -75,6 +75,16 @@ else if(isset($_POST["submit"])) {
 		<ol class="breadcrumb text-left">
 		  <li><a href="index.php?mod=dashboard">Dashboard</a></li>
 		  <li class="active">Bài gửi</li>
+		  <?php
+		  	$content = "";  
+		  	if ($ac == "listchuagui") 
+					$content .= "Danh sách bài viết chưa gửi";
+				else if ($ac == "listdagui")
+					$content .= "Danh sách bài viết đã gửi";
+				else if ($ac == "listyeucau")
+					$content .= "Danh sách bài viết bị yêu cầu sửa";
+		  ?>
+		  <li class="active"><?php echo $content; ?></li>
 		</ol><!--breadcrum end-->
 		
 		<?php  

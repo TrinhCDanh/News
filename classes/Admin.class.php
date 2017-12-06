@@ -1,6 +1,6 @@
 <?php
 class Admin extends Db {
-	/*Backend*/
+
 	public function delete($id) {
 		$sql="DELETE FROM admin WHERE id_admin=:id ";
 		$arr =  Array(":id"=>$id);
@@ -8,9 +8,7 @@ class Admin extends Db {
 	}
 	
 	public function getById($id) {
-		$sql="SELECT * 
-			FROM admin
-			WHERE  id_admin=:id ";
+		$sql="SELECT * FROM admin WHERE id_admin=:id ";
 		$arr = array(":id"=>$id);
 		$data = $this->exeQuery($sql, $arr);
 		if (Count($data)>0) return $data[0];
@@ -61,9 +59,7 @@ class Admin extends Db {
 		return $this->exeNoneQuery($sql, $arr);
 	}
 	
-	/*Font-end*/
-	public function isadminNameExist($name_admin, $email_admin)
-	{
+	public function isadminNameExist($name_admin, $email_admin) {
 		$sql="SELECT * FROM admin WHERE name_admin=:name_admin OR email_admin=:email_admin";
 		$arr = array(":name_admin"=>$name_admin, ":email_admin"=>$email_admin);
 		$data = $this->exeQuery($sql, $arr);
@@ -71,8 +67,7 @@ class Admin extends Db {
 		return false;
 	}
 	
-	public function checkRegister($name_admin, $pass1_admin, $pass2_admin)
-	{
+	public function checkRegister($name_admin, $pass1_admin, $pass2_admin) {
 		$err = "";
 		if(!preg_match("/^[a-zA-Z ]*$/", convert_vi_to_en($name_admin)))
 			$err .= "Tên không được chứa kí tự đặc biệt!";
@@ -83,9 +78,8 @@ class Admin extends Db {
 		return $err;
 	}
 
-	public function login($name_adminname, $pass_admin)
-	{
-		$sql="select *
+	public function login($name_adminname, $pass_admin) {
+		$sql="SELECT *
 			from admins
 			where admins.admin = :adminname and admins.password = :password ";
 		$arr = array(":adminname"=>$name_adminname, ":password"=>$pass_admin);

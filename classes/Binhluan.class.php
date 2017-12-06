@@ -23,8 +23,7 @@ class Binhluan extends Db{
 		else return array();
 	}
 	
-	public function addBinhluan($id_baiviet, $name_binhluan, $email_binhluan, $noidung_binhluan)
-	{
+	public function addBinhluan($id_baiviet, $name_binhluan, $email_binhluan, $noidung_binhluan) {
 		$ngay_tao = $ngay_capnhat = date("d-m-Y");
 		$sql="INSERT INTO binhluan (id_binhluan, id_baiviet, name_binhluan, email_binhluan, noidung_binhluan, ngay_tao, ngay_capnhat) values (NULL,:id_baiviet, :name_binhluan, :email_binhluan, :noidung_binhluan, :ngay_tao, :ngay_capnhat)";
 		$arr = array(":id_baiviet"=>$id_baiviet, ":name_binhluan"=>$name_binhluan, ":email_binhluan"=>$email_binhluan, ":noidung_binhluan"=>$noidung_binhluan, ":ngay_tao"=>$ngay_tao, ":ngay_capnhat"=>$ngay_capnhat);

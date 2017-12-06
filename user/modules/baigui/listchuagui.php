@@ -21,9 +21,9 @@
 		<tbody>
 			<?php  
 				foreach ($data as $r) {
-					if($r["trangthai_baiviet"] == 0 && $r["duyet_baiviet"] != 2) {
+					if($r["trangthai_baiviet"] == 0 && $r["duyet_baiviet"] != 2 && $r["yeucau_baiviet"] == "") {
 						?>
-							<tr <?php if($r["yeucau_baiviet"]!="") echo "class='table-danger'"?>>
+							<tr>
 								<td></td>
 								<td class="col-md-6">
 									<?php echo $r["name_baiviet"]; ?>

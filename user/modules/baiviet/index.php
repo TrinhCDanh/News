@@ -97,6 +97,16 @@
 		<ol class="breadcrumb text-left">
 		  <li><a href="index.php?mod=dashboard">Dashboard</a></li>
 		  <li class="active">Bài nháp</li>
+		  <?php
+		  	$content = ""; 
+		  	if ($ac == "showbaiviet")
+					$content .= "Danh sách bài nháp";
+				else if (Count($row) == 0)
+					$content .= "Thêm bài mới";
+				else
+					$content .= "Sửa bài nháp";
+		  ?>
+		  <li class="active"><?php echo $content; ?></li>
 		</ol><!--breadcrum end-->
 		
 		<?php  

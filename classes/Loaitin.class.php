@@ -1,7 +1,6 @@
 <?php
 class Loaitin extends Db{
-	
-	/*Back-end*/
+
 	public function delete($id_loaitin) {
 		$baiviet = new Post();
     $data = $baiviet->getAll();
@@ -32,7 +31,7 @@ class Loaitin extends Db{
 	}
 	
 	public function getById($id_loaitin) {
-		$sql = "select loaitin.* from loaitin where loaitin.id_loaitin=:id_loaitin";
+		$sql = "SELECT loaitin.* FROM loaitin WHERE loaitin.id_loaitin=:id_loaitin";
 		$arr = array(":id_loaitin"=>$id_loaitin);
 		$data = $this->exeQuery($sql, $arr);
 		if (Count($data)>0) return $data[0];
@@ -59,7 +58,7 @@ class Loaitin extends Db{
 		$id_theloai = Utils::postIndex("id_theloai", "");
 		$name_loaitin = Utils::postIndex("name_loaitin", "");
 		if ($name_loaitin == "") return 0;//Error $id =="" || 
-		$sql = "INSERT INTO loaitin(id_loaitin, id_theloai, name_loaitin) values(NULL, :id_theloai, :name_loaitin)";
+		$sql = "INSERT INTO loaitin(id_loaitin, id_theloai, name_loaitin) VALUES(NULL, :id_theloai, :name_loaitin)";
 		$arr = array(":id_theloai"=>$id_theloai, ":name_loaitin"=>$name_loaitin);
 		return $this->exeNoneQuery($sql, $arr);	
 	}

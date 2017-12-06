@@ -136,9 +136,8 @@
 						<span class="pmd-display2 media-middle activated-service"><?php echo $chuacobai; ?></span>
 						<span class="typo-fill-secondary source-semibold media-middle">Thành viên chưa viết bài</span>
 					</p>
-					<a href="../../../get-started/" type="button" class="btn pmd-ripple-effect btn-services bg-fill-primary-color" title="get-started">Get Started</a>
+					<!--<a href="../../../get-started/" type="button" class="btn pmd-ripple-effect btn-services bg-fill-primary-color" title="get-started">Get Started</a>-->
 				</div>
-				<span class="btn-loader loader hidden">Loading...</span>
 			</div>
 		 </div><!-- end Propeller Marketplace -->
 
@@ -197,7 +196,7 @@
 						</span>
 					</div>
 					<div class="media-body media-middle">
-						<h2 class="pmd-card-title-text typo-fill-secondary">Bài viết chưa duyệt</h2>
+						<h2 class="pmd-card-title-text typo-fill-secondary">Bài viết chưa đăng</h2>
 					</div>
 				</div>
 				<ul class="list-group pmd-card-list pmd-list-avatar">
@@ -245,12 +244,15 @@
 				</div>
 				<div class="content-section">
 					<ul class="list-group pmd-card-list pmd-list todo-lists">
-						<?php for ($i=0; $i < 3; $i++) { 
+						<?php for ($i=0; $i < 3; $i++) {
+						foreach ($data_baiviet as $row_baiviet) {
+						 		if($data_binhluan[$i]["id_baiviet"] == $row_baiviet["id_baiviet"]) { 
 							?>
-								<li class="list-group-item timeline project-info"><?php echo $data_binhluan[$i]["noidung_binhluan"]; ?>
+								<li class="list-group-item timeline project-info pmd-tooltip" data-toggle="tooltip" data-placement="left" title="Bài viết <?php echo $row_baiviet["name_baiviet"]; ?>"><?php echo $data_binhluan[$i]["noidung_binhluan"]; ?>
 									<h5 class="typo-fill-secondary"><?php echo $data_binhluan[$i]["name_binhluan"]; ?> - <?php echo $data_binhluan[$i]["ngay_tao"]; ?></h5>
 								</li>
 							<?php
+						}}
 						} ?>
 					</ul>
 					<div class="blank-state-section hidden">	

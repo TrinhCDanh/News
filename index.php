@@ -13,11 +13,9 @@ $loaitin = new Loaitin();
 $baiviet = new Post();
 $binhluan = new Binhluan();
 $user = new User();
-
 if (isset($_SESSION["user_login"])) {
   $data_user = $user->getById($_SESSION["user_data"]["id_user"]); 
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,76 +29,71 @@ if (isset($_SESSION["user_login"])) {
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fredoka+One|PT+Sans|Permanent+Marker|Righteous|Questrial|Signika|Bree+Serif|Comfortaa|Orbitron|Aldrich|Noto+Sans">
     <!-- SYMPOL-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="icon" href="themes/images/Newspaper-icon-1.png" type="image/x-icon">
+    <link rel="icon" href="public/themes/images/Newspaper-icon-1.png" type="image/x-icon">
     <!-- BOOTSTRAP-->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <!-- // CSS-->
     
-    <link href="css/hover.css" rel="stylesheet">
-    <link href="css/animate.css" rel="stylesheet">
-    <link href="css/owl.carousel.min.css" rel="stylesheet">
+    <link href="public/css/hover.css" rel="stylesheet">
+    <link href="public/css/animate.css" rel="stylesheet">
+    <link href="public/css/owl.carousel.min.css" rel="stylesheet">
     <!-- JQUERY LIBRARY-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     
     <!-- // Smooth Sroll Page   -->
-    <script src="js/smoothscroll/SmoothScrolla.js"></script>
+    <script src="public/js/smoothscroll/SmoothScrolla.js"></script>
     
     <!-- // Circle Chart-->
-    <script src="js/jquery.circlechart.js"></script>
-    <!--script(src='js/responsiveslides.min.js')-->
-    <!--script(src='js/jquery.bxslider.js')-->
-    <!--script(src='js/adb.js')-->
-    <!--link(href="css/hp-slider.css" rel="stylesheet")-->
-    <!--link(href="css/jquery.bxslider.css" rel="stylesheet")-->
+    <script src="public/js/jquery.circlechart.js"></script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.20/jquery.fancybox.min.js"></script>
 
     <!-- Propeller css -->
-<!-- build:[href] assets/css/ -->
-<link rel="stylesheet" type="text/css" href="assets/css/propeller.min.css">
-<!-- /build -->
+    <!-- build:[href] assets/css/ -->
+    <link rel="stylesheet" type="text/css" href="public/assets/css/propeller.min.css">
+    <!-- /build -->
 
-<!-- DataTables css-->
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.1.0/css/responsive.bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/select/1.2.0/css/select.dataTables.min.css">
-<!-- Propeller dataTables css-->
+    <!-- DataTables css-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.1.0/css/responsive.bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/select/1.2.0/css/select.dataTables.min.css">
+    <!-- Propeller dataTables css-->
 
-<link rel="stylesheet" type="text/css" href="components/data-table/css/pmd-datatable.css">
+    <link rel="stylesheet" type="text/css" href="public/components/data-table/css/pmd-datatable.css">
 
-<!-- Propeller date time picker css-->
-<link rel="stylesheet" type="text/css" href="components/datetimepicker/css/bootstrap-datetimepicker.css" />
-<link rel="stylesheet" type="text/css" href="components/datetimepicker/css/pmd-datetimepicker.css" />
+    <!-- Propeller date time picker css-->
+    <link rel="stylesheet" type="text/css" href="public/components/datetimepicker/css/bootstrap-datetimepicker.css" />
+    <link rel="stylesheet" type="text/css" href="public/components/datetimepicker/css/pmd-datetimepicker.css" />
 
-<!-- Propeller theme css-->
-<link rel="stylesheet" type="text/css" href="themes/css/propeller-theme.css" />
+    <!-- Propeller theme css-->
+    <link rel="stylesheet" type="text/css" href="public/themes/css/propeller-theme.css" />
 
-<!-- Propeller admin theme css-->
-<link rel="stylesheet" type="text/css" href="themes/css/propeller-admin.css">
+    <!-- Propeller admin theme css-->
+    <link rel="stylesheet" type="text/css" href="public/themes/css/propeller-admin.css">
 
-<!-- Custom css by TCD -->
-<link rel="stylesheet" href="assets/css/custom.css">
-<!-- message box style -->
-<script src="assets/js/jquery-1.12.2.min.js"></script>
-<script language="javascript" src="assets/ckeditor/ckeditor.js" type="text/javascript"></script>
+    <!-- Custom css by TCD -->
+    <link rel="stylesheet" href="public/assets/css/custom.css">
+    <!-- message box style -->
+    <script src="public/assets/js/jquery-1.12.2.min.js"></script>
+    <script language="javascript" src="public/assets/ckeditor/ckeditor.js" type="text/javascript"></script>
 
-<script src="assets/js/sweetalert.js"></script>
-<link rel="stylesheet" href="assets/css/sweetalert.css">
+    <script src="public/assets/js/sweetalert.js"></script>
+    <link rel="stylesheet" href="public/assets/css/sweetalert.css">
 
-<!-- // Owl Carousel-->
-    <script src="js/owl.carousel.js"></script>
-<!-- Form Calender -->
-<script src="assets/js/birthday.js"></script>
-<link rel="stylesheet" href="assets/css/birthday.css">
+    <!-- // Owl Carousel-->
+    <script src="public/js/owl.carousel.js"></script>
+    <!-- Form Calender -->
+    <script src="public/assets/js/birthday.js"></script>
+    <link rel="stylesheet" href="public/assets/css/birthday.css">
 
-<link href="css/style.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
   </head>
   <body>
     <div id="wrapper">
       <!-- navbar -->
       <?php include "include/navbar.php"; ?>
       <!-- navbar end -->
-      <!--include modules/m_slick.pug-->
       <?php include "include/mod.php"; ?>
       <div class="clear-fix"></div>
       <!-- Footer and js bottom -->
