@@ -10,7 +10,7 @@
               <label for="regular1" class="control-label">
                 Tên đăng nhập*
               </label>
-              <input type="text" id="regular1" class="form-control" name="name_admin" required>
+              <input type="text" id="regular1" class="form-control" name="name_admin" required value="<?php echo $name_admin; ?>">
             </div>
           </div>
 
@@ -19,7 +19,7 @@
               <label for="regular1" class="control-label">
                 Email*
               </label>
-              <input type="text" id="regular1" class="form-control" name="email_admin">
+              <input type="email" id="regular1" class="form-control" name="email_admin" required value="<?php echo $email_admin; ?>">
             </div>
           </div>
 
@@ -28,7 +28,7 @@
               <label for="regular1" class="control-label">
                 Số điện thoại
               </label>
-              <input type="number" id="regular1" class="form-control" name="sdt_admin">
+              <input type="number" id="regular1" class="form-control" name="sdt_admin" required value="<?php echo $sdt_admin; ?>">
             </div>
           </div>
 
@@ -37,17 +37,17 @@
               <label for="regular1" class="control-label">
                 Ngày sinh
               </label>
-              <input type="text" id="datepicker" class="form-control" name="ngaysinh_admin">
+              <input type="text" id="datepicker2" class="form-control" name="ngaysinh_admin" required value="<?php echo $ngaysinh_admin; ?>">
             </div>
           </div>
 
           <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
             <div class="radio">
               <label class="radio-inline pmd-radio pmd-radio-ripple-effect">
-                <input type="radio" name="gioitinh_admin" id="inlineRadio1" value="1" checked>
+                <input type="radio" name="gioitinh_admin" id="inlineRadio1" value="1" <?php if($gioitinh_admin== 1) echo "checked";?>>
                 <span for="inlineRadio1">Nam</span> </label>
               <label class="radio-inline pmd-radio pmd-radio-ripple-effect">
-                <input type="radio" name="gioitinh_admin" id="inlineRadio2" value="0">
+                <input type="radio" name="gioitinh_admin" id="inlineRadio2" value="0" <?php if($gioitinh_admin == 0) echo "checked";?>>
                 <span for="inlineRadio2">Nữ</span> </label>
             </div>
           </div>

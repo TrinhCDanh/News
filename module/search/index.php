@@ -20,15 +20,16 @@
           </ul>
         </div>
         <div class="x-related-primary">
-          <?php 
-            foreach ($data_search as $row) {
+          <?php
+            if(empty($data_search)) echo "Không tìm thấy kết kết quả nào!"; 
+            for ($i=0; $i < count($data_search); $i++) { 
               ?>
-                <div class="x-related-item">
-                  <div class="x-related-content"><img src="public/assets/images/<?php echo $row["anh_baiviet"]; ?>">
+                <div class="x-related-item <?php if($i>9) echo "foo"; ?>">
+                  <div class="x-related-content"><img src="public/assets/images/<?php echo $data_search[$i]["anh_baiviet"]; ?>">
                     <div class="news-share"><i class="fa fa-facebook-f"></i><i class="fa fa-twitter"></i><i class="fa fa-google-plus"></i></div>
-                  </div><a class="x-related-caption" href="index.php?mod=baiviet&id_baiviet=<?php echo $row["id_baiviet"]; ?>">
-                    <h4><?php echo $row["name_baiviet"]; ?></h4><span><i class="fa fa-user"> </i>Mr.D</span><span><i class="fa fa-calendar"> </i><?php echo $row["ngay_tao"]; ?></span>
-                    <p class="descript"><?php echo $row["tomtat_baiviet"]; ?></p></a>
+                  </div><a class="x-related-caption" href="index.php?mod=baiviet&id_baiviet=<?php echo $data_search[$i]["id_baiviet"]; ?>">
+                    <h4><?php echo $data_search[$i]["name_baiviet"]; ?></h4><span><i class="fa fa-user"> </i><?php echo $data_search[$i]["name_tacgia"] ?></span><span><i class="fa fa-calendar"> </i><?php echo $data_search[$i]["ngay_capnhat"]; ?></span>
+                    <p class="descript"><?php echo $data_search[$i]["tomtat_baiviet"]; ?></p></a>
                 </div>
               <?php
             }

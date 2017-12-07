@@ -3,7 +3,7 @@ $id = Utils::getIndex("id");
 $row = $theloai->getById($id);
 
 ?><div class="col-md-3"><?php
-if (Count($row) == 0) {//khong co -> them moi{
+if (Count($row) == 0) {
 	$info ="Thêm thể loại mới";
 	$row["name_chuyen_de"] = "";
   include ROOT."/admins/modules/theloai/addtheloai.php";

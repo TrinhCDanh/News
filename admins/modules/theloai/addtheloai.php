@@ -1,6 +1,5 @@
 <form id="validationForm" action="index.php?mod=theloai&ac=saveAdd" method="post">
   <div class="pmd-card pmd-z-depth">
-    
     <div class="pmd-card-body">
       <h2><?php echo $info; ?></h2>
       <div class="group-fields clearfix row">
@@ -29,6 +28,6 @@
         <?php
       }
     ?>
-  </div> <!-- section content end -->  
+  </div>
 </form>
      

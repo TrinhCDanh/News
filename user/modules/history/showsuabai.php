@@ -17,7 +17,7 @@
     <div class="pmd-card-title">
       <div class="media-left set-svg">
         <span class="service-icon img-circle bg-fill-red text-center">
-          <i class="material-icons md-dark pmd-sm" style="color: #fff; line-height: 40px;">supervisor_account</i>
+          <i class="material-icons md-dark pmd-sm" style="color: #fff; line-height: 40px;">library_books</i>
         </span>
       </div>
       <div class="media-body media-middle">
@@ -60,7 +60,7 @@
     <div class="pmd-card-title">
       <div class="media-left set-svg">
         <span class="service-icon img-circle bg-fill-red text-center">
-          <i class="material-icons md-dark pmd-sm" style="color: #fff; line-height: 40px;">supervisor_account</i>
+          <i class="material-icons md-dark pmd-sm" style="color: #fff; line-height: 40px;">content_paste</i>
         </span>
       </div>
       <div class="media-body media-middle">
@@ -83,7 +83,7 @@
     <div class="pmd-card-title">
       <div class="media-left set-svg">
         <span class="service-icon img-circle bg-fill-red text-center">
-          <i class="material-icons md-dark pmd-sm" style="color: #fff; line-height: 40px;">supervisor_account</i>
+          <i class="material-icons md-dark pmd-sm" style="color: #fff; line-height: 40px;">insert_photo</i>
         </span>
       </div>
       <div class="media-body media-middle">

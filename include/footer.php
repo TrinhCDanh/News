@@ -1,3 +1,10 @@
+<?php  
+  $data_baiviet = $baiviet->getAll();
+  $soluotxem = 0;
+  foreach ($data_baiviet as $row_baiviet) {
+    $soluotxem += $row_baiviet["luotxem_baiviet"]; 
+  }
+?>
 <footer>
   <section class="footer-content container">
     <div class="col-xs-12 col-lg-4">
@@ -6,7 +13,7 @@
       <p>Email: trinhdanh04@gmail.com</p>
       <p>Skype: vnnews.no1</p>
       <h3>Tổng lượt xem</h3>
-      <p>999999999999</p>
+      <p><?php echo $soluotxem; ?></p>
     </div>
     <div class="col-xs-12 col-lg-4">
       <h3>About us</h3>
@@ -28,3 +35,8 @@
 <script src="public/js/custom.js">       </script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="public/assets/js/propeller.min.js"></script> 
+<script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
+<script type="text/javascript">
+  window.sr = ScrollReveal({ reset: true });
+  sr.reveal('.foo');
+</script>

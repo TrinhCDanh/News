@@ -38,9 +38,17 @@
     }
   }
   else if(isset($_POST["submit"])) {
+    if ($name_user != $row["name_user"]) {
+      if($user->isUserNameExist($name_user, ""))
+          $err .= "Tên tài khoản đã tồn tại";
+    }
+    if ($email_user != $row["email_user"]) {
+      if($user->isUserNameExist("",$email_user))
+          $err .= " Email tài khoản đã tồn tại";
+    } 
     if ($user->checkRegister($name_user, $pass1_user, $pass2_user) != "")
       $err .= $user->checkRegister($name_user, $pass1_user, $pass2_user);
-    else if ($ac == "saveEdit") {
+    if ($ac == "saveEdit" && $err == "") {
       $n = $user->saveEdit(Utils::getIndex("id"));
       $baiviet->updateAuthor($row["name_user"]);
       ?>
@@ -83,7 +91,6 @@
     ?>
 
     <section class="row component-section dashboard">
-      
       <!-- table card title and description -->
       <div class="col-md-9">
         <?php include "modules/account/editaccount.php"; ?>

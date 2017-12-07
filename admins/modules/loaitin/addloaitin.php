@@ -9,7 +9,7 @@
             <label for="regular1" class="control-label">
               Tên loại tin*
             </label>
-            <input type="text" id="regular1" class="form-control" name="name_loaitin" required autofocus>
+            <input type="text" id="regular1" class="form-control" name="name_loaitin" required autofocus value="<?php echo $name_loaitin; ?>">
           </div>
         </div>
       </div>
@@ -33,18 +33,18 @@
       <button class="btn btn-default" type="reset">Cancel</button>
     </div>
     
-      <?php  
-        if($err != "") {
-          ?>
-            <div class="pmd-card-body">
-              <div class="alert alert-danger">      
-                <?php echo $err; ?>
-              </div>
+    <?php  
+      if($err != "") {
+        ?>
+          <div class="pmd-card-body">
+            <div class="alert alert-danger">      
+              <?php echo $err; ?>
             </div>
-          <?php
-        }
-      ?>
+          </div>
+        <?php
+      }
+    ?>
     
-  </div> <!-- section content end -->  
+  </div> 
 </form>
      

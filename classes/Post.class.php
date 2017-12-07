@@ -6,6 +6,10 @@ class Post extends Db {
 		return $this->exeQuery("SELECT * FROM baiviet ORDER BY baiviet.id_baiviet DESC");
 	}
 
+	public function getAllTable() {
+		return $this->exeQuery("SELECT * FROM baiviet JOIN loaitin ON baiviet.id_loaitin = loaitin.id_loaitin JOIN theloai on loaitin.id_theloai = theloai.id_theloai ORDER BY baiviet.id_baiviet DESC");
+	}
+
 	public function getById($id_baiviet) {
 		$sql="SELECT * FROM baiviet JOIN loaitin ON baiviet.id_loaitin = loaitin.id_loaitin JOIN theloai on loaitin.id_theloai = theloai.id_theloai where id_baiviet=:id_baiviet ";
 		$arr = array(":id_baiviet"=>$id_baiviet);

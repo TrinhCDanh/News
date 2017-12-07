@@ -1,17 +1,16 @@
 <?php  
 	$post = new Post();
-	$ac = Utils::getIndex("ac");
-	$getById_baiviet = $post->getById(Utils::getIndex("id"));
-
 	$chitiet_suabai = new Chitiet_suabai();
 	$chitiet_duyetbai = new Chitiet_duyetbai();
-
 	$loaitin = new Loaitin();
+
+	$ac = Utils::getIndex("ac");
+
+	$getById_baiviet = $post->getById(Utils::getIndex("id"));
 	$getAll = $loaitin->getAll();
 
 	$name_tacgia = $user->getById($_SESSION["user_data"]["id_user"]); 
-	$info = "";
-	$err = "";
+	$info = $err = "";
 
 	$id = Utils::getIndex("id");
 	$row = $post->getById($id);
@@ -123,16 +122,6 @@
 			 <?php
 				if ($ac == "showbaiviet" || $ac == "delete") 
 					include "modules/baiviet/showbaiviet.php";
-				else if ($ac == "showchoduyet")
-					include "modules/baiviet/showchoduyet.php";
-				else if ($ac == "showdaduyet")
-					include "modules/baiviet/showdaduyet.php";
-				else if ($ac == "showdahuy")
-					include "modules/baiviet/showdahuy.php";
-				else if ($ac == "history")
-					include "modules/history/index.php";
-				else if ($ac == "showsuabai")
-					include "modules/history/showsuabai.php";
 				else if (Count($row) == 0) {
   				$info = "Thêm bài viết mới";
 					include "modules/baiviet/addbaiviet.php";

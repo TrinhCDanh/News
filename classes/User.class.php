@@ -88,6 +88,15 @@ class User extends Db
 		if (Count($data)>0) return true;
 		return false;
 	}
+
+	public function isEditUserExist($name_user)
+	{
+		$sql="SELECT * FROM user WHERE name_user=:name_user";
+		$arr = array(":name_user"=>$name_user);
+		$data = $this->exeQuery($sql, $arr);
+		if (Count($data)>0) return true;
+		return false;
+	}
 	
 	public function checkRegister($name_user, $pass1_user, $pass2_user)
 	{

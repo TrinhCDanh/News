@@ -13,80 +13,77 @@
     }
   }
 ?>
-
-
-
-    
-      <div class="col-md-9 review-post">
-       <?php 
-        if($row["name_tacgia"] != $name_tacgia["name_admin"] && $row["duyet_baiviet"]==0) {
-        ?> 
-            <div class="pmd-card pmd-z-depth">
-              <div class="pmd-card-body">
-                <h2>Yêu cầu tác giả sửa bài viết (Nếu có)</h2>
-                <form action="index.php?mod=baiviet&ac=requestEdit&id=<?php echo $row["id_baiviet"]; ?>" method="post">
-                  <div class="group-fields clearfix row">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                      <div class="form-group pmd-textfield pmd-textfield-floating-label">
-                        <label class="control-label">Nhập yêu cầu của bạn</label>
-                        <textarea required class="form-control" name="yeucau_baiviet"></textarea>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="group-fields clearfix row">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                      <button class="btn pmd-ripple-effect btn-primary" type="submit" name="request">Gửi yêu cầu</button>
-                      <button class="btn pmd-ripple-effect btn-default" type="reset">Cancel</button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </div>
-          <?php
-        } 
-        ?>
-
-        <div class="pmd-card pmd-z-depth">
-          <div class="pmd-card-title">
-            <div class="media-left set-svg">
-              <span class="service-icon img-circle bg-fill-red text-center">
-                <i class="material-icons md-dark pmd-sm" style="color: #fff; line-height: 40px;">supervisor_account</i>
-              </span>
-            </div>
-            <div class="media-body media-middle">
-              <h2 class="pmd-card-title-text typo-fill-secondary"><?php echo $info; ?></h2>
-            </div>
-          </div>
-          <div class="pmd-card-body">
+   
+<div class="col-md-9 review-post">
+ <?php 
+  if($row["name_tacgia"] != $name_tacgia["name_admin"] && $row["duyet_baiviet"]==0) {
+  ?> 
+      <div class="pmd-card pmd-z-depth">
+        <div class="pmd-card-body">
+          <h2>Yêu cầu tác giả sửa bài viết (Nếu có)</h2>
+          <form action="index.php?mod=baiviet&ac=requestEdit&id=<?php echo $row["id_baiviet"]; ?>" method="post">
             <div class="group-fields clearfix row">
               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="form-group pmd-textfield pmd-textfield-floating-label">
-                  <h2>Tiêu đề bài viết</h2>
-                  <p> <?php echo $row["name_baiviet"]; ?> </p>
-                </div>
-              </div>
-            </div>
-            
-            <div class="group-fields clearfix row">
-              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="form-group pmd-textfield">
-                  <h2>Tóm tắt bài viết</h2>
-                  <p> <?php echo $row["tomtat_baiviet"]; ?> </p>
+                  <label class="control-label">Nhập yêu cầu của bạn</label>
+                  <textarea required class="form-control" name="yeucau_baiviet"></textarea>
                 </div>
               </div>
             </div>
 
             <div class="group-fields clearfix row">
               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <h2>Nội dung chi tiết</h2>
-                <p> <?php echo $row["noidung_baiviet"]; ?> </p>
+                <button class="btn pmd-ripple-effect btn-primary" type="submit" name="request">Gửi yêu cầu</button>
+                <button class="btn pmd-ripple-effect btn-default" type="reset">Cancel</button>
               </div>
             </div>
-          </div>    
-          
+          </form>
         </div>
       </div>
+    <?php
+  } 
+  ?>
+
+  <div class="pmd-card pmd-z-depth">
+    <div class="pmd-card-title">
+      <div class="media-left set-svg">
+        <span class="service-icon img-circle bg-fill-red text-center">
+          <i class="material-icons md-dark pmd-sm" style="color: #fff; line-height: 40px;">library_books</i>
+        </span>
+      </div>
+      <div class="media-body media-middle">
+        <h2 class="pmd-card-title-text typo-fill-secondary"><?php echo $info; ?></h2>
+      </div>
+    </div>
+    <div class="pmd-card-body">
+      <div class="group-fields clearfix row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="form-group pmd-textfield pmd-textfield-floating-label">
+            <h2>Tiêu đề bài viết</h2>
+            <p> <?php echo $row["name_baiviet"]; ?> </p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="group-fields clearfix row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="form-group pmd-textfield">
+            <h2>Tóm tắt bài viết</h2>
+            <p> <?php echo $row["tomtat_baiviet"]; ?> </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="group-fields clearfix row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <h2>Nội dung chi tiết</h2>
+          <p> <?php echo $row["noidung_baiviet"]; ?> </p>
+        </div>
+      </div>
+    </div>    
+    
+  </div>
+</div>
 
 
 <div class="col-md-3">
@@ -120,7 +117,7 @@
     <div class="pmd-card-title">
       <div class="media-left set-svg">
         <span class="service-icon img-circle bg-fill-red text-center">
-          <i class="material-icons md-dark pmd-sm" style="color: #fff; line-height: 40px;">supervisor_account</i>
+          <i class="material-icons md-dark pmd-sm" style="color: #fff; line-height: 40px;">content_paste</i>
         </span>
       </div>
       <div class="media-body media-middle">
@@ -143,7 +140,7 @@
     <div class="pmd-card-title">
       <div class="media-left set-svg">
         <span class="service-icon img-circle bg-fill-red text-center">
-          <i class="material-icons md-dark pmd-sm" style="color: #fff; line-height: 40px;">supervisor_account</i>
+          <i class="material-icons md-dark pmd-sm" style="color: #fff; line-height: 40px;">insert_photo</i>
         </span>
       </div>
       <div class="media-body media-middle">
@@ -181,9 +178,6 @@
     }
   }
 </style>
-
-
-
 
 <script type="text/javascript">
   function readURL(input) {

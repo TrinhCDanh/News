@@ -3,6 +3,8 @@
   $data_theloai = $theloai->getAll();
   $data_loaitin = $loaitin->getAll();
   $data_baiviet = $baiviet->getAll();
+
+  $data_all = $baiviet->getAllTable();
   //$rand_baiviet = $baiviet->RandomBaiviet();
   //$most_baiviet = $baiviet->MostViewBaiviet();
 
@@ -11,21 +13,14 @@
   <div class="gs-series-game home-series-game portfolio">
     <div class="home-owl-carousel owl-carousel owl-theme"><!-- star owl carousel -->
       <?php  
-        foreach($data_baiviet as $row) {
+        foreach($data_all as $row) {
           if($row["duyet_baiviet"]==1 && $j>0) {
             ?>
               <div class="item sidebar-item x-item" style="background-image: url(<?php echo "public/assets/images/" . $row["anh_baiviet"]; ?>)">
                 <div class="box-post">
-                  <div class="z-thumb"><img class="img-responsive" src="images/bag.png" alt="Item 1"></div>
+                  <div class="z-thumb"><img class="img-responsive" src="public/assets/images/bag.png" alt="Item 1"></div>
                   <div class="caption">
-                    <div class="page-content gs-content-games gs-genre-game"><a class="genre-tag hvr-bounce-to-right tag-pc" href="#">PC</a><a class="genre-tag hvr-bounce-to-right tag-ps4" href="#">
-                      <?php  
-                        foreach ($data_loaitin as $loaitin) {
-                          if($loaitin["id_loaitin"]==$row["id_loaitin"])
-                            echo $loaitin["name_loaitin"];
-                        }
-                      ?>
-                    </a></div>
+                    <div class="page-content gs-content-games gs-genre-game"><a class="genre-tag hvr-bounce-to-right tag-pc" href="index.php?mod=theloai&id_theloai=<?php echo $row["id_theloai"] ?>"><?php  echo $row["name_theloai"]; ?></a><a class="genre-tag hvr-bounce-to-right tag-ps4" href="index.php?mod=loaitin&id_loaitin=<?php echo $row["id_loaitin"]; ?>"><?php  echo $row["name_loaitin"]; ?></a></div>
                     <p class="c-title"> <a href="index.php?mod=baiviet&id_baiviet=<?php echo $row["id_baiviet"]; ?>"><?php echo $row["name_baiviet"]; ?></a></p>
                     <p class="c-dec"><?php echo $row["tomtat_baiviet"]; ?></p><a href="index.php?mod=baiviet&id_baiviet=<?php echo $row["id_baiviet"]; ?>"> 
                       <div class="c-read-more text-center pmd-ripple-effect">Read more</div></a>

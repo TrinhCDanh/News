@@ -109,10 +109,10 @@ if (!isset($_SESSION["user_login"])) {
 	<script src="../public/assets/js/propeller.min.js"></script> 
 
 	<?php 
-		if($mod == "theloai" || $mod == "loaitin" || $mod == "baiviet" || $mod == "baigui" || $mod == "baidadang" || $mod == "baidahuy" || $mod == "history" || $mod == "dashboard")
-		    include "modules/custom_js/data_table.html";
-		else
-		    include "modules/custom_js/dashboard.html";
+		
+		include "modules/custom_js/data_table.html";
+		if($mod != "theloai" || $mod != "loaitin" || $mod != "baiviet" || $mod != "baigui" || $mod != "baidadang" || $mod != "baidahuy" || $mod != "history")
+		   include "modules/custom_js/dashboard.html";
 	?>
 
 	<script>

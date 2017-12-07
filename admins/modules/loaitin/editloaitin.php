@@ -37,17 +37,19 @@
       <button class="btn btn-primary next" type="submit" name="submit">Submit</button>
       <button class="btn btn-default" type="reset">Cancel</button>
     </div>
-    <div class="pmd-card-body">
-      <?php  
-        if($err != "") {
-          ?>
+    
+    <?php  
+      if($err != "") {
+        ?>
+          <div class="pmd-card-body">
             <div class="alert alert-danger">      
               <?php echo $err; ?>
             </div>
-          <?php
-        }
-      ?>
-    </div>
-  </div> <!-- section content end -->  
+          </div>
+        <?php
+      }
+    ?>
+    
+  </div> 
 </form>
      

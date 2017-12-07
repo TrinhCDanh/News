@@ -51,14 +51,14 @@
       <div class="related-primary"> 
         <div class="x-title-bar"> 
           <ul>
-            <li class="pa">What's New</li>
+            <li class="pa">Tin mới</li>
           </ul>
         </div>
         <div class="x-related-primary">
           <?php  
             for($i=3; $i<count($baivietbyloaitin); $i++) {
               ?>
-                <div class="x-related-item">
+                <div class="x-related-item <?php if($i>6) echo "foo"; ?>">
                   <div class="x-related-content"><img src="public/assets/images/<?php echo $baivietbyloaitin[$i]["anh_baiviet"]; ?>">
                     <div class="news-share"><i class="fa fa-facebook-f"></i><i class="fa fa-twitter"></i><i class="fa fa-google-plus"></i></div>
                   </div><a href="index.php?mod=baiviet&id_baiviet=<?php echo $baivietbyloaitin[$i]["id_baiviet"]; ?>">
@@ -71,16 +71,6 @@
             }
           ?>
         </div>
-        <section class="z-pagination"> 
-          <ul class="text-center"><a href="#">
-              <li>❮</li></a><a href="#">
-              <li>1</li></a><a href="#">
-              <li>2</li></a><a href="#">
-              <li>3</li></a><a href="#">
-              <li>4</li></a><a href="#">
-              <li>5</li></a><a href="#">
-              <li>❯</li></a></ul>
-        </section>
       </div>
     </section>
     <?php include ROOT."/module/sidebar/getLoaitin.php"; ?>

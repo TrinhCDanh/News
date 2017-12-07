@@ -3,9 +3,7 @@ $id = Utils::getIndex("id");
 $row = $loaitin->getById($id);
 
 ?><div class="col-md-3"><?php
-	if (Count($row)==0) //khong co -> them moi
-	{
-		
+	if (Count($row)==0) {
 		$info ="Thêm loại tin mới";
 		$row["name_chuyen_de"]="";
 	  include ROOT."/admins/modules/loaitin/addloaitin.php";

@@ -1,16 +1,15 @@
 <?php  
 	$post = new Post();
+	$loaitin = new Loaitin();
+	$chitiet_duyetbai = new Chitiet_duyetbai();
+
 	$ac = Utils::getIndex("ac");
 
-	$loaitin = new Loaitin();
 	$getAll = $loaitin->getAll();
-
-	$chitiet_duyetbai = new Chitiet_duyetbai();
 	$getId_chitiet_duyetbai = $chitiet_duyetbai->getById(Utils::getIndex("id"));
 
 	$name_tacgia = $admin->getById($_SESSION["admin_data"]["id_admin"]); 
-	$info = "";
-	$err = "";
+	$info = $err = "";
 
 	$id = Utils::getIndex("id");
 	$row = $post->getById($id);

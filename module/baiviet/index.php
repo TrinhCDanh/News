@@ -1,7 +1,19 @@
 <?php  
-  $id_baiviet = Utils::getIndex("id_baiviet");
-  $id_binhluan = Utils::getIndex("id_binhluan");
+  $id_baiviet = Utils::getIndex("id_baiviet"); 
   $data_baiviet = $baiviet->getById($id_baiviet);
+
+  
+
+  if (empty($data_baiviet)) {
+    ?>
+      <script language="javascript">
+          window.location="include/page_404.php";
+      </script>
+    <?php
+  }
+
+  $id_binhluan = Utils::getIndex("id_binhluan");
+ 
   $data_binhluan = $binhluan->getAllwithBaiviet($id_baiviet);
   $baivietbyLoaitin = $baiviet->getBaivietbyLoaitin($data_baiviet["id_loaitin"], 6);
 
@@ -94,14 +106,14 @@
         </div>
         
         <?php
-          foreach ($data_binhluan as $row) {
+          for ($i=0; $i < count($data_binhluan); $i++) { 
             ?>
-              <div class="x-show-comment" style="width:100%; background-color: #fff; padding:15px; margin-bottom: 5px;">
+              <div class="x-show-comment <?php if($i>5) echo "foo"; ?>" style="width:100%; background-color: #fff; padding:15px; margin-bottom: 5px;">
                 <div class="comment_info">
-                  <strong><?php echo $row["name_binhluan"]; ?></strong> - <?php echo $row["ngay_tao"]; ?> 
+                  <strong><?php echo $data_binhluan[$i]["name_binhluan"]; ?></strong> - <?php echo $data_binhluan[$i]["ngay_tao"]; ?> 
                 </div>
                 <div class="comment_content">
-                  <?php echo $row["noidung_binhluan"];?>
+                  <?php echo $data_binhluan[$i]["noidung_binhluan"];?>
                 </div>
               </div>
             <?php
@@ -114,87 +126,5 @@
 </section>
 
 <style type="text/css">
-  #breadcrumb {
-  list-style: none;
-  display: inline-block;
-  padding: 0;
-}
-#breadcrumb .icon {
-  font-size: 14px;
-}
-#breadcrumb li {
-  float: left;
-}
-#breadcrumb li a {
-  color: #fff;
-  display: block;
-  background: #4285f4;
-  text-decoration: none;
-  position: relative;
-  height: 40px;
-  line-height: 40px;
-  padding: 0 10px 0 5px;
-  text-align: center;
-  margin-right: 23px;
-  transition: 0.25s;
-}
-#breadcrumb li:nth-child(even) a {
-  background-color: #2980b9;
-}
-#breadcrumb li:nth-child(even) a:before {
-  border-color: #2980b9;
-  border-left-color: transparent;
-}
-#breadcrumb li:nth-child(even) a:after {
-  border-left-color: #2980b9;
-}
-#breadcrumb li:first-child a {
-  padding-left: 15px;
-  -moz-border-radius: 4px 0 0 4px;
-  -webkit-border-radius: 4px;
-  border-radius: 4px 0 0 4px;
-}
-#breadcrumb li:first-child a:before {
-  border: none;
-}
-#breadcrumb li a:before, #breadcrumb li a:after {
-  content: "";
-  position: absolute;
-  top: 0;
-  border: 0 solid #4285f4;
-  border-width: 20px 10px;
-  width: 0;
-  height: 0;
-}
-#breadcrumb li a:before {
-  left: -20px;
-  border-left-color: transparent;
-  transition: 0.25s;
-}
-#breadcrumb li a:after {
-  left: 100%;
-  border-color: transparent;
-  border-left-color: #4285f4;
-  transition: 0.25s;
-}
-#breadcrumb li a:hover {
-  background-color: #1abc9c;
-}
-#breadcrumb li a:hover:before {
-  border-color: #1abc9c;
-  border-left-color: transparent;
-}
-#breadcrumb li a:hover:after {
-  border-left-color: #1abc9c;
-}
-#breadcrumb li a:active {
-  background-color: #16a085;
-}
-#breadcrumb li a:active:before {
-  border-color: #16a085;
-  border-left-color: transparent;
-}
-#breadcrumb li a:active:after {
-  border-left-color: #16a085;
-}
+ 
 </style>

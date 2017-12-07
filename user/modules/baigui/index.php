@@ -1,12 +1,12 @@
 <?php  
 $post = new Post();
+$chitiet_suabai = new Chitiet_suabai();
+$chitiet_duyetbai = new Chitiet_duyetbai();
+$loaitin = new Loaitin();
+
 $ac = Utils::getIndex("ac");
 $getById_baiviet = $post->getById(Utils::getIndex("id"));
 
-$chitiet_suabai = new Chitiet_suabai();
-$chitiet_duyetbai = new Chitiet_duyetbai();
-
-$loaitin = new Loaitin();
 $getAll = $loaitin->getAll();
 $id_baiviet = Utils::getIndex("id");
 $row = $post->getById($id_baiviet);

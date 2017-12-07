@@ -76,9 +76,3 @@
     <?php include ROOT."/module/sidebar/getTheloai.php"; ?>
   </section>
 </section>
-
-<script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
-<script type="text/javascript">
-  window.sr = ScrollReveal({ reset: true });
-  sr.reveal('.foo');
-</script>

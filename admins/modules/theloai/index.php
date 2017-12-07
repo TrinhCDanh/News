@@ -1,12 +1,12 @@
 <?php  
 	$theloai = new Theloai();
-	$ac = Utils::getIndex("ac");/*, "Showtheloai");*/ //ac is action
+	$ac = Utils::getIndex("ac");
 
 	$name_theloai = Utils::postIndex("name_theloai");
 	$err = "";
 
 	if ($ac == "delete") {
-		$n = $theloai->delete(Utils::getIndex("id"));
+		$theloai->delete(Utils::getIndex("id"));
 		?>
 	    <script language="javascript">
 				$('.swal2-confirm').click(function(){
@@ -21,7 +21,7 @@
 		else if($theloai->isTheloaiExist($name_theloai))
 			$err .= "Thể loại đã tồn tại";
 		else if ($ac == "saveEdit") {	
-			$n = $theloai->saveEdit(Utils::getIndex("id"));
+			$theloai->saveEdit(Utils::getIndex("id"));
 			?>
 		    <script language="javascript">
 					swal('Thành công!','Click Ok để tiếp tục!','success');
@@ -32,7 +32,7 @@
 	    <?php
 		}
 		else if ($ac == "saveAdd") {	
-			$n = $theloai->saveAddNew();
+			$theloai->saveAddNew();
 			?>
 		    <script language="javascript">
 					swal('Thành công!','Click Ok để tiếp tục!','success');
@@ -41,13 +41,9 @@
 					});
 				</script>
 	    <?php
-		}
-		
+		}	
 	}
 
-	
-	
-	
 ?>
 <div id="content" class="pmd-content inner-page">
 
@@ -66,15 +62,10 @@
 		
 		<section class="row component-section dashboard">
 		
-			<!-- table card title and description -->
 			<?php include ROOT."/admins/modules/theloai/addvedit.php"; ?>
-			<!-- table card title and description end -->
 			
-			<!-- table card code and example -->
 			<?php include ROOT."/admins/modules/theloai/showtheloai.php"; ?>
-			<!-- table card example end -->
-				
-				 <!-- table card code and example end -->
+		
 		</section>
 
 </div>
