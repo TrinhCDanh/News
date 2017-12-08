@@ -43,7 +43,7 @@
 </nav>
 <div class="navbar-login">
   <div class="login-bar container" >
-    <marquee direction="right">Trang báo điện tử lớn nhất hành tinh</marquee>
+    <marquee direction="right">Trang báo điện tử luôn cập nhật tin tức hằng ngày</marquee>
     <div class="user-login">
       <ul class="login-or-logout">
         <?php  
@@ -55,7 +55,7 @@
           }
           else {
             ?>
-              <li><a href="user/index.php?mod=account"><i class="fa fa-user-plus" aria-hidden="true"></i> <?php echo $_SESSION["user_data"]["name_user"] ?></a></li>
+              <li><a href="user/index.php?mod=account"><i class="fa fa-user-plus" aria-hidden="true"></i> <?php echo $data_user["name_user"] ?></a></li>
               <li><a href="index.php?mod=logout" class="pmd-ripple-effect"><i class="fa fa-sign-in" aria-hidden="true"></i> Đăng xuất</a></li>
             <?php
           }

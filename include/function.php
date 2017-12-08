@@ -101,19 +101,19 @@ function isValidImage($img) {
 	  	$check = getimagesize($file_tmp);
 
 	  if (!isset($check))
-	  	$notice .= "You have not selected a file yet";
+	  	$notice .= "Bạn chưa chọn ảnh đại diện.";
 	  else if ($check === false)
-	  	$notice .= "File is not an image.";	
+	  	$notice .= "Đây không phải là file ảnh.";	
 	  /*else if (file_exists($target_file))
 	  	$notice .= "Sorry, file already exists.";*/
 	  else if (!in_array($image_type,$arrayImg)) 
-	  	$notice .= "Sorry, only JPG, JPEG, PNG files are allowed.";
+	  	$notice .= "Sorry, bạn chỉ được chọn file định dạng JPG, JPEG và PNG.";
 	  else if ($file_size > 500000)
-	  	$notice .= "Sorry, your file is too large.";
+	  	$notice .= "Sorry, File ảnh của bạn lớn hơn 500Kb.";
 	  else if (!move_uploaded_file($file_tmp,$target_file))
-	  	$notice .= "Sorry, there was an error uploading your file.";
+	  	$notice .= "Sorry, hệ thống lưu file ảnh thất bại.";
 	}
 	else 
-		$notice .= "Chua chon file";
+		$notice .= "Bạn chưa chọn file";
 	return $notice;
 }

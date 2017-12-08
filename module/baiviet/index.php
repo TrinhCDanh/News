@@ -2,8 +2,7 @@
   $id_baiviet = Utils::getIndex("id_baiviet"); 
   $data_baiviet = $baiviet->getById($id_baiviet);
 
-  
-
+  // Bài viết không tồn tại thì chuyển sang trang 404
   if (empty($data_baiviet)) {
     ?>
       <script language="javascript">
@@ -124,7 +123,3 @@
     <?php include ROOT."/module/sidebar/getAll.php"; ?>
   </section>
 </section>
-
-<style type="text/css">
- 
-</style>

@@ -1,6 +1,7 @@
 <?php  
 	$baiviet = new Post();
 	$binhluan = new Binhluan();
+	$chitiet_duyetbai = new Chitiet_duyetbai();
 
 	$data_baiviet = $baiviet->getAll();
 	$data_binhluan = $binhluan->getAll();
@@ -8,6 +9,7 @@
 	$countBaivietbyUser = $baiviet->countBaivietbyUser();
 	$countBaivietbyLoaitin = $baiviet->countBaivietbyLoaitin();
 
+	$name_tacgia = $admin->getById($_SESSION["admin_data"]["id_admin"]); 
 	$baichuaduyet = $baidadang = $soluotxem = 0;
 
 	foreach ($data_baiviet as $row_baiviet) {
@@ -27,7 +29,7 @@
 		<div class="row" id="card-masonry">
 		 
 		<!-- Propeller Marketplace-->
-		 <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 pmd-tooltip" data-toggle="tooltip" data-placement="bottom" title="Tổng số bài viết chưa được xét duyệt">
+		 <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 pmd-tooltip" data-toggle="tooltip" data-placement="bottom" title="Các bài viết chưa được xem và duyệt">
 		 	<a href="index.php?mod=baiviet&ac=showchuaduyet">
 				<div class="card pmd-z-depth info-page">
 					<div class="tcd-card-title text-center">
@@ -42,7 +44,7 @@
 		 </div><!-- end Propeller Marketplace -->
 
 		 <!-- Propeller Marketplace-->
-		 <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3" data-toggle="tooltip" data-placement="bottom" title="Tổng số bài viết đã được đăng lên trang chủ">
+		 <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3" data-toggle="tooltip" data-placement="bottom" title="Các bài viết đã được đăng lên trang chủ">
 			<div class="card pmd-z-depth info-page">
 				<div class="tcd-card-title text-center">
 					<h2 class="tcd-card-title-text">Bài đã đăng</h2>
@@ -81,7 +83,7 @@
 		 </div>
 		 <!-- Today's Site Activity -->
 		 <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
-			<div class="pmd-card pmd-z-depth">      
+			<div class="pmd-card pmd-z-depth pmd-tooltip" data-toggle="tooltip" data-placement="top" title="Số bài viết của các tác giả hiện có trên hệ thống">      
 				<div class="table-responsive">
 					<table id="example-checkbox" class="table pmd-table table-hover table-striped display responsive nowrap" cellspacing="0" width="100%">
 					<thead>
@@ -201,9 +203,10 @@
 				</div>
 				<ul class="list-group pmd-card-list pmd-list-avatar">
 					<?php foreach ($data_baiviet as $row_chuaduyet) {
+						$getId_duyetbai = $chitiet_duyetbai->getById($row_chuaduyet["id_baiviet"]);
 						if($row_chuaduyet["duyet_baiviet"] == 0 && $row_chuaduyet["trangthai_baiviet"] == 1) {
 							?>
-								<li class="list-group-item">
+								<li class="list-group-item pmd-tooltip" data-toggle="tooltip" data-placement="left" title="<?php if(!empty($getId_duyetbai) && $getId_duyetbai["id_admin"]!=$name_tacgia["id_admin"]) echo "Bài viết đang được duyệt bởi Admin khác" ?>">
 									<div class="media-left"> 
 										<a href="javascript:void(0);" class="avatar-list-img" title="profile-link"> 
 											<img alt="40x40" data-src="holder.js/40x40" class="img-responsive" src="../themes/images/user-icon.png" data-holder-rendered="true"> 

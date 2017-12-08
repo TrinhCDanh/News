@@ -57,7 +57,7 @@
 		 </div><!-- end Propeller Marketplace -->
 
 		 <!-- Propeller Marketplace-->
-		 <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 pmd-tooltip" data-toggle="tooltip" data-placement="bottom" title="Tổng số bài viết đã được gửi và đang chờ duyệt">
+		 <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 pmd-tooltip" data-toggle="tooltip" data-placement="bottom" title="Các bài viết đã được gửi và đang chờ Admin duyệt">
 		 	<a href="index.php?mod=baigui&ac=listdagui">
 				<div class="card pmd-z-depth info-page">
 					<div class="tcd-card-title text-center">

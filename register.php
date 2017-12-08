@@ -7,15 +7,20 @@ $gioitinh_user = Utils::postIndex("gioitinh_user");
 $sdt_user = Utils::postIndex("sdt_user");
 $pass1_user = Utils::postIndex("pass1_user");
 $pass2_user = Utils::postIndex("pass2_user");
+
+$arrngay = explode('/', $ngaysinh_user);
 $err = "";
-//print_r($_POST);
 
 if(isset($_POST["submit"])) {
   $user = new User();
   if($user->isUserNameExist($name_user, $email_user))
-    $err .= "Tài khoản đã tồn tại";
+    $err .= "Tên hoặc Email đã tồn tại đã tồn tại";
   else if ($user->checkRegister($name_user, $pass1_user, $pass2_user) != "")
     $err .= $user->checkRegister($name_user, $pass1_user, $pass2_user);
+  else if (strlen($sdt_user) < 10)
+    $err .= "Số điện thoại phải từ 10 số trở lên";
+  else if (date("Y") - $arrngay[2] < 18)
+    $err .= "Bạn phải 18 tuổi trở lên";
   else {
     $n = $user->saveAddNew();
     ?>
@@ -68,7 +73,7 @@ if(isset($_POST["submit"])) {
               <label for="regular1" class="control-label">
                 Email*
               </label>
-              <input type="text" id="regular1" class="form-control" name="email_user" value="<?php echo $email_user; ?>">
+              <input type="email" id="regular1" class="form-control" name="email_user" value="<?php echo $email_user; ?>">
             </div>
           </div>
 

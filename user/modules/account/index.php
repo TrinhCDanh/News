@@ -10,6 +10,11 @@
   $email_user = Utils::postIndex("email_user");
   $pass1_user = Utils::postIndex("pass1_user");
   $pass2_user = Utils::postIndex("pass2_user");
+  $ngaysinh_user = postIndex("ngaysinh_user", "");
+  $gioitinh_user = Utils::postIndex("gioitinh_user");
+  $sdt_user = Utils::postIndex("sdt_user");
+
+  $arrngay = explode('/', $ngaysinh_user);
   $err = "";
 
   if ($ac == "delete") {
@@ -48,6 +53,10 @@
     } 
     if ($user->checkRegister($name_user, $pass1_user, $pass2_user) != "")
       $err .= $user->checkRegister($name_user, $pass1_user, $pass2_user);
+    if (strlen($sdt_user) < 10)
+      $err .= "Số điện thoại phải từ 10 số trở lên";
+    if (date("Y") - $arrngay[2] < 18)
+      $err .= "Bạn phải 18 tuổi trở lên";
     if ($ac == "saveEdit" && $err == "") {
       $n = $user->saveEdit(Utils::getIndex("id"));
       $baiviet->updateAuthor($row["name_user"]);

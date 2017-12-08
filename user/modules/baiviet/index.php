@@ -111,9 +111,11 @@
 		<?php  
       if($err != "") {
         ?>
-          <div class="alert alert-danger">      
-            <?php echo $err; ?>
-          </div>
+        	<div class="col-lg-12">
+	          <div class="alert alert-danger">      
+	            <?php echo $err; ?>
+	          </div>
+	        </div>
         <?php
       }
     ?>

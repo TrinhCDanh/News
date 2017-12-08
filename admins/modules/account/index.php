@@ -13,6 +13,8 @@
   $gioitinh_admin = Utils::postIndex("gioitinh_admin");
   $pass1_admin = Utils::postIndex("pass1_admin");
   $pass2_admin = Utils::postIndex("pass2_admin");
+
+  $arrngay = explode('/', $ngaysinh_admin);
   $err = $err2 = "";
 
 
@@ -57,6 +59,10 @@
     } 
     if ($admin->checkRegister($name_admin, $pass1_admin, $pass2_admin) != "")
       $err .= $admin->checkRegister($name_admin, $pass1_admin, $pass2_admin);
+    else if (strlen($sdt_admin) < 10)
+      $err .= "Số điện thoại phải từ 10 số trở lên";
+    else if (date("Y") - $arrngay[2] < 18)
+      $err .= "Bạn phải 18 tuổi trở lên";
     if ($err == "") {
       $admin->saveEdit(Utils::getIndex("id"));
       $baiviet->updateAuthor($row["name_admin"]);

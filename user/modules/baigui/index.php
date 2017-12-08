@@ -80,7 +80,7 @@ else if(isset($_POST["submit"])) {
 		  	if ($ac == "listchuagui") 
 					$content .= "Danh sách bài viết chưa gửi";
 				else if ($ac == "listdagui")
-					$content .= "Danh sách bài viết đã gửi";
+					$content .= "Danh sách bài viết đã gửi và đang chờ duyệt";
 				else if ($ac == "listyeucau")
 					$content .= "Danh sách bài viết bị yêu cầu sửa";
 		  ?>

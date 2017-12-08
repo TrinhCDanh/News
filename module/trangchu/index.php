@@ -3,11 +3,9 @@
   $data_theloai = $theloai->getAll();
   $data_loaitin = $loaitin->getAll();
   $data_baiviet = $baiviet->getAll();
-
   $data_all = $baiviet->getAllTable();
   //$rand_baiviet = $baiviet->RandomBaiviet();
   //$most_baiviet = $baiviet->MostViewBaiviet();
-
 ?>
 <section class="main-content">
   <div class="gs-series-game home-series-game portfolio">
