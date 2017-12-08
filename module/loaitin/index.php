@@ -58,7 +58,7 @@
           <?php  
             for($i=3; $i<count($baivietbyloaitin); $i++) {
               ?>
-                <div class="x-related-item <?php if($i>6) echo "foo"; ?>">
+                <div class="x-related-item <?php if($i>11) echo "foo"; ?>">
                   <div class="x-related-content"><img src="public/assets/images/<?php echo $baivietbyloaitin[$i]["anh_baiviet"]; ?>">
                     <div class="news-share"><i class="fa fa-facebook-f"></i><i class="fa fa-twitter"></i><i class="fa fa-google-plus"></i></div>
                   </div><a href="index.php?mod=baiviet&id_baiviet=<?php echo $baivietbyloaitin[$i]["id_baiviet"]; ?>">
